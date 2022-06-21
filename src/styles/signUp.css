@@ -1,0 +1,142 @@
+
+
+.signUpBox hr{
+      background-color: #4a4a4a;
+      height: 1px;
+      width: 85%;
+      margin-bottom: 5%;
+      border-radius: 8px;
+      border: 0;
+}
+
+
+.signUpBox{
+    /* background-color: #e9d8be; */
+    margin: auto;
+    margin-top: max(7vh,55px);
+
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
+    width: 80%;    
+    padding: 0% 10px;
+    /* border-radius: 8px; */
+    /* box-shadow: 0px 0px 15px 3px #888888; */
+}
+
+.signUpBox h1{
+    font-size: max(7vmin,30px);
+      color: #46576d;
+      margin: 0;
+      text-shadow: 2px 2px 6px #72727267;
+}
+
+.buttonsCancelSignUp{
+    display: flex;
+    justify-content: space-around;
+    width: 40%;
+}
+
+.signUpBox button{
+    border-radius: 8px;
+    font-size: max(1.6vmax,15px);
+    background-color: #86a3b4;
+    color: #4a4a4a;
+    font-weight: bold;
+    box-shadow: 0px 0px 8px 3px #72727267;
+    border-width: 1px;
+    border-color: #6e57367c;
+    /* margin: 3%; */
+}
+
+.signUpBox button:hover{
+    background-color: #46576d;
+    color: #b1b1b1;
+}
+
+  
+.signUpBox:disabled,
+  button[disabled]{
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #66666685;
+}
+
+.signUpBox:disabled,
+button[disabled]:hover{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #66666685;
+}
+
+.signUpBox input{
+    background-color: #d4d4d4;
+    width: 63%;
+    min-height: 27px;
+    border-radius: 8px;
+    padding-right: 1%;
+    padding-left: 1%;
+    font-size: 95%;
+    font-weight: bold;
+    box-shadow: 0px 0px 8px 3px #72727267;
+    max-width: 800px;
+    max-height: 40px;
+    border-width: 1px;
+    border-color: #4a4a4a;
+    margin-bottom: 3%;
+}
+
+
+.signUpBox input:focus{
+    outline: none !important;
+    border-width: 2px;
+}
+
+.nameLabel{
+    width: 66%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.nameLabel label{
+    color: #46576d;
+    font-weight: bold;
+    margin-bottom: 0.5%;
+}
+label{
+    color: #46576d;
+    font-weight: bold;
+    margin-bottom: 0.5%;
+}
+
+.nameInput{
+    width: 66%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.nameInput input{
+    font-size: 95%;
+    width: 45%;
+}
+
+
+
+.passwordStrongBar{
+    width: 50%;
+}
+
+.passwordStrongBar p{
+    text-align: left !important;
+    color: #6e5736 !important;
+    font-size: calc(6px+0.9vmax) !important;
+
+}
+
+.inputErr{
+    border-width: 2px !important;
+    border-color: red !important;
+}

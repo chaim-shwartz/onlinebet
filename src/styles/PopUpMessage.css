@@ -1,0 +1,54 @@
+
+.popWindow{
+    z-index: 1;
+    background-color: #9c9c9c;
+    box-shadow: 0px 0px 100px 30px #707070;
+    width: 70%;
+    max-width: 500px;
+    padding: 30px;
+    border-radius: 20px;
+    transition: 0.7s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    margin-top: 20vh;
+}
+.popWindow h1{
+    font-size: max(7vmin,30px);
+    color: #46576d;
+    margin: 0;
+    text-shadow: 2px 2px 6px #72727267;
+}
+
+.popWindow hr{
+    background-color: #4a4a4a;
+    height: 1px;
+    width: 85%;
+    /* margin-bottom: 5%; */
+    border-radius: 8px;
+    border: 0;
+}
+
+.popWindow p{
+    /* margin: 7%; */
+    font-size: 3vmin;
+}
+
+.popWindow button{
+    border-radius: 8px;
+    font-size: max(1.6vmax,15px);
+    background-color: #86a3b4;
+    color: #4a4a4a;
+    font-weight: bold;
+    box-shadow: 0px 0px 8px 3px #72727267;
+    border-width: 1px;
+    border-color: #6e57367c;
+    /* margin: 3%; */
+}
+
+.popWindow button:hover{
+    background-color: #46576d;
+    color: #b1b1b1;
+}
