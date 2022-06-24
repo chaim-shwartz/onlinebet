@@ -1,5 +1,7 @@
 .salePage{
     padding: 2%;
+    margin-top: max(11vh,80px);
+
 }
 
 .salePage .horizontal_hr{
