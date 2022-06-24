@@ -63,21 +63,24 @@ export default function Sales(props) {
                     <div className='salesBox'>
                         {salesArr.map((card,index)=>{
                         return(
-                            <div onClick={()=>clickOnCard(card.saleid)} key={index} className='saleCard'>
-                                <div className='saleHeader'>
-                                    <div className='textH'>
-                                        <h1>{card.name}</h1>
+                            <div key={index} className='saleCard'>
+                                <div onClick={()=>clickOnCard(card.saleid)} style={{height:"100%", marginBottom:"30px",display: "grid"}}>
+                                    <div className='saleHeader'>
+                                        <div className='textH'>
+                                            <h1>{card.name}</h1>
+                                        </div>
+                                        <div className='imgh'>
+                                            <img src={card.image}></img>
+                                        </div>
+                                        
                                     </div>
-                                    <div className='imgh'>
-                                    <img src={card.image}></img>
-                                    </div>
-                                    
+                                    <p>{card.details}</p>
                                 </div>
-                                <p>{card.details}</p>
+                                    
                                 <div className='likeBtn'>
-                                <p>price: {card.price}</p>
+                                <p onClick={()=>clickOnCard(card.saleid)}>price: {card.price}</p>
                                     <button onClick={()=>{likeClick(card.saleid, index)}}>
-                                        {!salesArr[index].saved?<img src={require('../images/heart.png')}/>:
+                                        {!salesArr[index].saved?<Fade in><img src={require('../images/heart.png')}/></Fade>:
                                         <Zoom in={salesArr[index].saved}><img src={require('../images/red-heart.png')}/></Zoom>}
                                     </button>
                                     

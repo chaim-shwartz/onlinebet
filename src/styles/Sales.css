@@ -15,7 +15,7 @@
     
 }
 
-.salesBox :hover{
+.salesBox > :hover{
     transform: scale(1.1);
 }
 
@@ -40,13 +40,12 @@
     flex-basis: 30%;
     margin: 1.5% 1%;    
     position: relative;
-    padding-bottom: 2%;
+    /* padding-bottom: 2%; */
     transition: transform .4s; /* Animation */
 
 }
 
 .saleCard p{
-    pointer-events: none;
 }
 
 .saleHeader{
@@ -57,7 +56,6 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    pointer-events: none;
 
 }
 
@@ -73,7 +71,6 @@
 .saleHeader .imgh{
     width: 33.3%;
     height: 100%;
-
 }
 
 .saleCard h1{
@@ -91,7 +88,6 @@
 }
 
 .likeBtn{
-    pointer-events: none;
     display: flex;
     justify-content: space-between;
     width: 90%;
@@ -110,14 +106,12 @@
 }
 
 .likeBtn button{
-    pointer-events: none;
     margin: 0 !important;
     background-color: transparent !important;
     box-shadow: none !important;
     border: 0 !important;
 }
 .likeBtn img{
-    pointer-events: none;
     width: max(1.6vmax,21px);
 }
 
