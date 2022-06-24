@@ -63,8 +63,8 @@ export default function Sales(props) {
                     <div className='salesBox'>
                         {salesArr.map((card,index)=>{
                         return(
-                            <div key={index} className='saleCard'>
-                                <div onClick={()=>clickOnCard(card.saleid)} className='saleHeader'>
+                            <div onClick={()=>clickOnCard(card.saleid)} key={index} className='saleCard'>
+                                <div className='saleHeader'>
                                     <div className='textH'>
                                         <h1>{card.name}</h1>
                                     </div>
@@ -73,7 +73,7 @@ export default function Sales(props) {
                                     </div>
                                     
                                 </div>
-                                <p onClick={()=>clickOnCard(card.saleid)}>{card.details}</p>
+                                <p>{card.details}</p>
                                 <div className='likeBtn'>
                                 <p>price: {card.price}</p>
                                     <button onClick={()=>{likeClick(card.saleid, index)}}>
