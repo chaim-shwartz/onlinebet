@@ -8,7 +8,7 @@
     flex-direction: row;
     width: 90%;
     margin: auto;
-    margin-top: 3vw;
+    /* margin-top: 3vw; */
     justify-content: center;
     flex-wrap: wrap;
     /* justify-content: space-evenly; */
@@ -91,6 +91,10 @@
 }
 
 .likeBtn{
+    pointer-events: none;
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
     position: absolute;
     bottom: 0;
     /* right: 0; */

@@ -27,7 +27,7 @@ function SignIn() {        // the login page
 
     useEffect(() => {  //to check if there is cookies and then to log in for the user and go to the home page
         if(cookies.get("emailAccount")!==undefined){
-            navigate('/')
+            navigate(-1)
         }
     },);
     
@@ -84,7 +84,7 @@ function SignIn() {        // the login page
             if (data.status==="success") {
                 cookies.set("emailAccount",{fname: data.fname, lname: data.lname, email: data.email, password: data.password},{ path: '/' })
                 notify.show(data.status+": "+data.message, "success", 6000);
-                navigate('/')
+                navigate(-1)
             }
             else if(data.status==="error"){
                 // setshowPopUp(true)

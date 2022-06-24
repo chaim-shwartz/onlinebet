@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import "../styles/mySales.css"
 import Cookies from 'universal-cookie';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
+
 import { Fade } from '@mui/material';
 import Sales from './Sales';
 
@@ -9,6 +10,7 @@ import Sales from './Sales';
 
 export default function MySales() {
     const navigate = useNavigate(); 
+
     const [salesAmount, setSalesAmount] = useState(9); //how much sales i want to get from the api
     const cookies = new Cookies();
     const [userEmail, setuserEmail] = useState();
@@ -28,6 +30,7 @@ export default function MySales() {
     useEffect(() => {
         if(cookies.get("emailAccount")===undefined){
             navigate('/signin')
+            
         }
         else{
             setuserEmail(cookies.get("emailAccount").email)
@@ -37,8 +40,8 @@ export default function MySales() {
     }, );
 
     useEffect(() => {
-        setHide(false)
 
+        setHide(false)
         fetch("https://onlineauctionapi.herokuapp.com/mysales",{
                 method:"post",
                 headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
@@ -94,7 +97,6 @@ export default function MySales() {
   
     return (
     <div className='mySales'>
-        <h2 hidden={hide}>Loading your items...</h2>
         
             {!showAddDetails?
                 <div>

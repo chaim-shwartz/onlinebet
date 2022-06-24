@@ -1,15 +1,18 @@
-import react, { useState } from "react";
+import react, { useEffect, useState } from "react";
 import "../styles/signUp.css"
 import { useNavigate } from "react-router-dom";
 
 import PasswordStrengthBar from 'react-password-strength-bar'; //password strong bar
 import PasswordChecklist from "react-password-checklist";// password check if a good one and stay in all requirements
 import PopUpMessage from "./PopUpMessage";
+import Cookies from "universal-cookie";
 
 
 
 function SignUp() {  
     const navigate = useNavigate(); 
+    const cookies = new Cookies();
+
     const [userInfo, setuserInfo] = useState({
         FirstName: "",
         LastName: "",
@@ -31,7 +34,11 @@ function SignUp() {
     });
     
 
-
+    useEffect(() => {  //to check if there is cookies and then to log in for the user and go to the home page
+        if(cookies.get("emailAccount")!==undefined){
+            navigate(-1)
+        }
+    },);
 
     function leaveInput(event){ //function that check the input when the user leave the input
         switch (event.target.name) {

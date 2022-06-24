@@ -58,7 +58,6 @@ export default function MyLikes() {
 
   return (
     <div className='myLikes'>
-        <h2 hidden={hide}>Loading your items...</h2>
         <div>
                     <Fade in={hide}>
                         <h1>Your Liked Sales</h1>

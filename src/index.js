@@ -9,6 +9,7 @@ import MySales from './components/MySales';
 import Notifications, {notify} from 'react-notify-toast';
 import Header from './components/Header';
 import MyLikes from './components/MyLikes';
+import SalePage from './components/SalePage';
 
 
 
@@ -23,6 +24,7 @@ root.render(
         <Route path='/signin' element={<SignIn/>}/>
         <Route path='/mysales' element={<MySales/>}/>
         <Route path='/mylikes' element={<MyLikes/>}/>
+        <Route path='/salepage/:id' element={<SalePage/>}/>
       </Routes>
     </Router>
 );

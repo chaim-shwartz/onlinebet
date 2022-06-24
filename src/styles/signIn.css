@@ -17,10 +17,10 @@
     flex-direction: column;
     align-items: center;
     align-self: center;
-    width: 80%;    
+    width: 90%;    
     padding: 0% 10px;
     margin: auto;
-    margin-top: max(7vh,55px);
+    margin-top: max(11vh,80px);
 
 }
 

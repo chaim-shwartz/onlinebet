@@ -1,0 +1,60 @@
+.salePage{
+    padding: 2%;
+}
+
+.salePage .horizontal_hr{
+    width: 1px;
+    background-color: #979797;
+    margin: 1% 0;
+}
+
+.salePage h1{
+    margin: 0;
+    font-size: max(7vmin,30px);
+
+}
+.salePage hr{
+    background-color: #7a7a7a93;
+      height: 1px;
+      width: 85%;
+      margin-bottom: 5%;
+      border-radius: 8px;
+      border: 0;
+}
+
+.sale{
+    width: 65%;
+    border-radius: 8px;
+    box-shadow: 0px 0px 15px 3px #6f6f6f;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 30%;
+    margin: 1.5% 1%;    
+    position: relative;
+    padding-bottom: 2%;
+    text-align: center;
+}
+
+.section1{
+    display: flex;
+    text-align: start;
+}
+.section1 img{
+    box-shadow: 0px 0px 15px 3px #6f6f6f;
+    border-radius: 8px;
+    width: 100%;
+    object-fit: contain;
+}
+.section1 .image{
+    margin: 1%;
+    /* overflow: hidden; */
+    flex-basis: 40%;
+}
+
+.section1 .h1_p{
+    margin: 0 1%;
+    padding: 0 3%;
+    flex-basis: 60%;
+
+    /* text-align: center; */
+}
