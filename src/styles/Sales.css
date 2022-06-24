@@ -110,12 +110,14 @@
 }
 
 .likeBtn button{
+    pointer-events: none;
     margin: 0 !important;
     background-color: transparent !important;
     box-shadow: none !important;
     border: 0 !important;
 }
 .likeBtn img{
+    pointer-events: none;
     width: max(1.6vmax,21px);
 }
 
