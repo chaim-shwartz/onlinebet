@@ -27,7 +27,7 @@ function SignIn() {        // the login page
 
     useEffect(() => {  //to check if there is cookies and then to log in for the user and go to the home page
         if(cookies.get("emailAccount")!==undefined){
-            navigate(-1)
+            navigate("/")
         }
     },);
     
