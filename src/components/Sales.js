@@ -56,15 +56,15 @@ export default function Sales(props) {
 
   return (
     <div>
-                <h2 hidden={props.hide}>Loading your items...</h2>
+        <h2 hidden={props.hide}>Loading your items...</h2>
 
         <Fade in={salesArr.length!==0}>
                 <div className='sales'>
                     <div className='salesBox'>
                         {salesArr.map((card,index)=>{
                         return(
-                            <div onClick={()=>clickOnCard(card.saleid)} key={index} className='saleCard'>
-                                <div className='saleHeader'>
+                            <div key={index} className='saleCard'>
+                                <div onClick={()=>clickOnCard(card.saleid)} className='saleHeader'>
                                     <div className='textH'>
                                         <h1>{card.name}</h1>
                                     </div>
@@ -73,7 +73,7 @@ export default function Sales(props) {
                                     </div>
                                     
                                 </div>
-                                <p>{card.details}</p>
+                                <p onClick={()=>clickOnCard(card.saleid)}>{card.details}</p>
                                 <div className='likeBtn'>
                                 <p>price: {card.price}</p>
                                     <button onClick={()=>{likeClick(card.saleid, index)}}>
