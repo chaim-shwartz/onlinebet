@@ -17,6 +17,7 @@
 
 .salesBox > :hover{
     transform: scale(1.1);
+    z-index: 2;
 }
 
 .sales button{
@@ -41,6 +42,7 @@
     margin: 1.5% 1%;    
     position: relative;
     /* padding-bottom: 2%; */
+    background-color: #9c9c9c;
     transition: transform .4s; /* Animation */
 
 }
