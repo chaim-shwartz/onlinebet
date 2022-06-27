@@ -8,7 +8,6 @@ import PopUpMessage from "./PopUpMessage";
 import Notifications, {notify} from 'react-notify-toast';
 
 
-
 function SignIn() {        // the login page  
     // const clientId=process.env.REACT_APP_CLIENT_ID; //google client id
     // const [showLoginBtnGoogle, setShowLoginBtnGoogle] = useState(true) //show login button
