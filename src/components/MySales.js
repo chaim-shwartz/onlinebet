@@ -124,7 +124,7 @@ export default function MySales() {
                 <h1>Add your sale.</h1>
                     <input maxLength={30} name='name' onChange={handleChange} autoComplete="off" autoFocus type="text" placeholder='Name of your pruduct'></input>
                     <input name='image' onChange={handleChange} autoComplete="off" type="url" placeholder='url of image product'></input>
-                    <textarea maxLength={200} name='description' onChange={handleChange} autoComplete="off" type="text" placeholder='description'></textarea>
+                    <textarea maxLength={200} rows="4" name='description' onChange={handleChange} autoComplete="off" type="text" placeholder='description'></textarea>
                     <input name='price' onChange={handleChange} autoComplete="off" type="number" placeholder='start price'></input>
                     <button type='submit' onClick={addSale}>Add</button>
                 </form>
