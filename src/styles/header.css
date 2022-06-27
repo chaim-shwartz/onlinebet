@@ -68,7 +68,7 @@
     flex-direction: column;
     background-color: #282c34;
     margin: 1%;
-    margin-top: 1%;
+    margin-top: 3px;
     padding: 2% max(2%,25px);
 }
 

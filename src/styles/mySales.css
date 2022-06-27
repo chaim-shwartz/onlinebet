@@ -71,6 +71,7 @@
 .addDetails textarea{
     background-color: #d4d4d4;
     width: 73%;
+    min-width: 73%;
     min-height: 27px;
     border-radius: 8px;
     padding-right: 1%;
@@ -90,5 +91,11 @@
     border-color: #5f7ea7 !important;
     box-shadow: 0px 0px 15px 15px #45444467;
 
+}
+
+.addDetails textarea:focus{
+    outline: none !important;
+    border-color: #5f7ea7 !important;
+    box-shadow: 0px 0px 15px 15px #45444467;
 }
 
