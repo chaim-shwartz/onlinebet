@@ -10,7 +10,7 @@ import OtherMsg from './OtherMsg';
 
 export default function Chat() {
   return (
-    <div>
+    <div className='chat'>
         <div className='chatBox'>
             <div className='messages'>
                 <YourMsg/>

@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 import "../styles/salePage.css"
 import { io } from "socket.io-client";
+import Chat from './Chat';
 
 
 
@@ -45,13 +46,11 @@ export default function SalePage() {
     <div className='salePage'>
       <div className='sale'>
 
-        <h1> The Seller: {theSale.admin}</h1>
-        <hr/>
+        
         <div className='section1'>
-        <div className='image'>
-          <img src={theSale.image}/>
-        </div>
-        <div className='horizontal_hr'></div>
+          <div className='image'>
+            <img src={theSale.image}/>
+          </div>
         <div className='h1_p'>
           <h1>{theSale.name}</h1>
           <hr/>
@@ -59,9 +58,18 @@ export default function SalePage() {
         </div>
         </div>
         
-        <h3>{theSale.high}</h3>
+        <h2>{theSale.high}</h2>
 
+
+
+        <hr/>
+        {/* <h1>Contact The Seller: {theSale.admin}</h1> */}
       </div>
+      <div className='horizontal_hr'></div>
+      <div className='theChat'>
+        <Chat/>
+      </div>
+
     </div>
   )
 }
