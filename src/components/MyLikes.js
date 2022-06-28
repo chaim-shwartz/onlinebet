@@ -42,8 +42,9 @@ export default function MyLikes() {
                     console.log(data)
                     if (data.status==="success") {
                         setsalesArr(data.message)
+                        setHide(true)
                     }
-                    setHide(true)
+                    
                 })
                 
             
