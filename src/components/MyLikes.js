@@ -25,7 +25,7 @@ export default function MyLikes() {
             setuserPassword(cookies.get("emailAccount").password)
         }
         
-    }, [cookies]);
+    },);
 
     useEffect(() => {
         setHide(false)
