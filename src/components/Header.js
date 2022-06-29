@@ -32,7 +32,7 @@ export default function Header() {
           firstChar: (cookies.get("emailAccount").fname).charAt(0).toUpperCase()
         })
       } 
-    },[]);
+    },[cookies]);
 
 
     function clickMenu() {  
