@@ -100,9 +100,9 @@ export default function Header() {
         <div className='mLinks'>
             {/* <a>my profile</a>| */}
             <a href='/'>Home</a>|
-            <a href='mysales'>My sales</a>|
+            <a href='/mysales'>My sales</a>|
             <a>My offers</a>|
-            <a href='mylikes'>My likes</a>
+            <a href='/mylikes'>My likes</a>
         </div>
 
         <div className='profile'><div className='profileBtn'></div></div>
@@ -139,9 +139,9 @@ export default function Header() {
           </div>
           {/* <button>My profile</button> */}
           <button><a href='/'>Home</a></button>
-          <button><a href='mysales'>My sales</a></button>
+          <button><a href='/mysales'>My sales</a></button>
           <button>My offers</button>
-          <button><a href='mylikes'>My likes</a></button>
+          <button><a href='/mylikes'>My likes</a></button>
         </div>
       </div>
     </div>

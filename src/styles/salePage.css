@@ -42,34 +42,31 @@
 }
 
 .section1{
-    justify-content: center;
     display: flex;
     text-align: start;
     flex-wrap: wrap;
 }
-.section1 img{
-    box-shadow: 0px 0px 15px 3px #6f6f6f;
-    border-radius: 8px;
-    width: 100%;
-    object-fit: contain;
-}
 
 .section1 .image{
     margin: 1%;
-    /* overflow: hidden; */
-    flex-basis: 55%;
+    width: 100%;
+    text-align: center;
+    flex-basis: 60%;
 }
 
+.section1 img{
+    border-radius: 8px;
+    max-height: 500px;
+    object-fit: contain;    
+
+}
 .section1 .h1_p{
     margin: 0 1%;
     padding: 0 3%;
     flex-basis: 30%;
-
-    /* text-align: center; */
 }
 
 .theChat{
-    /* padding-top: 3%; */
     margin: 1.5% 1%;    
     flex-basis: 30%;
 }
@@ -79,10 +76,10 @@
 
 @media screen and (max-width: 1200px) {
     .section1 .image{
-        flex-basis: 90%;
+        flex-basis: 95%;
     }
     .section1 .h1_p{
-        flex-basis: 90%;
+        flex-basis: 85%;
     }
 }
 
@@ -99,6 +96,6 @@
     }
 }
 
-@media screen and (max-width: 600px) {
+/* @media screen and (max-width: 600px) {
     
-}
+} */
