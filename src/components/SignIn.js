@@ -29,7 +29,7 @@ function SignIn() {        // the login page
         if(cookies.get("emailAccount")!==undefined){
             navigate("/")
         }
-    },);
+    },[cookies]);
     
     useEffect(() => {  //function to enable the login btn if the email is good and there is a password
         if (checkEmailValidate(emailInput) && passwordInput!=="") {

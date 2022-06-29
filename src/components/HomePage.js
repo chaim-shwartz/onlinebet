@@ -17,7 +17,7 @@ export default function HomePage() {
       // alert("ksdjfh")
       navigate('/signin')
     }
-  },[]);
+  },[cookies]);
 
   return (
     <div className='home'>

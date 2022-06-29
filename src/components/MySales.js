@@ -37,7 +37,7 @@ export default function MySales() {
             setuserPassword(cookies.get("emailAccount").password)
         }
         
-    }, );
+    }, [cookies]);
 
     useEffect(() => {
 
