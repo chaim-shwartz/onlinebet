@@ -37,21 +37,21 @@
     flex-basis: 65%;
     margin: 1.5% 1%;    
     position: relative;
-    text-align: center;
     border: 1px solid #707070;
 }
 
 .section1{
+    justify-content: center;
     display: flex;
-    text-align: start;
+    /* text-align: start; */
     flex-wrap: wrap;
 }
 
 .section1 .image{
     margin: 1%;
     width: 100%;
-    text-align: center;
     flex-basis: 60%;
+    
 }
 
 .section1 img{
@@ -75,12 +75,12 @@
 
 
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1000px) {
     .section1 .image{
         flex-basis: 95%;
     }
     .section1 .h1_p{
-        flex-basis: 85%;
+        flex-basis: 95%;
     }
 }
 
