@@ -57,6 +57,7 @@
 .section1{
     /* justify-content: center; */
     display: flex;
+    word-wrap: break-word;
     /* text-align: start; */
     /* flex-wrap: wrap; */
 }
@@ -83,6 +84,8 @@
     /* padding: 0 3%; */
     text-align: start;
     max-width: 40%;
+    overflow: hidden;
+    /* text-overflow: clip; */
 }
 .section1 .h1_p h1{
     margin: 0 ;
