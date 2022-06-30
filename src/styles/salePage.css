@@ -1,12 +1,27 @@
+.salePageOver{
+    margin-top: max(11vh,80px);
+    text-align: center;
+}
+
 .salePage{
     display: flex;
     /* width: 90%; */
     padding: 2% 0;
     margin: auto;
-    margin-top: max(11vh,80px);
     justify-content: center;
     flex-wrap: wrap;
 }
+
+
+
+.salePage input:focus{
+    outline: none !important;
+    border-color: #5f7ea7 !important;
+    box-shadow: 0px 0px 15px 5px #45444467;
+
+}
+
+
 
 .salePage .horizontal_hr{
     width: 1px;
@@ -14,16 +29,15 @@
     margin: 2% 0;
 }
 
-.salePage h1{
+/* .salePage h1{
     margin: 0;
-    font-size: max(7vmin,30px);
     color: #282c34;
-}
+} */
 .salePage hr{
     background-color: #7a7a7a93;
       height: 1px;
       width: 85%;
-      margin-bottom: 5%;
+      /* margin-bottom: 5%; */
       border-radius: 8px;
       border: 0;
 }
@@ -41,30 +55,45 @@
 }
 
 .section1{
-    justify-content: center;
+    /* justify-content: center; */
     display: flex;
     /* text-align: start; */
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
 }
 
 .section1 .image{
     margin: 1%;
-    width: 100%;
+    /* width: 100%; */
     flex-basis: 60%;
+    text-align: center;
     
 }
 
 .section1 img{
     border-radius: 8px;
-    width: 100%;
+    width: 90%;
+    /* max-width: 200px; */
     max-height: 500px;
-    object-fit: contain;    
+    object-fit: cover;    
 
 }
 .section1 .h1_p{
-    margin: 0 1%;
-    padding: 0 3%;
-    flex-basis: 30%;
+    margin: 0;
+    margin-right: 2%;
+    /* padding: 0 3%; */
+    text-align: start;
+    max-width: 40%;
+}
+.section1 .h1_p h1{
+    margin: 0 ;
+    color: #38506f;
+    font-size: max(4vw,30px);
+}
+
+.section1 .h1_p p{
+    /* margin: 0 ; */
+    color: #4a4a4a;
+    font-size: max(1.5vw,20px);
 }
 
 .theChat{
@@ -73,15 +102,91 @@
 }
 
 
+.details{
+    margin: 1%;
+    display: flex;
+}
+
+.details h1{
+    margin: 0 ;
+    color: #38506f;
+    font-size: max(3vw,30px);
+}
+
+.details h2{
+    /* margin: 0 ; */
+    color: #4a4a4a;
+    font-size: max(1.5vw,20px);
+}
+
+.price{
+    text-align: start;
+    flex-grow: 1;
+    padding:0 2%;
+    padding-left: 4%;
+}
+
+.offer{
+    flex-grow: 2;
+    padding:0 2%;
+}
+
+.details button{
+    border-radius: 8px;
+    font-size: max(1.6vmax,15px);
+    background-color: #86a3b4;
+    color: #4a4a4a;
+    font-weight: bold;
+    box-shadow: 0px 0px 8px 3px #72727267;
+    border-width: 1px;
+    border-color: #6e57367c;
+    margin-bottom: 1%;
+    margin-right: 1%;
+}
+
+.details input{
+    
+    background-color: #d4d4d4;
+    /* width: max(9vmax,15px); */
+    width: 70%;
+    border-radius: 8px;
+    padding-right: 1%;
+    padding-left: 1%;
+    font-size: max(1.6vmax,15px);
+    font-weight: bold;
+    box-shadow: 0px 0px 8px 3px #72727267;
+    max-width: 800px;
+    max-height: 40px;
+    border-width: 1px;
+    border-color: #4a4a4a;
+    margin-top: 5%;
+}
+
+
 
 
 @media screen and (max-width: 1000px) {
+    .section1{
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+
+    }
     .section1 .image{
         flex-basis: 95%;
     }
     .section1 .h1_p{
-        flex-basis: 95%;
+        flex-basis: 85%;
+        max-width: none;
     }
+    .section1 .h1_p h1{
+        margin: 1% 0;
+        
+    }
+    .price{
+        text-align: center;
+    }
+    
 }
 
 
@@ -94,6 +199,9 @@
     }
     .salePage .horizontal_hr{
         display: none;
+    }
+    .salePage .details > .horizontal_hr{
+        display: block;
     }
 }
 

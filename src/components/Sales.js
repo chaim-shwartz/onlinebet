@@ -78,7 +78,7 @@ export default function Sales(props) {
                                 </div>
                                     
                                 <div className='likeBtn'>
-                                <p onClick={()=>clickOnCard(card.saleid)}>price: {card.price}</p>
+                                <p onClick={()=>clickOnCard(card.saleid)}>price: {card.price}$</p>
                                     <button onClick={()=>{likeClick(card.saleid, index)}}>
                                         {!salesArr[index].saved?<Fade in><img src={require('../images/heart.png')}/></Fade>:
                                         <Zoom in={salesArr[index].saved}><img src={require('../images/red-heart.png')}/></Zoom>}
