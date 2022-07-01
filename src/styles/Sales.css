@@ -81,6 +81,12 @@
     font-size: x-large;
 }
 
+.saleCard h6{
+    margin: 0;
+    color: #50626c;
+}
+
+
 .saleHeader img{
     border-top-right-radius: 8px;
     /* width: 11vmax; */
@@ -94,7 +100,7 @@
     justify-content: space-between;
     width: 90%;
     position: absolute;
-    bottom: 0;
+    bottom: max(3.5%,10px);
     /* right: 0; */
     /* margin: -1.5% -1%; */
     align-self: flex-end;
@@ -109,6 +115,7 @@
 
 .likeBtn button{
     margin: 0 !important;
+    margin-bottom: -4% !important;
     background-color: transparent !important;
     box-shadow: none !important;
     border: 0 !important;
@@ -116,6 +123,17 @@
 .likeBtn img{
     width: max(1.6vmax,21px);
 }
+.likeBtn p{
+    margin-bottom: 4% !important;
+}
+.saleCard hr{
+    background-color: #4d5156;
+    height: 1px;
+    width: 85%;
+    margin: 0 auto;
+    border: 0;
+}
+
 
 
 @media screen and (max-width: 1200px) {

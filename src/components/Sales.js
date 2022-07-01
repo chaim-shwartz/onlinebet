@@ -85,6 +85,8 @@ export default function Sales(props) {
                                     </button>
                                     
                                 </div>
+                                
+                                {card.admin===userEmail?<div><hr/><h6>You are the admin of the sale.</h6></div>:null}
                             </div>
                         )
                     })}

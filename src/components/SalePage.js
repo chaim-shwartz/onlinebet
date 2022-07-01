@@ -15,7 +15,7 @@ export default function SalePage() {
   const { id } = useParams(); // the id of the sale from the url path
   const [newPrice, setNewPrice] = useState(0);  //the price that the user offer
   const [hideTheOffer, sethideThOffer] = useState(true);// to hide the offer if there is not
-
+  const [ifUserIsAdmin, setifUserIsAdmin] = useState(false);//if user is the admin fo the sale
 
   useEffect(() => {  // the function that check that there is cookies and set the user details
     if(cookies.get("emailAccount")===undefined){
@@ -40,6 +40,9 @@ export default function SalePage() {
                     .then(res=>res.json())
                     .then(data=>{
                         setTheSale(data.message)
+                        if (theSale.admin===userEmail) {
+                          setifUserIsAdmin(true)
+                        }
                         console.log(data.message)
                     })
   }, [userEmail]);
@@ -86,6 +89,7 @@ export default function SalePage() {
 
   return (
     <div className='salePageOver'>
+    {ifUserIsAdmin?<h2>You are the admin of this sale.</h2>:null}
       {theSale.price===undefined?<h2>Loading the sale...</h2>:
       <div className='salePage'>
         
@@ -113,7 +117,7 @@ export default function SalePage() {
             <div className='horizontal_hr'></div>
 
 
-            <div className='offer'>
+            <div hidden={ifUserIsAdmin} className='offer'>
               <h2>Want to offer more?</h2>
               <button onClick={()=>offerMore(10)}>+10$</button>
               <button onClick={()=>offerMore(20)}>+20$</button>

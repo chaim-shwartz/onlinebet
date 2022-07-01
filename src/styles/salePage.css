@@ -63,19 +63,21 @@
 }
 
 .section1 .image{
+
     margin: 1%;
-    /* width: 100%; */
     flex-basis: 60%;
     text-align: center;
+    border-radius: 8px;
     
 }
 
 .section1 img{
     border-radius: 8px;
-    width: 90%;
+    /* width: 90%; */
     /* max-width: 200px; */
     max-height: 500px;
-    object-fit: cover;    
+    object-fit: contain; 
+       
 
 }
 .section1 .h1_p{
