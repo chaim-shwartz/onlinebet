@@ -102,7 +102,7 @@ export default function Header() {
             {/* <a>my profile</a>| */}
             <a href='/'>Home</a>|
             <a href='/mysales'>My sales</a>|
-            <a>My offers</a>|
+            <a href='/myoffers'>My offers</a>|
             <a href='/mylikes'>My likes</a>
         </div>
 
@@ -141,7 +141,7 @@ export default function Header() {
           {/* <button>My profile</button> */}
           <button><a href='/'>Home</a></button>
           <button><a href='/mysales'>My sales</a></button>
-          <button>My offers</button>
+          <button><a href='/myoffers'>My offers</a></button>
           <button><a href='/mylikes'>My likes</a></button>
         </div>
       </div>

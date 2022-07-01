@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 import "../styles/salePage.css"
-import { io } from "socket.io-client";
 import Chat from './Chat';
 
 
@@ -17,7 +16,6 @@ export default function SalePage() {
   const [newPrice, setNewPrice] = useState(0);  //the price that the user offer
   const [hideTheOffer, sethideThOffer] = useState(true);// to hide the offer if there is not
 
-  // const socket = io("https://onlineauctionapi.herokuapp.com/");
 
   useEffect(() => {  // the function that check that there is cookies and set the user details
     if(cookies.get("emailAccount")===undefined){

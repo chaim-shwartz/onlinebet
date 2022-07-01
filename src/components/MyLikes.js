@@ -33,7 +33,7 @@ export default function MyLikes() {
         fetch("https://onlineauctionapi.herokuapp.com/mysaved",{
                 method:"post",
                 headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
-                body: JSON.stringify({email: userEmail, password: userPassword, amount: "0"})
+                body: JSON.stringify({email: userEmail, password: userPassword, amount: salesAmount})
             })
             
             .then(res=>res.json())
