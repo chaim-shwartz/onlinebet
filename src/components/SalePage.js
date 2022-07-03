@@ -14,7 +14,7 @@ export default function SalePage() {
   const navigate = useNavigate(); 
   const { id } = useParams(); // the id of the sale from the url path
   const [newPrice, setNewPrice] = useState(0);  //the price that the user offer
-  const [hideTheOffer, sethideThOffer] = useState(true);// to hide the offer if there is not
+  const [hideTheOffer, sethideTheOffer] = useState(true);// to hide the offer if there is not
   const [ifUserIsAdmin, setifUserIsAdmin] = useState(false);//if user is the admin fo the sale
 
   useEffect(() => {  // the function that check that there is cookies and set the user details
@@ -40,12 +40,16 @@ export default function SalePage() {
                     .then(res=>res.json())
                     .then(data=>{
                         setTheSale(data.message)
-                        if (theSale.admin===userEmail) {
-                          setifUserIsAdmin(true)
-                        }
                         console.log(data.message)
                     })
   }, [userEmail]);
+
+  useEffect(() => {
+    if (theSale.admin===userEmail&&userEmail!==undefined) {
+      console.log(theSale.admin, userEmail)
+      setifUserIsAdmin(true)
+    }
+  }, [theSale]);
 
 
 
@@ -65,7 +69,7 @@ export default function SalePage() {
 
   useEffect(() => { // this function is to toggle the hide offer 
     if (newPrice!==0) {
-      sethideThOffer(false)
+      sethideTheOffer(false)
     }
   }, [newPrice]);
   

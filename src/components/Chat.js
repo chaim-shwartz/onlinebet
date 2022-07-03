@@ -11,7 +11,7 @@ import { io } from "socket.io-client";
 
 export default function Chat() {
     const [inputMsg, setinputMsg] = useState();
-    const socket = io("http://localhost:8000/");
+    // const socket = io("http://localhost:8000/");
 
 
     const inputMsgHandleChange = (e) => {
@@ -19,7 +19,7 @@ export default function Chat() {
     }
 
     const sendMsg=()=>{
-        socket.emit("sendMsg", inputMsg);
+        // socket.emit("sendMsg", inputMsg);
     }
 
 
