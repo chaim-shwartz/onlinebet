@@ -56,6 +56,9 @@ export default function MySales() {
                         setsalesArr(data.message)
                         setHide(true)
                     }
+                    else if (data.status==="error") {
+                        setHide(true)
+                    }
                     
                 })
                 
@@ -102,7 +105,9 @@ export default function MySales() {
             {!showAddDetails?
                 <div> 
                     <Fade in={hide}>
-                        <h1>Your Sales</h1>
+                    {salesArr.length===0?<h1>You Don't create any sale yet.</h1>:<h1>Your Sales</h1>}
+
+                        
                     </Fade>
                     {/* <hr/> */}
                     <Fade in>

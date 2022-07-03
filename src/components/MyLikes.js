@@ -44,6 +44,9 @@ export default function MyLikes() {
                         setsalesArr(data.message)
                         setHide(true)
                     }
+                    else if (data.status==="error") {
+                        setHide(true)
+                    }
                     
                 })
                 
@@ -61,7 +64,7 @@ export default function MyLikes() {
     <div className='myLikes'>
         <div>
                     <Fade in={hide}>
-                        <h1>Your Liked Sales</h1>
+                        {salesArr.length===0?<h1>You Don't have sales you liked.</h1>:<h1>Your Liked Sales</h1>}
                     </Fade>
                     
                     <Sales

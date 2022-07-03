@@ -45,6 +45,9 @@ export default function MyOffers() {
                         setsalesArr(data.message)
                         setHide(true)
                     }
+                    else if (data.status==="error") {
+                        setHide(true)
+                    }
                     
                 })
     }, [userEmail,salesAmount]);
@@ -59,7 +62,9 @@ export default function MyOffers() {
     <div className='myOffers'>
         <div>
                     <Fade in={hide}>
-                        <h1>Sales That you offer.</h1>
+                    {salesArr.length===0?<h1>You Don't offer in any sale.</h1>:<h1>Sales That you offer.</h1>}
+
+                        
                     </Fade>
                     
                     <Sales
