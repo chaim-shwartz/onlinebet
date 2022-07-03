@@ -100,9 +100,13 @@ export default function MySales() {
     <div className='mySales'>
         
             {!showAddDetails?
-                <div>
+                <div> 
                     <Fade in={hide}>
                         <h1>Your Sales</h1>
+                    </Fade>
+                    {/* <hr/> */}
+                    <Fade in>
+                        <button onClick={()=>setshowAddDetails(!showAddDetails)}>Add Sale</button>
                     </Fade>
                     
                     <Sales
@@ -114,9 +118,7 @@ export default function MySales() {
 
                     />
         
-                    <Fade in>
-                        <button onClick={()=>setshowAddDetails(!showAddDetails)}>Add Sale</button>
-                    </Fade>
+                   
                 </div>
             :
             <Fade in>
