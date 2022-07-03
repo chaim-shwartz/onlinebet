@@ -118,7 +118,7 @@ export default function SalePage() {
               
               <h2>The best offer by: {theSale.high}</h2>
             </div>
-            <div className='horizontal_hr'></div>
+            <div hidden={ifUserIsAdmin}className='horizontal_hr'></div>
 
 
             <div hidden={ifUserIsAdmin} className='offer'>
