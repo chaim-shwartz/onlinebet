@@ -138,10 +138,78 @@ export default function Header() {
               <IconButton sx={{padding: "0 !important"}}  onClick={clickMenu}><ClearIcon sx={{ color: '#282c34'}}/></IconButton>
           </div>
           {/* <button>My profile</button> */}
-          <button onClick={()=>navigate('/')}>Home</button>
-          <button onClick={()=>navigate('/mysales')}>My sales</button>
-          <button onClick={()=>navigate('/myoffers')}>My offers</button>
-          <button onClick={()=>navigate('/mylikes')}>My likes</button>
+          <Button onClick={()=>{navigate('/');clickMenu()}} 
+            sx={
+              {
+                margin: "2%",
+                backgroundColor:"#86a3b4", 
+                color:"#4a4a4a", 
+                fontWeight:"bold", 
+                borderRadius:"8px",
+                ":hover":{
+                  backgroundColor:"#46576d",
+                  color: "#b1b1b1"
+                  }
+              }
+            }variant="contained"
+          >
+            Home
+          </Button>
+          <Button onClick={()=>{navigate('/mysales');clickMenu()}} 
+            sx={
+              {
+                margin: "2%",
+                backgroundColor:"#86a3b4", 
+                color:"#4a4a4a", 
+                fontWeight:"bold", 
+                borderRadius:"8px",
+                ":hover":{
+                  backgroundColor:"#46576d",
+                  color: "#b1b1b1"
+                  }
+              }
+            }variant="contained"
+          >
+            My sales
+          </Button>
+          <Button onClick={()=>{navigate('/myoffers');clickMenu()}} 
+            sx={
+              {
+                margin: "2%",
+                backgroundColor:"#86a3b4", 
+                color:"#4a4a4a", 
+                fontWeight:"bold", 
+                borderRadius:"8px",
+                ":hover":{
+                  backgroundColor:"#46576d",
+                  color: "#b1b1b1"
+                  }
+              }
+            }variant="contained"
+          >
+            my offers
+          </Button>
+          <Button onClick={()=>{navigate('/mylikes');clickMenu()}} 
+            sx={
+              {
+                margin: "2%",
+                backgroundColor:"#86a3b4", 
+                color:"#4a4a4a", 
+                fontWeight:"bold", 
+                borderRadius:"8px",
+                ":hover":{
+                  backgroundColor:"#46576d",
+                  color: "#b1b1b1"
+                  }
+              }
+            }variant="contained"
+          >
+            My likes
+          </Button>
+          {/* <button onClick={()=>navigate('/')}>Home</button> */}
+          {/* <button onClick={()=>navigate('/mysales')}>My sales</button> */}
+          {/* <button onClick={()=>navigate('/myoffers')}>My offers</button> */}
+          {/* <button onClick={()=>navigate('/mylikes')}>My likes</button> */}
         </div>
       </div>
     </div>
