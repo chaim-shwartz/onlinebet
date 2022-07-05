@@ -138,10 +138,10 @@ export default function Header() {
               <IconButton sx={{padding: "0 !important"}}  onClick={clickMenu}><ClearIcon sx={{ color: '#282c34'}}/></IconButton>
           </div>
           {/* <button>My profile</button> */}
-          <button><a href='/'>Home</a></button>
-          <button><a href='/mysales'>My sales</a></button>
-          <button><a href='/myoffers'>My offers</a></button>
-          <button><a href='/mylikes'>My likes</a></button>
+          <button onClick={()=>navigate('/')}>Home</button>
+          <button onClick={()=>navigate('/mysales')}>My sales</button>
+          <button onClick={()=>navigate('/myoffers')}>My offers</button>
+          <button onClick={()=>navigate('/mylikes')}>My likes</button>
         </div>
       </div>
     </div>
