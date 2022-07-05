@@ -142,6 +142,7 @@ export default function SalePage() {
                 <h2>The best offer by: {theSale.high}</h2>
               </div>
               <div hidden={ifUserIsAdmin}className='horizontal_hr'></div>
+              <hr/>
 
 
               {!ifUserIsAdmin?<div  className='offer'>
@@ -167,7 +168,8 @@ export default function SalePage() {
 
               
             </div>
-              
+            
+            <hr/>
 
             {ifUserIsAdmin?<div>
               <Button onClick={deleteBtn} sx={

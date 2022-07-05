@@ -105,6 +105,7 @@
 .theChat{
     margin: 1.5% 1%;    
     flex-basis: 30%;
+    max-width: 500px;
 }
 
 
@@ -113,16 +114,20 @@
     display: flex;
 }
 
+.details hr{
+    display: none;
+}
+
 .details h1{
     margin: 0;
     color: #38506f;
-    font-size: min(5vw,5vh);
+    font-size: 3vw;
 }
 
 .details h2{
     /* margin: 0 ; */
     color: #4a4a4a;
-    font-size: min(3vw,3vh);
+    font-size: min(3.5vw,3.5vh);
 }
 
 .price{
@@ -132,7 +137,7 @@
     padding-left: 4%;
     /* max-width: 50%; */
     overflow: hidden;
-    overflow-wrap: break-word;
+    /* overflow-wrap: break-word; */
 }
 
 .offer{
@@ -179,31 +184,6 @@
 
 
 @media screen and (max-width: 1000px) {
-    .section1{
-        flex-wrap: wrap;
-        justify-content: center;
-        text-align: center;
-
-    }
-    .section1 .image{
-        flex-basis: 95%;
-    }
-    .section1 .h1_p{
-        flex-basis: 85%;
-        max-width: none;
-    }
-    .section1 .h1_p h1{
-        margin: 1% 0;
-        
-    }
-    .price{
-        text-align: center;
-    }
-    
-}
-
-
-@media screen and (max-width: 900px) {
     .sale{
         flex-basis: 95%;
     }
@@ -216,7 +196,57 @@
     .salePage .details > .horizontal_hr{
         display: block;
     }
+    
+    .section1{
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+
+    }
+    .section1 .image{
+        flex-basis: 95%;
+    }
+
+    .section1 .h1_p{
+        flex-basis: 85%;
+        max-width: none;
+    }
+    .section1 .h1_p h1{
+        margin: 1% 0;
+        
+    }
+    .price{
+        text-align: center;
+    }
+    .details{
+        flex-direction: column;
+    }
+    .details h1{
+        font-size: 6vw;
+    }
+    .details h2{
+        font-size: 5vw;
+    }
+    .offer h2{
+        font-size: 5vw;
+    }
+    .offer button{
+        font-size: 4vw;
+    }
+    .offer input{
+        font-size: 4vw;
+    }
+    .details hr{
+        display: block;
+    }
+    
+    
 }
+
+
+/* @media screen and (max-width: 900px) {
+
+} */
 
 /* @media screen and (max-width: 600px) {
     
