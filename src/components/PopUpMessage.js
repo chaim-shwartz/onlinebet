@@ -1,3 +1,4 @@
+import { Fade } from '@mui/material';
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import "../styles/PopUpMessage.css"
@@ -15,14 +16,24 @@ export default function PopUpMessage(props) {
       }
     }
 
+    const secondBtn = () =>{
+        props.function()
+    }
+
 
 
   return (
-    <div className="popWindow">
+    <Fade in>
+      <div className="popWindow">
         <h1>{props.title}</h1>
                 <hr/>
                 <p>{props.explain}</p>
-                <button onClick={continueBtn}>{props.btnName}</button>
-    </div>
+                <div className='btns'>
+                  <button onClick={continueBtn}>{props.btnName}</button>
+                  {props.secondBtnName?<button onClick={secondBtn}>{props.secondBtnName}</button>:null}
+                </div>
+      </div>
+    </Fade>
+    
   )
 }

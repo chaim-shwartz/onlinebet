@@ -84,6 +84,11 @@
     margin-bottom: 8%;
 }
 
+.profileMenu button:hover{
+    background-color: #46576d;
+    color: #b1b1b1;
+}
+
 .profileMenu h2{
     margin-top: 0;
 }
@@ -149,6 +154,11 @@
     border-width: 1px;
     border-color: #6e57367c;
     margin-bottom: 5%;
+}
+
+.menuPhone button:hover{
+    background-color: #46576d;
+    color: #b1b1b1;
 }
 
 .menuPhoneBox .headSection{

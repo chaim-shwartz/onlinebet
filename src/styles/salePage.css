@@ -116,13 +116,13 @@
 .details h1{
     margin: 0 ;
     color: #38506f;
-    font-size: max(3vw,30px);
+    font-size: max(3vw,13px);
 }
 
 .details h2{
     /* margin: 0 ; */
     color: #4a4a4a;
-    font-size: max(1.5vw,15px);
+    font-size: max(1.5vw,7px);
 }
 
 .price{
@@ -133,7 +133,7 @@
 }
 
 .offer{
-    flex-grow: 2;
+    flex-grow: 1;
     padding:0 2%;
 }
 
@@ -148,6 +148,11 @@
     border-color: #6e57367c;
     margin-bottom: 1%;
     margin-right: 1%;
+}
+
+.details button:hover{
+    background-color: #46576d;
+    color: #b1b1b1;
 }
 
 .details input{

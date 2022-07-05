@@ -1,8 +1,12 @@
+import { Button } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 import "../styles/salePage.css"
 import Chat from './Chat';
+import DeleteIcon from '@mui/icons-material/Delete';
+import PopUpMessage from './PopUpMessage';
+
 
 
 
@@ -16,7 +20,7 @@ export default function SalePage() {
   const [newPrice, setNewPrice] = useState(0);  //the price that the user offer
   const [hideTheOffer, sethideTheOffer] = useState(true);// to hide the offer if there is not
   const [ifUserIsAdmin, setifUserIsAdmin] = useState(false);//if user is the admin fo the sale
-
+  const [showPopup, setshowPopup] = useState(false);
   useEffect(() => {  // the function that check that there is cookies and set the user details
     if(cookies.get("emailAccount")===undefined){
         navigate('/signin')
@@ -39,8 +43,13 @@ export default function SalePage() {
                     
                     .then(res=>res.json())
                     .then(data=>{
-                        setTheSale(data.message)
-                        console.log(data.message)
+                        if (data.message==="I don't recognize this sale") {
+                          navigate(-1)
+                        }else if (data.status==="success") {
+                          setTheSale(data.message)
+                        }
+                        console.log(data)
+
                     })
   }, [userEmail]);
 
@@ -88,72 +97,121 @@ export default function SalePage() {
     setNewPrice(0)
   }
 
-
-
+  const deleteBtn=()=>{
+    setshowPopup(true)
+  }
+  const deleteSale = () =>{
+    fetch("https://onlineauctionapi.herokuapp.com/remove",{
+          method:"post",
+          headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+          body: JSON.stringify({email: userEmail, password: userPassword, id: id})
+        })
+        .then(res=>res.json())
+        .then(data=>{
+          console.log(data.message)
+          window.location.reload()
+    })
+  }
 
   return (
-    <div className='salePageOver'>
-    {ifUserIsAdmin?<h2>You are the admin of this sale.</h2>:null}
-      {theSale.price===undefined?<h2>Loading the sale...</h2>:
-      <div className='salePage'>
-        
-        <div className='sale'>
-
+    <div>
+      {!showPopup?<div className='salePageOver'>
+        {ifUserIsAdmin?<h2>You are the admin of this sale.</h2>:null}
+        {theSale.price===undefined?<h2>Loading the sale...</h2>:
+        <div className='salePage'>
           
-          <div className='section1'>
-            <div className='image'>
-              <img src={theSale.image}/>
-            </div>
-          <div className='h1_p'>
-            <h1>{theSale.name}</h1>
-            {/* <hr/> */}
-            <p><b>Details:</b> {theSale.details}</p>
-          </div>
-          </div>
-          <hr/>
-          <div className='details'>
+          <div className='sale'>
 
-            <div className='price'>
-              <h1>{theSale.price}$</h1>
-              
-              <h2>The best offer by: {theSale.high}</h2>
-            </div>
-            <div hidden={ifUserIsAdmin}className='horizontal_hr'></div>
-
-
-            <div hidden={ifUserIsAdmin} className='offer'>
-              <h2>Want to offer more?</h2>
-              <button onClick={()=>offerMore(10)}>+10$</button>
-              <button onClick={()=>offerMore(20)}>+20$</button>
-              <button onClick={()=>offerMore(50)}>+50$</button>
-              <button onClick={()=>offerMore(100)}>+100$</button>
-              <br/>
-              <input onChange={handleChangeInput} type="number" min={theSale.price+10} placeholder="Your offer"></input>
-
-              {newPrice!==0?
-              <div>
-                <h2 hidden={hideTheOffer}>Your Offer: {newPrice}$</h2>
-                <button onClick={sendOffer} hidden={hideTheOffer}>Offer!</button>
-              </div>:
-              <h2>You need to offer a better price.</h2>}
-
-              
-
-            </div>
-          </div>
             
+            <div className='section1'>
+              <div className='image'>
+                <img src={theSale.image}/>
+              </div>
+            <div className='h1_p'>
+              <h1>{theSale.name}</h1>
+              {/* <hr/> */}
+              <p><b>Details:</b> {theSale.details}</p>
+            </div>
+            </div>
+            <hr/>
+            <div className='details'>
+
+              <div className='price'>
+                <h1>{theSale.price}$</h1>
+                
+                <h2>The best offer by: {theSale.high}</h2>
+              </div>
+              <div hidden={ifUserIsAdmin}className='horizontal_hr'></div>
 
 
+              {!ifUserIsAdmin?<div  className='offer'>
+                <h2>Want to offer more?</h2>
+                <button onClick={()=>offerMore(10)}>+10$</button>
+                <button onClick={()=>offerMore(20)}>+20$</button>
+                <button onClick={()=>offerMore(50)}>+50$</button>
+                <button onClick={()=>offerMore(100)}>+100$</button>
+                <br/>
+                <input onChange={handleChangeInput} type="number" min={theSale.price+10} placeholder="Your offer"></input>
 
-          
-          {/* <h1>Contact The Seller: {theSale.admin}</h1> */}
-        </div>
-        <div className='horizontal_hr'></div>
-        <div className='theChat'>
-          <Chat/>
-        </div>
+                {newPrice!==0?
+                <div>
+                  <h2 hidden={hideTheOffer}>Your Offer: {newPrice}$</h2>
+                  <button onClick={sendOffer} hidden={hideTheOffer}>Offer!</button>
+                </div>:
+                <h2>You need to offer a better price.</h2>}
 
-      </div>}
+                
+
+              </div>:null}
+
+
+              
+            </div>
+              
+
+            {ifUserIsAdmin?<div>
+              <Button onClick={deleteBtn} sx={
+                {
+                  margin: "2%",
+                  backgroundColor:"#86a3b4", 
+                  color:"#4a4a4a", 
+                  fontWeight:"bold", 
+                  borderRadius:"8px",
+                  ":hover":{
+                    backgroundColor:"#46576d",
+                    color: "#b1b1b1"
+                    }
+                }
+                }variant="contained" startIcon={<DeleteIcon />}
+                >
+
+                Delete this sale
+
+              </Button>
+              </div>:null}
+
+            
+            {/* <h1>Contact The Seller: {theSale.admin}</h1> */}
+          </div>
+          <div className='horizontal_hr'></div>
+          <div className='theChat'>
+            <Chat/>
+          </div>
+
+        </div>}
+
+        
+      </div>:
+      
+      <PopUpMessage 
+              title="Delete a Sale" 
+              explain="Are you sure you want to delete this sale, After deletion the sale can not be restored."
+              btnName="Cancel"
+              secondBtnName="Delete"
+              navigate={0}
+              function={deleteSale}
+              />}
     </div>
+    
   )
 }
