@@ -84,7 +84,7 @@ function SignIn() {        // the login page
             if (data.status==="success") {
                 cookies.set("emailAccount",{fname: data.fname, lname: data.lname, email: data.email, password: data.password},{ path: '/' })
                 notify.show(data.status+": "+data.message, "success", 6000);
-                navigate(-1)
+                navigate('/signup')
             }
             else if(data.status==="error"){
                 // setshowPopUp(true)
