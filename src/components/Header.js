@@ -1,79 +1,90 @@
 import React, { useEffect, useState } from 'react'
 import "../styles/header.css"
 import Avatar from '@mui/material/Avatar';
-import { Button, Fade, IconButton } from '@mui/material';
-import { red } from '@mui/material/colors';
-import { useTheme } from 'styled-components';
+import { Button, Fade, IconButton, styled} from '@mui/material';
 import MenuTwoToneIcon from '@mui/icons-material/MenuTwoTone';
 import ClearIcon from '@mui/icons-material/Clear';
 import Cookies from 'universal-cookie';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Notifications, {notify} from 'react-notify-toast';
+const MenuButton = styled(Button)(({ theme }) => ({
+    padding:"0",
+    margin: "0 2%",
+    backgroundColor:"#86a3b4", 
+    color:"#4a4a4a", 
+    fontWeight:"bold", 
+    borderRadius:"8px",
+    ":hover":{
+      backgroundColor:"#46576d",
+      color: "#b1b1b1"
+      }
+}));
 
 
 export default function Header() {
-    const [navWidth, setnavWidth] = useState("0%");
-    const [hidenav, sethidenav] = useState(true);
-    const [ThereIsCookies, setThereIsCookies] = useState(false);
-    const [showProfileMenu, setShowProfileMenu] = useState(false);
-    const cookies = new Cookies();
-    const [userInformation, setuserInformation] = useState({});
-    const location = useLocation()
-    const navigate = useNavigate()
+
+  const [navWidth, setnavWidth] = useState("0%");
+  const [hidenav, sethidenav] = useState(true);
+  const [ThereIsCookies, setThereIsCookies] = useState(false);
+  const [showProfileMenu, setShowProfileMenu] = useState(false);
+  const cookies = new Cookies();
+  const [userInformation, setuserInformation] = useState({});
+  const location = useLocation()
+  const navigate = useNavigate()
 
 
-    useEffect(() => {
-      if (cookies.get("emailAccount")!==undefined) {
-        setuserInformation({
-          fname:cookies.get("emailAccount").fname,
-          lname:cookies.get("emailAccount").lname,
-          email:cookies.get("emailAccount").email,
-          password:cookies.get("emailAccount").password,
-          firstChar: (cookies.get("emailAccount").fname).charAt(0).toUpperCase()
-        })
-      } 
-    },[location]);
+  useEffect(() => {
+    if (cookies.get("emailAccount")!==undefined) {
+      setuserInformation({
+        fname:cookies.get("emailAccount").fname,
+        lname:cookies.get("emailAccount").lname,
+        email:cookies.get("emailAccount").email,
+        password:cookies.get("emailAccount").password,
+        firstChar: (cookies.get("emailAccount").fname).charAt(0).toUpperCase()
+      })
+    } 
+  },[location]);
 
 
-    function clickMenu() {  
-        sethidenav(!hidenav)
-        if (navWidth==="0%") {
-            setnavWidth("75%")
-        } else {
-            setnavWidth("0%")
-        }
-    }
-    useEffect(() => {
-     if (cookies.get("emailAccount")!==undefined) {
-       setThereIsCookies(true)
+  function clickMenu() {  
+      sethidenav(!hidenav)
+      if (navWidth==="0%") {
+          setnavWidth("75%")
+      } else {
+          setnavWidth("0%")
       }
-      else{
-        setThereIsCookies(false)
-
-      }
-      console.log(location)
-    },[location]);
-    
-    const mouseLeaveTheHeader=()=>{
-      if (showProfileMenu) {
-        setShowProfileMenu(false)
-      }
+  }
+  useEffect(() => {
+    if (cookies.get("emailAccount")!==undefined) {
+      setThereIsCookies(true)
     }
-    const profileBtn = () => {
-      setShowProfileMenu(!showProfileMenu)
-    }
-    
-    const SignOutBtn = () =>{
-      cookies.remove("emailAccount", { path: '/' })
-      navigate('/signin')
-      notify.show("You're logged out.", "warning", 6000);
+    else{
+      setThereIsCookies(false)
 
     }
-
-    const clickOnAuction=()=>{
-      navigate("/")
-      window.location.reload()
+    console.log(location)
+  },[location]);
+  
+  const mouseLeaveTheHeader=()=>{
+    if (showProfileMenu) {
+      setShowProfileMenu(false)
     }
+  }
+  const profileBtn = () => {
+    setShowProfileMenu(!showProfileMenu)
+  }
+  
+  const SignOutBtn = () =>{
+    cookies.remove("emailAccount", { path: '/' })
+    navigate('/signin')
+    notify.show("You're logged out.", "warning", 6000);
+
+  }
+
+  const clickOnAuction=()=>{
+    navigate("/")
+    window.location.reload()
+  }
     
 
   return (
@@ -137,79 +148,12 @@ export default function Header() {
               <h2>Menu</h2>
               <IconButton sx={{padding: "0 !important"}}  onClick={clickMenu}><ClearIcon sx={{ color: '#282c34'}}/></IconButton>
           </div>
-          {/* <button>My profile</button> */}
-          <Button onClick={()=>{navigate('/');clickMenu()}} 
-            sx={
-              {
-                margin: "2%",
-                backgroundColor:"#86a3b4", 
-                color:"#4a4a4a", 
-                fontWeight:"bold", 
-                borderRadius:"8px",
-                ":hover":{
-                  backgroundColor:"#46576d",
-                  color: "#b1b1b1"
-                  }
-              }
-            }variant="contained"
-          >
-            Home
-          </Button>
-          <Button onClick={()=>{navigate('/mysales');clickMenu()}} 
-            sx={
-              {
-                margin: "2%",
-                backgroundColor:"#86a3b4", 
-                color:"#4a4a4a", 
-                fontWeight:"bold", 
-                borderRadius:"8px",
-                ":hover":{
-                  backgroundColor:"#46576d",
-                  color: "#b1b1b1"
-                  }
-              }
-            }variant="contained"
-          >
-            My sales
-          </Button>
-          <Button onClick={()=>{navigate('/myoffers');clickMenu()}} 
-            sx={
-              {
-                margin: "2%",
-                backgroundColor:"#86a3b4", 
-                color:"#4a4a4a", 
-                fontWeight:"bold", 
-                borderRadius:"8px",
-                ":hover":{
-                  backgroundColor:"#46576d",
-                  color: "#b1b1b1"
-                  }
-              }
-            }variant="contained"
-          >
-            my offers
-          </Button>
-          <Button onClick={()=>{navigate('/mylikes');clickMenu()}} 
-            sx={
-              {
-                margin: "2%",
-                backgroundColor:"#86a3b4", 
-                color:"#4a4a4a", 
-                fontWeight:"bold", 
-                borderRadius:"8px",
-                ":hover":{
-                  backgroundColor:"#46576d",
-                  color: "#b1b1b1"
-                  }
-              }
-            }variant="contained"
-          >
-            My likes
-          </Button>
-          {/* <button onClick={()=>navigate('/')}>Home</button> */}
-          {/* <button onClick={()=>navigate('/mysales')}>My sales</button> */}
-          {/* <button onClick={()=>navigate('/myoffers')}>My offers</button> */}
-          {/* <button onClick={()=>navigate('/mylikes')}>My likes</button> */}
+          <MenuButton onClick={()=>{navigate('/');clickMenu()}}>Home</MenuButton>
+
+          <MenuButton onClick={()=>{navigate('/mysales');clickMenu()}}>My sales</MenuButton>
+          <MenuButton onClick={()=>{navigate('/myoffers');clickMenu()}}>my offers</MenuButton>
+          <MenuButton onClick={()=>{navigate('/mylikes');clickMenu()}} >My likes</MenuButton>
+         
         </div>
       </div>
     </div>
