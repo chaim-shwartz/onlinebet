@@ -127,7 +127,7 @@ export default function Header() {
           <Fade in={showProfileMenu}>
           <div className='profileMenu'>
               <h2>{userInformation.fname} {userInformation.lname}</h2>
-                  <button onClick={()=>{navigate('/editprofile')}}>Edit Profile</button>
+                  <button onClick={()=>{navigate('/editprofile');setShowProfileMenu(false)}}>Edit Profile</button>
                   <button onClick={SignOutBtn}>Sign Out</button>
             </div>
           </Fade>
