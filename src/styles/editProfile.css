@@ -1,0 +1,8 @@
+.editProfile{
+    text-align: center;
+    margin-top: max(11vh,80px);
+}
+
+.editProfile h3{
+    color: rgb(185, 0, 0)
+}

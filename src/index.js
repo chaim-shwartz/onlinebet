@@ -11,6 +11,7 @@ import Header from './components/Header';
 import MyLikes from './components/MyLikes';
 import SalePage from './components/SalePage';
 import MyOffers from './components/MyOffers';
+import EditProfile from './components/EditProfile';
 
 
 
@@ -26,6 +27,7 @@ root.render(
         <Route path='/mysales' element={<MySales/>}/>
         <Route path='/mylikes' element={<MyLikes/>}/>
         <Route path='/myoffers' element={<MyOffers/>}/>
+        <Route path='/editprofile' element={<EditProfile/>}/>
         <Route path='/salepage/:id' element={<SalePage/>}/>
       </Routes>
     </Router>
