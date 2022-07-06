@@ -108,6 +108,7 @@ export default function EditProfile() {
             .then(data=>{
                 console.log(data)
                 if (data.status === "success") {
+                    cookies.set("emailAccount",{fname: editDetails.fname, lname: editDetails.lname, email: userEmail, password: userPassword},{ path: '/' })
                     window.location.reload()
                 } else {
                     
@@ -131,7 +132,7 @@ export default function EditProfile() {
                         <TextField value={editDetails.lname} name='lname' onChange={handleChange} id="outlined-basic" label="Last Name" variant="outlined" />
                     </Box>
                     {errPassword?<h3>The password is not correct.</h3>:null}
-                    <TextField error={errPassword} value={editDetails.password} autoComplete="off" type="password" name='password' onChange={handleChange} id="outlined-basic" label="Password" variant="outlined" />
+                    <TextField autoComplete='off' error={errPassword} value={editDetails.password} type="password" name='password' onChange={handleChange} id="outlined-basic" label="Password" variant="outlined" />
                     <br></br>
                     <Button disabled={disableEditBtn} onClick={editBtn} sx={
                         {
