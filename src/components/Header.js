@@ -8,6 +8,8 @@ import Cookies from 'universal-cookie';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Notifications, {notify} from 'react-notify-toast';
 const MenuButton = styled(Button)(({ theme }) => ({
+  fontSize: "max(1.6vmax,20px)",
+
     padding:"0",
     margin: "3% 2%",
     backgroundColor:"#86a3b4", 
