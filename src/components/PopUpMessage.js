@@ -4,15 +4,15 @@ import { useNavigate } from 'react-router-dom';
 import "../styles/PopUpMessage.css"
 
 const CustomButton = styled(Button)(({ theme }) => ({
-  padding:"0.5% 2%",
-  margin: "1%",
+  // padding:"0.5% 2%",
+  // margin: "0 1%",
+  margin: '5px',
   border:"0.5px solid #46576d",
-  fontSize: 'max(1.6vmax,15px)',
+  // fontSize: 'max(1.6vmax,15px)',
   backgroundColor:"#86a3b4", 
   color:"#4a4a4a", 
   fontWeight:"bold", 
   borderRadius:"8px",
-  lineHeight:"130%",
   ":hover":{
     backgroundColor:"#46576d",
     color: "#b1b1b1"
