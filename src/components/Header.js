@@ -9,7 +9,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import Notifications, {notify} from 'react-notify-toast';
 const MenuButton = styled(Button)(({ theme }) => ({
     padding:"0",
-    margin: "0 2%",
+    margin: "3% 2%",
     backgroundColor:"#86a3b4", 
     color:"#4a4a4a", 
     fontWeight:"bold", 
@@ -64,6 +64,7 @@ export default function Header() {
 
   function clickMenu() {  
       sethidenav(!hidenav)
+      setShowProfileMenu(false)
       if (navWidth==="0%") {
           setnavWidth("75%")
       } else {
