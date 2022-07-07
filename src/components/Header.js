@@ -20,6 +20,22 @@ const MenuButton = styled(Button)(({ theme }) => ({
       }
 }));
 
+const CustomButton = styled(Button)(({ theme }) => ({
+  // padding:"0.5% 2%",
+  margin: "2% 0%",
+  border:"0.5px solid #46576d",
+  fontSize: 'max(1.5vw,15px)',
+  backgroundColor:"#86a3b4", 
+  color:"#4a4a4a", 
+  fontWeight:"bold", 
+  borderRadius:"8px",
+  lineHeight:"130%",
+  ":hover":{
+    backgroundColor:"#46576d",
+    color: "#b1b1b1"
+    }
+}));
+
 
 export default function Header() {
 
@@ -99,8 +115,8 @@ export default function Header() {
           <Fade in={showProfileMenu}>
           <div className='profileMenu'>
               <h2>{userInformation.fname} {userInformation.lname}</h2>
-                  <button onClick={()=>{navigate('/editprofile')}}>Edit Profile</button>
-                  <button onClick={SignOutBtn}>Sign Out</button>
+                  <CustomButton onClick={()=>{navigate('/editprofile');setShowProfileMenu(false)}}>Edit Profile</CustomButton>
+                  <CustomButton onClick={SignOutBtn}>Sign Out</CustomButton>
             </div>
           </Fade>
             
@@ -127,8 +143,8 @@ export default function Header() {
           <Fade in={showProfileMenu}>
           <div className='profileMenu'>
               <h2>{userInformation.fname} {userInformation.lname}</h2>
-                  <button onClick={()=>{navigate('/editprofile');setShowProfileMenu(false)}}>Edit Profile</button>
-                  <button onClick={SignOutBtn}>Sign Out</button>
+                  <CustomButton onClick={()=>{navigate('/editprofile');setShowProfileMenu(false)}}>Edit Profile</CustomButton>
+                  <CustomButton onClick={SignOutBtn}>Sign Out</CustomButton>
             </div>
           </Fade>
             

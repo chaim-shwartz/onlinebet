@@ -36,22 +36,6 @@
     font-size: 3vmin;
 }
 
-.popWindow button{
-    border-radius: 8px;
-    font-size: max(1.6vmax,15px);
-    background-color: #86a3b4;
-    color: #4a4a4a;
-    font-weight: bold;
-    box-shadow: 0px 0px 8px 3px #72727267;
-    border-width: 1px;
-    border-color: #6e57367c;
-    /* margin: 3%; */
-}
-
-.popWindow button:hover{
-    background-color: #46576d;
-    color: #b1b1b1;
-}
 .popWindow .btns{
     display: flex;
     width: 50%;

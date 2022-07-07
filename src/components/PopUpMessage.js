@@ -1,7 +1,23 @@
-import { Fade } from '@mui/material';
+import { Button, Fade, styled } from '@mui/material';
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import "../styles/PopUpMessage.css"
+
+const CustomButton = styled(Button)(({ theme }) => ({
+  padding:"0.5% 2%",
+  margin: "1%",
+  border:"0.5px solid #46576d",
+  fontSize: 'max(1.6vmax,15px)',
+  backgroundColor:"#86a3b4", 
+  color:"#4a4a4a", 
+  fontWeight:"bold", 
+  borderRadius:"8px",
+  lineHeight:"130%",
+  ":hover":{
+    backgroundColor:"#46576d",
+    color: "#b1b1b1"
+    }
+}));
 
 export default function PopUpMessage(props) {
     const navigate = useNavigate(); 
@@ -29,8 +45,8 @@ export default function PopUpMessage(props) {
                 <hr/>
                 <p>{props.explain}</p>
                 <div className='btns'>
-                  <button onClick={continueBtn}>{props.btnName}</button>
-                  {props.secondBtnName?<button onClick={secondBtn}>{props.secondBtnName}</button>:null}
+                  <CustomButton onClick={continueBtn}>{props.btnName}</CustomButton>
+                  {props.secondBtnName?<CustomButton onClick={secondBtn}>{props.secondBtnName}</CustomButton>:null}
                 </div>
       </div>
     </Fade>
