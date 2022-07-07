@@ -145,22 +145,16 @@
     padding:0 2%;
 }
 
-.details button{
-    border-radius: 8px;
-    font-size: max(1.6vmax,15px);
-    background-color: #86a3b4;
-    color: #4a4a4a;
-    font-weight: bold;
-    box-shadow: 0px 0px 8px 3px #72727267;
-    border-width: 1px;
-    border-color: #6e57367c;
-    margin-bottom: 1%;
-    margin-right: 1%;
+.salePage .soldBtn{
+    flex-grow: 1;
+    padding:0 2%;
+    margin: auto;
 }
 
-.details button:hover{
-    background-color: #46576d;
-    color: #b1b1b1;
+.salePage .soldImg{
+    position: absolute;
+    max-width: 10vmax;
+    margin-top: -4.5%;
 }
 
 .details input{ 

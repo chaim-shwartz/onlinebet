@@ -50,6 +50,11 @@
 .saleCard p{
 }
 
+.sales .soldImg{
+    position: absolute;
+    max-width: 7vmax;
+}
+
 .saleHeader{
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;

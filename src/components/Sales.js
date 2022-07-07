@@ -2,7 +2,7 @@ import { Fade, Zoom } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import "../styles/Sales.css"
-import SalePage from './SalePage';
+import "../images/soldImg.png"
 
 export default function Sales(props) {
     const [salesArr, setsalesArr] = useState([]);
@@ -65,6 +65,8 @@ export default function Sales(props) {
                         return(
                             <div key={index} className='saleCard'>
                                 <div onClick={()=>clickOnCard(card.saleid)} style={{height:"100%", marginBottom:"30px",display: "grid"}}>
+                                {card.sold?<img className='soldImg' src={require('../images/soldImg.png')}></img>:null}
+
                                     <div className='saleHeader'>
                                         <div className='textH'>
                                             <h1>{card.name}</h1>
