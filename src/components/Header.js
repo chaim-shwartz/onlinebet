@@ -165,7 +165,7 @@ export default function Header() {
         <div className='menuPhone'>
           <div className='headSection'>
               <h2>Menu</h2>
-              <IconButton sx={{padding: "0 !important"}}  onClick={clickMenu}><ClearIcon sx={{ color: '#282c34'}}/></IconButton>
+              <Button sx={{backgroundColor:"#86a3b4",minWidth:"0",borderRadius:"8px"}}  onClick={clickMenu}><ClearIcon sx={{ color: '#282c34'}}/></Button>
           </div>
           <MenuButton onClick={()=>{navigate('/');clickMenu()}}>Home</MenuButton>
           <MenuButton onClick={()=>{navigate('/mysales');clickMenu()}}>My sales</MenuButton>
