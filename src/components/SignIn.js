@@ -96,7 +96,7 @@ function SignIn() {        // the login page
                 //     popUpExplain: data.reason
                 // })
             }
-            // sethideLoading(true)
+            sethideLoading(true)
         })   
         // setEmailInput("")
         setpasswordInput("")
