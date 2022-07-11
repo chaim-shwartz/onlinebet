@@ -28,10 +28,14 @@ function SignIn() {        // the login page
 
     useEffect(() => {  //to check if there is cookies and then to log in for the user and go to the home page
         if(cookies.get("emailAccount")!==undefined){
-            navigate(-1)
+            if (navigate.length===0) {
+                navigate("/")
+            } else {
+                navigate(-1)
+            }
         }
     },);
-    
+
     useEffect(() => {  //function to enable the login btn if the email is good and there is a password
         if (checkEmailValidate(emailInput) && passwordInput!=="") {
             setenableLoginBtn(false)
@@ -85,7 +89,11 @@ function SignIn() {        // the login page
             if (data.status==="success") {
                 cookies.set("emailAccount",{fname: data.fname, lname: data.lname, email: data.email, password: data.password},{ path: '/' })
                 notify.show(data.status+": "+data.message, "success", 4000);
-                navigate(-1)
+                if (navigate.length===0) {
+                    navigate("/")
+                } else {
+                    navigate(-1)
+                }
             }
             else if(data.status==="error"){
                 // setshowPopUp(true)
