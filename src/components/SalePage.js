@@ -6,6 +6,7 @@ import "../styles/salePage.css"
 import Chat from './Chat';
 import DeleteIcon from '@mui/icons-material/Delete';
 import PopUpMessage from './PopUpMessage';
+import { notify } from 'react-notify-toast';
 
 const CustomButton = styled(Button)(({ theme }) => ({
   padding:"0.5% 2%",
@@ -134,7 +135,8 @@ export default function SalePage() {
         .then(res=>res.json())
         .then(data=>{
           console.log(data.message)
-          window.location.reload()
+          navigate(-1)
+          notify.show('Sale deleted!' , "success", 3000);
     })
   }
 
@@ -165,6 +167,8 @@ export default function SalePage() {
             btnName:"OK",
             navigate:0,
           })
+          notify.show('Sale closed!' , "success", 3000);
+
           // window.location.reload()
     })
 

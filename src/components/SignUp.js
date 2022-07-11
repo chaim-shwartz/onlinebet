@@ -106,7 +106,7 @@ function SignUp() {
     }
 
     const backToLogin=()=>{ // return to login when click on "back"
-        navigate("/signin");    
+        navigate("/signin", { replace: true });
     }
 
 

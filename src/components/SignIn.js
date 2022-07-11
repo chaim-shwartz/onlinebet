@@ -2,7 +2,7 @@ import react, { useEffect, useState } from "react";
 import '../styles/signIn.css'
 // import GoogleLogin, { GoogleLogout } from 'react-google-login';
 import Cookies from 'universal-cookie';
-import { useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import PopUpMessage from "./PopUpMessage";
 // import NavBar from "./NavBar";
 import Notifications, {notify} from 'react-notify-toast';
@@ -18,6 +18,7 @@ function SignIn() {        // the login page
     const [hideLoading, sethideLoading] = useState(true);
     const [enableLoginBtn, setenableLoginBtn] = useState(true);
     const navigate = useNavigate(); 
+    const location = useLocation()
     const cookies = new Cookies();
     const [popUpContent, setpopUpContent] = useState({              
         registrationSuccess: false,
@@ -83,19 +84,19 @@ function SignIn() {        // the login page
             console.log(data)
             if (data.status==="success") {
                 cookies.set("emailAccount",{fname: data.fname, lname: data.lname, email: data.email, password: data.password},{ path: '/' })
-                notify.show(data.status+": "+data.message, "success", 6000);
-                navigate('/signup')
+                notify.show(data.status+": "+data.message, "success", 4000);
+                navigate(-1)
             }
             else if(data.status==="error"){
                 // setshowPopUp(true)
                 // let myColor = { background: '#0E1717', text: "#FFFFFF" };
-                notify.show(data.status+": "+data.message, "error", 6000);
+                notify.show(data.status+": "+data.message, "error", 5000);
                 // setpopUpContent({
                 //     popUpTitle: data.title,
                 //     popUpExplain: data.reason
                 // })
             }
-            sethideLoading(true)
+            // sethideLoading(true)
         })   
         // setEmailInput("")
         setpasswordInput("")
@@ -172,7 +173,7 @@ function SignIn() {        // the login page
                     {/* {showLogoutBtnGoogle?
                     
                     :null} */}
-                    <p>Don't have an account? <a href="/signup">Sign Up</a> to do it now!</p>
+                    <p>Don't have an account? <Link to="/signup">Sign Up</Link> to do it now!</p>
                 </div>
             </form>:
             <PopUpMessage 

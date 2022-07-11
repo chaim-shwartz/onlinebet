@@ -25,11 +25,11 @@ export default function PopUpMessage(props) {
 
     const continueBtn=()=>{// the button in the pop up window for going to login
       if (props.navigate!==undefined) {
-        navigate(props.navigate);
+        navigate(props.navigate,{replace:true});
       }
-      if (props.refresh) {
-        window.location.reload();
-      }
+      // if (props.refresh) {
+      //   window.location.reload();
+      // }
     }
 
     const secondBtn = () =>{
