@@ -20,7 +20,7 @@
     z-index: 2;
 }
 
-.sales button{
+/* .sales button{
     border-radius: 8px;
     font-size: max(1.6vmax,15px);
     background-color: #86a3b4;
@@ -29,8 +29,7 @@
     box-shadow: 0px 0px 8px 3px #72727267;
     border-width: 1px;
     border-color: #6e57367c;
-    /* margin-bottom: 5%; */
-}
+} */
 
 .saleCard{
     max-width: 500px;
@@ -41,10 +40,8 @@
     flex-basis: 30%;
     margin: 1.5% 1%;    
     position: relative;
-    /* padding-bottom: 2%; */
     background-color: #9c9c9c;
-    transition: transform .4s; /* Animation */
-
+    transition: transform .4s;/*  Animation */
 }
 
 .saleCard p{
@@ -106,15 +103,13 @@
     width: 90%;
     position: absolute;
     bottom: max(3.5%,10px);
-    /* right: 0; */
-    /* margin: -1.5% -1%; */
+
     align-self: flex-end;
-    /* padding: 10px; */
     max-height: 30px;
     margin-bottom: 1vmax !important;
     margin-right: 1vmin !important;
     margin-top: 5px !important;
-    transition: transform .4s; /* Animation */
+    transition: transform .4s; /*Animation */
 
 }
 

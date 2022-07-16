@@ -6,12 +6,29 @@ import {Link, useLocation, useNavigate } from "react-router-dom";
 import PopUpMessage from "./PopUpMessage";
 // import NavBar from "./NavBar";
 import {notify} from 'react-notify-toast';
+import { Button, Fade, styled } from "@mui/material";
+
+const CustomButton = styled(Button)(({ theme }) => ({
+    // padding:"0.5% 2%",
+    margin: "1%",
+    border:"0.5px solid #46576d",
+    fontSize: 'max(1.3vmax,10px)',
+    backgroundColor:"#86a3b4", 
+    color:"#4a4a4a", 
+    fontWeight:"bold", 
+    borderRadius:"8px",
+    lineHeight:"100%",
+    ":hover":{
+      backgroundColor:"#46576d",
+      color: "#b1b1b1"
+      }
+  }));
 
 
 function SignIn() {        // the login page  
     // const clientId=process.env.REACT_APP_CLIENT_ID; //google client id
     // const [showLoginBtnGoogle, setShowLoginBtnGoogle] = useState(true) //show login button
-    const [showLoginBtnEmail,setShowLoginBtnEmail] =useState(true) //toggle between button for login with email to login box
+    const [showLoginBtnEmail,setShowLoginBtnEmail] =useState(false) //toggle between button for login with email to login box
     const [emailInput, setEmailInput] = useState("");
     const [passwordInput, setpasswordInput] = useState("")
     const [showPopUp, setshowPopUp] = useState(false);
@@ -155,8 +172,8 @@ function SignIn() {        // the login page
     
       
     return(
-        <div className="signin">
-            <h2 hidden={hideLoading}>loading...</h2>
+        <Fade in><div className="signin">
+            <Fade hidden={hideLoading} in={!hideLoading}><h2>loading...</h2></Fade>
             {/* <h1>Auction</h1> */}
             {!showPopUp?
             <form hidden={!hideLoading} method="post">
@@ -164,18 +181,20 @@ function SignIn() {        // the login page
                     <h1>Sign In</h1>
                     <hr/>
                     {showLoginBtnEmail?
-                    <button onClick={loginWithEmail}>Login With Email</button>
+                    <CustomButton onClick={loginWithEmail}>Login With Email</CustomButton>
                     :
-                    <div className="loginWithEmail">
-                        <p>Email</p>
-                        <input type={"email"} placeholder="Your Email:"name="email" value={emailInput} onChange={handleChange}></input>
-                        <p>Password</p>
-                        <input type={"password"} placeholder="Your Password:" name="password" value={passwordInput} onChange={handleChange}></input>
-                        <div className="buttonsCancelLogin">
-                            <button disabled={enableLoginBtn} onClick={loginWithEmailBtn}>Login</button>
-                            <button onClick={cnacelShowLogin}>Cancel</button>
+                    <Fade in>
+                        <div className="loginWithEmail">
+                            <p>Email</p>
+                            <input autoFocus type={"email"} placeholder="Your Email:"name="email" value={emailInput} onChange={handleChange}></input>
+                            <p>Password</p>
+                            <input type={"password"} placeholder="Your Password:" name="password" value={passwordInput} onChange={handleChange}></input>
+                            <div className="buttonsCancelLogin">
+                                <CustomButton disabled={enableLoginBtn} onClick={loginWithEmailBtn}>Login</CustomButton>
+                                <CustomButton onClick={cnacelShowLogin}>Cancel</CustomButton>
+                            </div>
                         </div>
-                    </div>
+                    </Fade>
                     }
 
                     {/* {showLoginBtnGoogle?
@@ -204,6 +223,7 @@ function SignIn() {        // the login page
             />
             }
         </div>
+        </Fade>
     )
 
 }

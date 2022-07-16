@@ -1,8 +1,24 @@
-import { Fade, Zoom } from '@mui/material';
+import { Button, Fade, styled, Zoom } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import "../styles/Sales.css"
 import "../images/soldImg.png"
+
+const CustomButton = styled(Button)(({ theme }) => ({
+    // padding:"0.5% 2%",
+    margin: "1%",
+    border:"0.5px solid #46576d",
+    fontSize: 'max(1.3vmax,15px)',
+    backgroundColor:"#86a3b4", 
+    color:"#4a4a4a", 
+    fontWeight:"bold", 
+    borderRadius:"8px",
+    lineHeight:"130%",
+    ":hover":{
+      backgroundColor:"#46576d",
+      color: "#b1b1b1"
+      }
+  }));
 
 export default function Sales(props) {
     const [salesArr, setsalesArr] = useState([]);
@@ -94,7 +110,7 @@ export default function Sales(props) {
                     })}
                     </div>
                     <Fade in={!props.hide}><h2 hidden={props.hide}>Loading more items...</h2></Fade>
-                    <Fade in={salesArr.length>0}><button onClick={moreSalesBtn}>Show More</button></Fade>
+                    <Fade in={salesArr.length>0}><CustomButton onClick={moreSalesBtn}>Show More</CustomButton></Fade>
                 </div>
             </Fade>
         </div>

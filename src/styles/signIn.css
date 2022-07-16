@@ -25,7 +25,7 @@
 
 }
 
-.loginBox button{
+/* .loginBox button{
     border-radius: 8px;
     font-size: max(1.6vmax,15px);
     background-color: #86a3b4;
@@ -46,7 +46,7 @@
 .loginBox button:hover{
     background-color: #46576d;
     color: #b1b1b1;
-}
+} */
 
 .loginBox input{
     background-color: #d4d4d4;
