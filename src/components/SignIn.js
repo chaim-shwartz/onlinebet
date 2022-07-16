@@ -2,10 +2,10 @@ import react, { useEffect, useState } from "react";
 import '../styles/signIn.css'
 // import GoogleLogin, { GoogleLogout } from 'react-google-login';
 import Cookies from 'universal-cookie';
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import {Link, useLocation, useNavigate } from "react-router-dom";
 import PopUpMessage from "./PopUpMessage";
 // import NavBar from "./NavBar";
-import Notifications, {notify} from 'react-notify-toast';
+import {notify} from 'react-notify-toast';
 
 
 function SignIn() {        // the login page  
@@ -18,7 +18,8 @@ function SignIn() {        // the login page
     const [hideLoading, sethideLoading] = useState(true);
     const [enableLoginBtn, setenableLoginBtn] = useState(true);
     const navigate = useNavigate(); 
-    const location = useLocation()
+    const location = useLocation(); 
+
     const cookies = new Cookies();
     const [popUpContent, setpopUpContent] = useState({              
         registrationSuccess: false,
@@ -28,13 +29,21 @@ function SignIn() {        // the login page
 
     useEffect(() => {  //to check if there is cookies and then to log in for the user and go to the home page
         if(cookies.get("emailAccount")!==undefined){
-            if (navigate.length===0) {
-                navigate("/")
-            } else {
-                navigate(-1)
+            sethideLoading(false)
+
+            if(location.state!==null){
+                if(location.state.comeFromSite){
+                    navigate('/', {replace: true})
+                    navigate(location.state.path)
+                }
             }
+            else{
+                navigate('/', {replace: true})
+            }
+
         }
     },);
+    console.log()
 
     useEffect(() => {  //function to enable the login btn if the email is good and there is a password
         if (checkEmailValidate(emailInput) && passwordInput!=="") {
@@ -89,11 +98,14 @@ function SignIn() {        // the login page
             if (data.status==="success") {
                 cookies.set("emailAccount",{fname: data.fname, lname: data.lname, email: data.email, password: data.password},{ path: '/' })
                 notify.show(data.status+": "+data.message, "success", 4000);
-                if (navigate.length===0) {
-                    navigate("/")
-                } else {
-                    navigate(-1)
-                }
+                // if(location.state!==null){
+                //     if(location.state.comeFromSite){
+                        // navigate(0)
+                //     }
+                // }
+                // else{
+                //     navigate('/')
+                // }
             }
             else if(data.status==="error"){
                 // setshowPopUp(true)

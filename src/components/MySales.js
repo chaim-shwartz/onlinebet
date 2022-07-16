@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import "../styles/mySales.css"
 import Cookies from 'universal-cookie';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 
 import { Fade } from '@mui/material';
 import Sales from './Sales';
@@ -10,7 +10,7 @@ import Sales from './Sales';
 
 export default function MySales() {
     const navigate = useNavigate(); 
-
+    const location = useLocation(); 
     const [salesAmount, setSalesAmount] = useState(9); //how much sales i want to get from the api
     const cookies = new Cookies();
     const [userEmail, setuserEmail] = useState();
@@ -29,7 +29,7 @@ export default function MySales() {
 
     useEffect(() => {
         if(cookies.get("emailAccount")===undefined){
-            navigate('/signin')
+            navigate('/signin',{replace: true, state: {comeFromSite: true, path: location.pathname}})
             
         }
         else{

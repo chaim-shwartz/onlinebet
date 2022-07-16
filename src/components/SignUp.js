@@ -1,6 +1,6 @@
 import react, { useEffect, useState } from "react";
 import "../styles/signUp.css"
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import PasswordStrengthBar from 'react-password-strength-bar'; //password strong bar
 import PasswordChecklist from "react-password-checklist";// password check if a good one and stay in all requirements
@@ -11,6 +11,7 @@ import Cookies from "universal-cookie";
 
 function SignUp() {  
     const navigate = useNavigate(); 
+    const location = useLocation(); 
     const cookies = new Cookies();
 
     const [userInfo, setuserInfo] = useState({
@@ -36,7 +37,7 @@ function SignUp() {
 
     useEffect(() => {  //to check if there is cookies and then to log in for the user and go to the home page
         if(cookies.get("emailAccount")!==undefined){
-            navigate(-1)
+                navigate(-1)
         }
     },);
 
@@ -106,7 +107,7 @@ function SignUp() {
     }
 
     const backToLogin=()=>{ // return to login when click on "back"
-        navigate("/signin", { replace: true });
+        navigate("/signin", { replace: true});
     }
 
 

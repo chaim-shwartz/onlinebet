@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import "../styles/salesHomepage.css"
 import Cookies from 'universal-cookie';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Fade, Zoom } from '@mui/material';
 import Sales from './Sales'
 
@@ -14,6 +14,7 @@ export default function SalesHomepage() {
     const [hide, setHide] = useState(true);
     const [salesArr, setsalesArr] = useState([]);
     const navigate = useNavigate(); 
+    const location = useLocation(); 
     const [salesAmount, setSalesAmount] = useState(9); //how much sales i want to get from the api
 
 
@@ -21,7 +22,7 @@ export default function SalesHomepage() {
     useEffect(() => {
         //to check if there is no cookies and then go to login page
         if(cookies.get("emailAccount")===undefined){
-            navigate('/signin')
+            navigate('/signin',{replace: true, state: {comeFromSite: true, path: location.pathname}})
         }
         else{
             setuserEmail(cookies.get("emailAccount").email)

@@ -95,8 +95,8 @@ export default function Header() {
   
   const SignOutBtn = () =>{
     cookies.remove("emailAccount", { path: '/' })
-    navigate('/signin')
-    notify.show("You're logged out.", "warning", 6000);
+    navigate('/signin',{state: {comeFromSite: true}})
+    notify.show("You're logged out.", "warning", 4000);
 
   }
 

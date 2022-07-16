@@ -1,6 +1,6 @@
 import { Button, styled } from '@mui/material';
 import React, { useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 import "../styles/salePage.css"
 import Chat from './Chat';
@@ -33,6 +33,7 @@ export default function SalePage() {
   const [theSale, setTheSale] = useState({}); // the sale that the user get in
   const cookies = new Cookies(); // the cookies
   const navigate = useNavigate(); 
+  const location = useLocation(); 
   const { id } = useParams(); // the id of the sale from the url path
   const [newPrice, setNewPrice] = useState(0);  //the price that the user offer
   const [hideTheOffer, sethideTheOffer] = useState(true);// to hide the offer if there is not
@@ -41,7 +42,7 @@ export default function SalePage() {
   const [popupDetails, setpopupDetails] = useState();
   useEffect(() => {  // the function that check that there is cookies and set the user details
     if(cookies.get("emailAccount")===undefined){
-        navigate('/signin')
+      navigate('/signin',{replace: true, state: {comeFromSite: true, path: location.pathname}})
         
     }
     else{

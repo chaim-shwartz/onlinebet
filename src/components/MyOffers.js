@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Cookies from 'universal-cookie';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Fade } from '@mui/material';
 import Sales from './Sales';
 import "../styles/MyOffers.css"
@@ -10,6 +10,7 @@ export default function MyOffers() {
     const [salesArr, setsalesArr] = useState([]);
     const cookies = new Cookies();
     const navigate = useNavigate(); 
+    const location = useLocation(); 
     const [userEmail, setuserEmail] = useState();
     const [userPassword, setuserPassword] = useState();
     const [hide, setHide] = useState(true);
@@ -19,7 +20,7 @@ export default function MyOffers() {
 
     useEffect(() => { // to check if the cookies is here and set the user details
         if(cookies.get("emailAccount")===undefined){
-            navigate('/signin')
+            navigate('/signin',{replace: true, state: {comeFromSite: true, path: location.pathname}})
         }
         else{
             setuserEmail(cookies.get("emailAccount").email)

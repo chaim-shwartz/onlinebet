@@ -1,6 +1,6 @@
 import { Box, Button, Fade, TextField } from '@mui/material';
 import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 import "../styles/editProfile.css"
 import PopUpMessage from './PopUpMessage';
@@ -9,6 +9,7 @@ export default function EditProfile() {
     const [userEmail, setuserEmail] = useState(0);
     const [userPassword, setuserPassword] = useState();
     const navigate = useNavigate(); 
+    const location = useLocation(); 
     const cookies = new Cookies();
     const [userDetails, setuserDetails] = useState(0);
     const [editDetails, seteditDetails] = useState({
@@ -24,7 +25,7 @@ export default function EditProfile() {
 
     useEffect(() => {
         if(cookies.get("emailAccount")===undefined){
-            navigate('/signin')
+            navigate('/signin',{replace: true, state: {comeFromSite: true, path: location.pathname}})
         }
         else{
             setuserEmail(cookies.get("emailAccount").email)

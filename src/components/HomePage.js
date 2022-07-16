@@ -15,7 +15,7 @@ export default function HomePage() {
   useEffect(() => {  //to check if there is no cookies and then go to login page
     if(cookies.get("emailAccount")===undefined){
       // alert("ksdjfh")
-      navigate('/signin')
+      navigate('/signin', {replace: true})
     }
   },);
 

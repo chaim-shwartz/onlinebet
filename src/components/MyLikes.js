@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Cookies from 'universal-cookie';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Fade } from '@mui/material';
 import Sales from './Sales';
 import "../styles/MyLikes.css"
@@ -9,6 +9,8 @@ export default function MyLikes() {
     const [salesArr, setsalesArr] = useState([]);
     const cookies = new Cookies();
     const navigate = useNavigate(); 
+    const location = useLocation(); 
+
     const [userEmail, setuserEmail] = useState();
     const [userPassword, setuserPassword] = useState();
     const [hide, setHide] = useState(true);
@@ -18,7 +20,7 @@ export default function MyLikes() {
 
     useEffect(() => {
         if(cookies.get("emailAccount")===undefined){
-            navigate('/signin')
+            navigate('/signin',{replace: true, state: {comeFromSite: true, path: location.pathname}})
         }
         else{
             setuserEmail(cookies.get("emailAccount").email)
