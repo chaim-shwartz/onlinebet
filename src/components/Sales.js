@@ -72,7 +72,7 @@ export default function Sales(props) {
 
   return (
     <div>
-        <h2 hidden={props.hide}>Loading your items...</h2>
+        {/* <h2 hidden={props.hide}>Loading your items...</h2> */}
 
         <Fade in={salesArr.length!==0}>
                 <div className='sales'>
@@ -109,10 +109,11 @@ export default function Sales(props) {
                         )
                     })}
                     </div>
-                    <Fade in={!props.hide}><h2 hidden={props.hide}>Loading more items...</h2></Fade>
-                    <Fade in={salesArr.length>0}><CustomButton onClick={moreSalesBtn}>Show More</CustomButton></Fade>
+                    <CustomButton hidden={!salesArr.length>0} onClick={moreSalesBtn}>Show More</CustomButton>
                 </div>
             </Fade>
+            <Fade in={!props.hide}><h2>Loading more items...</h2></Fade>
+
         </div>
     
     
