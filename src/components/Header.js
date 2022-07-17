@@ -81,7 +81,7 @@ export default function Header() {
       setThereIsCookies(false)
 
     }
-    console.log(location)
+    // console.log(location)
   },[location]);
   
   const mouseLeaveTheHeader=()=>{

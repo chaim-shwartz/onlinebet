@@ -9,6 +9,7 @@ import Cookies from 'universal-cookie';
 
 import { useBeforeunload } from 'react-beforeunload';
 import { useLocation } from 'react-router-dom';
+import { Fade } from '@mui/material';
 
 const PORT_SOCKET = "https://onlinebet.herokuapp.com";
 let socket;
@@ -16,11 +17,11 @@ let socket;
 
 export const initiateSocket = (room) => {
     socket = io(PORT_SOCKET);
-    console.log(`Connecting socket...`);
+    // console.log(`Connecting socket...`);
     if (socket && room) socket.emit('join', room);
 }
 export const disconnectSocket = () => {
-    console.log('Disconnecting socket...');
+    // console.log('Disconnecting socket...');
     if(socket) socket.disconnect();
 }
 
@@ -111,7 +112,7 @@ export default function Chat(props) {
         })
     }, [PORT_SOCKET]);
                 
-    console.log(localArray)
+    // console.log(localArray)
 
 
 
@@ -143,7 +144,7 @@ export default function Chat(props) {
         </div>
         <div className='chatBoxOver'>
             <div className='chatBox'>
-                <div id='divscroll' className='messages'>
+                <Fade in><div id='divscroll' className='messages'>
                     {DBarray.map((msg,index)=>{
                         if(msg.who===userEmail){
                         return(
@@ -172,7 +173,7 @@ export default function Chat(props) {
                         
                     })}
                     
-                </div>
+                </div></Fade>
                 
             </div>
             <div className='createMsg'>

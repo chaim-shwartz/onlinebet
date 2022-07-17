@@ -67,14 +67,14 @@ export default function SalePage() {
                         }else if (data.status==="success") {
                           setTheSale(data.message)
                         }
-                        console.log(data)
+                        // console.log(data)
 
                     })
   }, [userEmail]);
 
   useEffect(() => {
     if (theSale.admin===userEmail&&userEmail!==undefined) {
-      console.log(theSale.admin, userEmail)
+      // console.log(theSale.admin, userEmail)
       setifUserIsAdmin(true)
     }
   }, [theSale]);
@@ -86,7 +86,7 @@ export default function SalePage() {
   }
 
   const handleChangeInput=(e)=>{ // this function set the new price from the custom user input
-    console.log(e.target.value)
+    // console.log(e.target.value)
     if (e.target.value>=theSale.price+10) {
       setNewPrice(e.target.value)
     }
