@@ -71,7 +71,8 @@ export default function Chat(props) {
 
 
 
-    const sendMsg = () => {
+    const sendMsg = (e) => {
+        e.preventDefault();
         socket.emit("sendMsg", {msg: {email: userEmail, name: userName, content: message.content, time: date.getHours()+":"+(date.getMinutes()<10?'0':'') + date.getMinutes()}, socketID: socket.id});
         setlocalArrary(prev=>
             [...prev,
@@ -178,7 +179,7 @@ export default function Chat(props) {
                 <div className="msgInputBox">
                     <form className='msgInput'>
                         <textarea value={inputMsg} onChange={inputMsgHandleChange} spellCheck="false" rows={1} autoComplete='none' placeholder='Type something...'></textarea>
-                        <IconButton onClick={sendMsg} variant="contained"><SendIcon /></IconButton>
+                        <IconButton type='submit' onClick={sendMsg} variant="contained"><SendIcon /></IconButton>
                     </form>
                 </div>
             </div>
