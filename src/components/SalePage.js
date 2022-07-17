@@ -52,7 +52,6 @@ export default function SalePage() {
     
 }, );
 
-
   useEffect(() => {  // the function that get the sale from the DB 
     fetch("https://onlineauctionapi.herokuapp.com/getsale",{
                         method:"post",
@@ -276,7 +275,7 @@ export default function SalePage() {
           </div>
           <div className='horizontal_hr'></div>
           <div className='theChat'>
-            <Chat/>
+            <Chat chatID={theSale.chat}/>
           </div>
 
         </div>}

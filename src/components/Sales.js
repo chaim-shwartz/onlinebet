@@ -65,7 +65,7 @@ export default function Sales(props) {
     const clickOnCard=(saleid)=>{  // the function when you click on the sale to see the details
         console.log(saleid)
         navigate("/salepage/"+saleid)
-        
+        window.location.reload()        
     }
 
 

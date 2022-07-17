@@ -34,10 +34,21 @@ const io = socket(server, {
     }
   });
 
-  io.on('connection',function (socket) {
-      console.log("we arr connect!")
-      socket.on('sendMsg', (msg)=>{
-        console.log(msg)
+io.on('connection',function (socket) {
+    console.log("we arr connect!")
+    socket.on('join',chatID=>{
+      socket.join(chatID);
+      socket.on('sendMsg', res=>{
+        console.log(res)
+        io.to(chatID).emit('returnSendMsg',res)
       })
-      
-  })
+    })
+    socket.on("disconnecting", () => {
+      console.log(socket.rooms); // the Set contains at least the socket ID
+    });
+    socket.on("disconnect", () => {
+       // the Set contains at least the socket ID
+    });
+    
+    
+})
