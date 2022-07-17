@@ -227,7 +227,7 @@ function SignUp() {
                     popUpTitle: data.status,
                     popUpExplain: data.message
                 })
-                console.log(popUp)
+                // console.log(popUp)
             }
         })   
         setuserInfo({

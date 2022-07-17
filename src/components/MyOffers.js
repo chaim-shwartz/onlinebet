@@ -41,7 +41,7 @@ export default function MyOffers() {
             .then(res=>res.json())
             .then(data=>
                 {   
-                    console.log(data)
+                    // console.log(data)
                     if (data.status==="success") {
                         setsalesArr(data.message)
                         setHide(true)

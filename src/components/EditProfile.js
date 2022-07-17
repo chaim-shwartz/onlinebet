@@ -37,7 +37,7 @@ export default function EditProfile() {
             })
             .then(res=>res.json())
             .then(data=>{
-                console.log(data)
+                // console.log(data)
                 if (data.status === "success") {
                     setuserDetails(data.message)
                     seteditDetails(prev=>({
@@ -82,7 +82,7 @@ export default function EditProfile() {
     }
 
     useEffect(() => {
-        console.log(editDetails)
+        // console.log(editDetails)
         if (editDetails.fname!==""&&editDetails.lname!==""&&editDetails.password!=="") {
             setdisableEditBtn(false)
         }

@@ -49,7 +49,7 @@ function SignIn() {        // the login page
             sethideLoading(false)
 
             if(location.state!==null){
-                console.log(location.state)
+                // console.log(location.state)
                 if(location.state.comeFromSite){
                     navigate('/', {replace: true})
                     navigate(location.state.path)
@@ -112,7 +112,7 @@ function SignIn() {        // the login page
         
         .then(res=>res.json())
         .then(data=>{
-            console.log(data)
+            // console.log(data)
             if (data.status==="success") {
                 cookies.set("emailAccount",{fname: data.fname, lname: data.lname, email: data.email, password: data.password},{ path: '/' })
                 notify.show(data.status+": "+data.message, "success", 4000);
