@@ -18,7 +18,14 @@
 }
 
 .footer .chaimR{
-    
+    margin-right: 1%;
+    padding-right: 1%;
+
+}
+
+.footer .yakovR{
+    margin-left: 1%;
+    padding-left: 1%;
 }
 
 .footer .item{
@@ -30,7 +37,8 @@
 .footer img{
     border-radius: 8px;
     margin: 3%;
-    width: min(20%,35px);
+    width: min(20%,40px);
+    min-width: 40px;
 }
 .footer h4{
     margin: 0;

@@ -27,12 +27,12 @@ export default function Footer() {
           <h3>Yakov</h3>
           <div className='item'>
               <img src={require('../images/linkedin.png')}/>
-              <a target='blank' href='https://www.linkedin.com/in/chaim-shwartz'><h4>LinkedIn</h4></a>
+              <a target='blank' href='https://www.linkedin.com/in/yakov-bader'><h4>LinkedIn</h4></a>
             </div>
 
             <div className='item'>
               <img src={require('../images/gh.png')}/>
-              <a target='blank' href='https://github.com/chaim-shwartz'><h4>Git Hub</h4></a>
+              <a target='blank' href='https://github.com/Yakov-Bader'><h4>Git Hub</h4></a>
             </div>
           </div>
 
