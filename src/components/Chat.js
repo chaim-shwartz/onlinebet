@@ -10,7 +10,7 @@ import Cookies from 'universal-cookie';
 import { useBeforeunload } from 'react-beforeunload';
 import { useLocation } from 'react-router-dom';
 
-const PORT_SOCKET = "https://git.heroku.com/onlinebet.git";
+const PORT_SOCKET = "https://onlinebet.herokuapp.com";
 let socket;
 
 

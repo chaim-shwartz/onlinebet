@@ -21,17 +21,17 @@ app.get('/', function (req, res) {
 
 let port = process.env.PORT;
 console.log(process.env.PORT)
-  if (port==null||port == "") {
+  if (port == null || port == "") {
     port = 8000;
   }
 
 var server = app.listen(port, function () {
-    console.log("app is running on port 8000")
+    console.log("app is running: ", port)
   })
 
 const io = socket(server, {
     cors: {
-      origin: "https://main--auctionlive.netlify.app",
+      origin: "https://main--auctionlive.netlify.app/salepage/62c180f23296dd635cc9b9ff",
       // origin: "http://localhost:3000",
     }
   });
