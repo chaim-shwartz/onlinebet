@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "for the cha",
   "main": "app.js",
+  "proxy": "https://git.heroku.com/onlinebet.git",
+
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -14,5 +16,6 @@
     "express": "^4.18.1",
     "nodemon": "^1.19.4",
     "socket.io": "^4.5.1"
-  }
+  },
+  "devDependencies": {}
 }

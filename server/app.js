@@ -25,7 +25,7 @@ let port = process.env.PORT;
   }
 
 var server = app.listen(port, function () {
-    // console.log("app is running on port 8000")
+    console.log("app is running on port 8000")
   })
 
 const io = socket(server, {
