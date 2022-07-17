@@ -12,6 +12,7 @@ import MyLikes from './components/MyLikes';
 import SalePage from './components/SalePage';
 import MyOffers from './components/MyOffers';
 import EditProfile from './components/EditProfile';
+import Footer from './components/Footer';
 
 
 
@@ -30,5 +31,6 @@ root.render(
         <Route path='/editprofile' element={<EditProfile/>}/>
         <Route path='/salepage/:id' element={<SalePage/>}/>
       </Routes>
+      <Footer/>
     </Router>
 );

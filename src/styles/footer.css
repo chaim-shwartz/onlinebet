@@ -1,0 +1,37 @@
+.footer{
+    border-top: 1px solid darkgray;
+    padding-top: 1%;
+    padding-bottom: 4%;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+}
+.footer .resources{
+    display: flex;
+    width: 40%;
+    justify-content: center;
+    text-align: center;
+}
+
+.footer .chaimR{
+    
+}
+
+.footer .item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.footer img{
+    border-radius: 8px;
+    margin: 3%;
+    width: min(20%,35px);
+}
+.footer h4{
+    margin: 0;
+}
