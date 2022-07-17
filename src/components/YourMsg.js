@@ -1,15 +1,15 @@
 import React from 'react';
 import "../styles/msgStyle.css"
 
-const YourMsg = () => {
+const YourMsg = (props) => {
     return (
         <div>
             <div className='yourMsgContent'>
                 <div className='yourMsg'>
-                    <p>Hi Chaim, what's going on?</p>   
+                    <p>{props.content}</p>   
                 </div>
                 <div className='time'>
-                    <p>10:57PM</p>
+                    <p>{props.time}</p>
                 </div>
             </div>
 

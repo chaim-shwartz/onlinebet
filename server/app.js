@@ -25,26 +25,27 @@ let port = process.env.PORT;
   }
 
 var server = app.listen(port, function () {
-    console.log("app is running on port 8000")
+    // console.log("app is running on port 8000")
   })
 
 const io = socket(server, {
     cors: {
         origin: "http://localhost:3000",
+        
     }
   });
 
 io.on('connection',function (socket) {
-    console.log("we arr connect!")
+    // console.log("we arr connect!")
     socket.on('join',chatID=>{
       socket.join(chatID);
       socket.on('sendMsg', res=>{
-        console.log(res)
+        // console.log(res)
         io.to(chatID).emit('returnSendMsg',res)
       })
     })
     socket.on("disconnecting", () => {
-      console.log(socket.rooms); // the Set contains at least the socket ID
+      // console.log(socket.rooms); // the Set contains at least the socket ID
     });
     socket.on("disconnect", () => {
        // the Set contains at least the socket ID

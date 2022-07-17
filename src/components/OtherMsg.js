@@ -1,15 +1,18 @@
 import React from 'react'
 import "../styles/msgStyle.css"
 
-export default function OtherMsg() {
+export default function OtherMsg(props) {
   return (
     <div>
         <div className='otherMsgContent'>
+            <div className='sendName'>
+                <p>{props.name}</p>
+            </div>
             <div className='otherMsg'>
-                <p>Oh! it's Yaakov and i'm feeling good as always!</p>   
+                <p>{props.content}</p>   
             </div>
             <div className='time'>
-                <p>10:57PM</p>
+                <p>{props.time}</p>
             </div>
         </div>
     </div>

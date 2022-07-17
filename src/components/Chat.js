@@ -10,64 +10,180 @@ import Cookies from 'universal-cookie';
 import { useBeforeunload } from 'react-beforeunload';
 import { useLocation } from 'react-router-dom';
 
-// const PORT_SOCKET = "http://localhost:8000/";
+const PORT_SOCKET = "http://localhost:8000/";
 let socket;
 
-// export const initiateSocket = (room) => {
-//     socket = io(PORT_SOCKET);
-//     console.log(`Connecting socket...`);
-//     if (socket && room) socket.emit('join', room);
-// }
-// export const disconnectSocket = () => {
-//     console.log('Disconnecting socket...');
-//     if(socket) socket.disconnect();
-// }
+
+export const initiateSocket = (room) => {
+    socket = io(PORT_SOCKET);
+    console.log(`Connecting socket...`);
+    if (socket && room) socket.emit('join', room);
+}
+export const disconnectSocket = () => {
+    console.log('Disconnecting socket...');
+    if(socket) socket.disconnect();
+}
 
 export default function Chat(props) {
-    const cookies = new Cookies();    
+    
+    
+    const date = new Date();
+    const cookies = new Cookies(); 
+    const [firstTime, setfirstTime] = useState(true);   
     const location = useLocation()
     const [inputMsg, setinputMsg] = useState();
     const [userEmail, setuserEmail] = useState(cookies.get("emailAccount").email);
+    const [userName, setuserName] = useState(cookies.get("emailAccount").fname+" "+cookies.get("emailAccount").lname);
+    const [userPassword, setuserPassword] = useState(cookies.get("emailAccount").password);
+    const [message, setmessage] = useState();
+    const [DBarray, setDBarray] = useState([]);
+    const [localArray, setlocalArrary] = useState([]);
     
-    
-    // useEffect(() => {
-    //     initiateSocket(props.chatID)
-    // }, []);
-    const sendMsg=()=>{
-        socket.emit("sendMsg", {msg: inputMsg, socketID: socket.id});
+    useEffect(() => {
+       if (firstTime) {
+        disconnectSocket()
+        setfirstTime(false)
+       }
+    }, [firstTime]);
+    useEffect(() => {
+        initiateSocket(props.chatID)
+
+        fetch("https://onlineauctionapi.herokuapp.com/getchat",{
+            method:"post",
+            headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+            body: JSON.stringify({email: userEmail, password: userPassword, id: props.chatID})
+        })
+        
+        .then(res=>res.json())
+        .then(data=>{
+            // console.log(data)
+            setDBarray(data.message)
+            if (data.status==='error') {
+                alert(data.message)
+            }
+        })
+    }, []);
+
+    useEffect(() => {
+        updateScroll()
+
+    }, [DBarray,localArray]);
+
+
+
+    const sendMsg = () => {
+        socket.emit("sendMsg", {msg: {email: userEmail, name: userName, content: message.content, time: date.getHours()+":"+(date.getMinutes()<10?'0':'') + date.getMinutes()}, socketID: socket.id});
+        setlocalArrary(prev=>
+            [...prev,
+            {email: userEmail, name: userName ,content: message.content, time: date.getHours()+":"+(date.getMinutes()<10?'0':'') + date.getMinutes()}]
+        )
+        fetch("https://onlineauctionapi.herokuapp.com/message",{
+            method:"post",
+            headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+            body: JSON.stringify({email: userEmail, password: userPassword, id: props.chatID,time: date.getHours()+":"+(date.getMinutes()<10?'0':'') + date.getMinutes(),content:message.content})
+        })
+        
+        .then(res=>res.json())
+        .then(data=>{
+            // console.log(data)
+            if (data.status==='error') {
+                alert(data.message)
+            }
+        })
+        
+        setinputMsg('')
+        setmessage()
     }
-    // useEffect(() => {
-    //     socket.on('returnSendMsg',(res)=>{
-    //         if (res.socketID!==socket.id) {
-    //             console.log(res)
-    //         }
-    //     })
-    // }, [PORT_SOCKET]);
+
+
+
+
+    useEffect(() => {
+        socket.on('returnSendMsg',(res)=>{
+            if (res.msg.email!==userEmail) {
+                setlocalArrary(prev=>
+                    [...prev,
+                    {name: res.msg.name ,content: res.msg.content, time:res.msg.time}]
+                )
+            }
+            console.log(res) 
+        })
+    }, [PORT_SOCKET]);
+                
+    console.log(localArray)
+
 
 
     const inputMsgHandleChange = (e) => {
         setinputMsg(e.target.value)
+        setmessage(prev=>({
+            ...prev,
+            content: e.target.value,
+        }))
+        
     }
 
 
 
+    function updateScroll(){//scroll to the last message
+        var element = document.getElementById("divscroll");
+        // element.scrollTop = element.scrollHeight;
+        element.scrollTo({
+            top: element.scrollHeight,
+            left: 0,
+            behavior: "smooth",
+          });
+    }
+
   return (
     <div className='chat'>
-        <div className='chatBox'>
-            <div className='messages'>
-                <YourMsg/>
-                <OtherMsg/>
+        <div className='chatHead'>
+            <h2>Chat</h2>
+        </div>
+        <div className='chatBoxOver'>
+            <div className='chatBox'>
+                <div id='divscroll' className='messages'>
+                    {DBarray.map((msg,index)=>{
+                        if(msg.who===userEmail){
+                        return(
+                            <YourMsg key={index} content={msg.content} time={msg.time}/>
+                        )
+                        }else{
+                            return(
+                                <OtherMsg key={index} name={msg.name} content={msg.content} time={msg.time}/>
+
+                            )
+                        }
+                        
+                    })}
+                    {localArray.map((msg,index)=>{
+                        if(msg.email===userEmail){
+                            console.log('yes')
+                        return(
+                            <YourMsg key={index} content={msg.content} time={msg.time}/>
+                        )
+                        }else{
+                            return(
+                                <OtherMsg key={index} name={msg.name} content={msg.content} time={msg.time}/>
+
+                            )
+                        }
+                        
+                    })}
+                    
+                </div>
+                
             </div>
-            
             <div className='createMsg'>
                 <div className="msgInputBox">
                     <form className='msgInput'>
-                        <textarea onChange={inputMsgHandleChange} spellCheck="false" rows={1} autoComplete='none' placeholder='Type something...'></textarea>
+                        <textarea value={inputMsg} onChange={inputMsgHandleChange} spellCheck="false" rows={1} autoComplete='none' placeholder='Type something...'></textarea>
                         <IconButton onClick={sendMsg} variant="contained"><SendIcon /></IconButton>
                     </form>
                 </div>
             </div>
         </div>
+        
     </div>
   )
 }

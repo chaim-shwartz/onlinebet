@@ -96,6 +96,9 @@ export default function MySales() {
             console.log(data)
             // alert(data.status)
             setshowAddDetails(!showAddDetails)
+            if (data.status==='error') {
+                alert(data.message)
+            }
             window.location.reload()
         })   
     }
@@ -114,7 +117,8 @@ export default function MySales() {
 
   
     return (
-    <div className='mySales'>
+    
+    <Fade in><div className='mySales'>
         
             {!showAddDetails?
                 <div> 
@@ -124,9 +128,8 @@ export default function MySales() {
                         
                     </Fade>
                     {/* <hr/> */}
-                    <Fade in>
-                        <CustomButton onClick={()=>setshowAddDetails(!showAddDetails)}>Add Sale</CustomButton>
-                    </Fade>
+                    
+                    <CustomButton onClick={()=>setshowAddDetails(!showAddDetails)}>Add Sale</CustomButton>
                     
                     <Sales
                         salesArr={salesArr}
@@ -151,6 +154,6 @@ export default function MySales() {
                     <CustomButton type='submit' onClick={addSale}>Add</CustomButton>
                 </form>
             </Fade>}
-    </div>
+    </div></Fade>
   )
 }
