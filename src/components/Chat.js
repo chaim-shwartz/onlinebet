@@ -71,7 +71,8 @@ export default function Chat(props) {
 
 
 
-    const sendMsg = () => {
+    const sendMsg = (e) => {
+        e.prevent.default()
         socket.emit("sendMsg", {msg: {email: userEmail, name: userName, content: message.content, time: date.getHours()+":"+(date.getMinutes()<10?'0':'') + date.getMinutes()}, socketID: socket.id});
         setlocalArrary(prev=>
             [...prev,
