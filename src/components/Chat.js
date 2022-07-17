@@ -178,7 +178,7 @@ export default function Chat(props) {
                 <div className="msgInputBox">
                     <form className='msgInput'>
                         <textarea value={inputMsg} onChange={inputMsgHandleChange} spellCheck="false" rows={1} autoComplete='none' placeholder='Type something...'></textarea>
-                        <IconButton onClick={sendMsg} variant="contained"><SendIcon /></IconButton>
+                        <IconButton type='submit' onClick={sendMsg} variant="contained"><SendIcon /></IconButton>
                     </form>
                 </div>
             </div>

@@ -29,9 +29,10 @@ var server = app.listen(port, function () {
     console.log("app is running: ", port)
   })
 
+  
 const io = socket(server, {
     cors: {
-      origin: "https://main--auctionlive.netlify.app/salepage/62c180f23296dd635cc9b9ff",
+      origin: "https://main--auctionlive.netlify.app",
       // origin: "http://localhost:3000",
     }
   });

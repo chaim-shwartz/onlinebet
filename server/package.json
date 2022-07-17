@@ -5,6 +5,7 @@
   "main": "app.js",
   "proxy": "https://git.heroku.com/onlinebet.git",
   "scripts": {
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "chaim shwartz",
