@@ -12,7 +12,7 @@ const CustomButton = styled(Button)(({ theme }) => ({
     // padding:"0.5% 2%",
     margin: "1%",
     border:"0.5px solid #46576d",
-    fontSize: 'max(1.3vmax,10px)',
+    fontSize: 'max(1.7vmin,13px)',
     backgroundColor:"#86a3b4", 
     color:"#4a4a4a", 
     fontWeight:"bold", 
@@ -49,6 +49,7 @@ function SignIn() {        // the login page
             sethideLoading(false)
 
             if(location.state!==null){
+                console.log(location.state)
                 if(location.state.comeFromSite){
                     navigate('/', {replace: true})
                     navigate(location.state.path)

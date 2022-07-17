@@ -42,8 +42,9 @@ export default function SalePage() {
   const [popupDetails, setpopupDetails] = useState();
   useEffect(() => {  // the function that check that there is cookies and set the user details
     if(cookies.get("emailAccount")===undefined){
+      
       navigate('/signin',{replace: true, state: {comeFromSite: true, path: location.pathname}})
-        
+      
     }
     else{
         setuserEmail(cookies.get("emailAccount").email)

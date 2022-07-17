@@ -26,7 +26,7 @@ const CustomButton = styled(Button)(({ theme }) => ({
   // padding:"0.5% 2%",
   margin: "2% 0%",
   border:"0.5px solid #46576d",
-  fontSize: 'max(1.5vw,15px)',
+  fontSize: 'max(1.7vmin,13px)',
   backgroundColor:"#86a3b4", 
   color:"#4a4a4a", 
   fontWeight:"bold", 
@@ -95,7 +95,7 @@ export default function Header() {
   
   const SignOutBtn = () =>{
     cookies.remove("emailAccount", { path: '/' })
-    navigate('/signin',{state: {comeFromSite: true}})
+    navigate('/signin',{replace: true, state: {comeFromSite: true, path: location.pathname}})
     notify.show("You're logged out.", "warning", 4000);
 
   }
