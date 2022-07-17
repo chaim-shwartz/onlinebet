@@ -22,7 +22,6 @@ const CustomButton = styled(Button)(({ theme }) => ({
   }));
 
 
-  
 export default function MySales() {
     const navigate = useNavigate(); 
     const location = useLocation(); 
