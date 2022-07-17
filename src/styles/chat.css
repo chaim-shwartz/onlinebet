@@ -68,8 +68,9 @@
     justify-content: space-between;
 }
 
-.msgInput textarea{
+.msgInput input{
     background-color: transparent;
+    box-shadow: none !important;
     border: none;
     outline: none;
     resize: none;
@@ -77,6 +78,7 @@
     margin-left: 0%;
     width: 90%;
 }
+
 
 .msgInputBox{
   background-color: #86a3b4;
