@@ -3,9 +3,23 @@ import "../styles/mySales.css"
 import Cookies from 'universal-cookie';
 import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 
-import { Fade } from '@mui/material';
+import { Button, Fade, styled } from '@mui/material';
 import Sales from './Sales';
-
+const CustomButton = styled(Button)(({ theme }) => ({
+    // padding:"0.5% 2%",
+    margin: "1%",
+    border:"0.5px solid #46576d",
+    fontSize: 'max(1.7vmin,13px) !important',
+    backgroundColor:"#86a3b4", 
+    color:"#4a4a4a", 
+    fontWeight:"bold", 
+    borderRadius:"8px",
+    lineHeight:"130%",
+    ":hover":{
+      backgroundColor:"#46576d",
+      color: "#b1b1b1"
+      }
+  }));
 
 
 export default function MySales() {
@@ -111,7 +125,7 @@ export default function MySales() {
                     </Fade>
                     {/* <hr/> */}
                     <Fade in>
-                        <button onClick={()=>setshowAddDetails(!showAddDetails)}>Add Sale</button>
+                        <CustomButton onClick={()=>setshowAddDetails(!showAddDetails)}>Add Sale</CustomButton>
                     </Fade>
                     
                     <Sales
@@ -128,13 +142,13 @@ export default function MySales() {
             :
             <Fade in>
                 <form className='addDetails'>
-                <button onClick={()=>setshowAddDetails(!showAddDetails)}>cancel</button>
+                <CustomButton onClick={(e)=>{setshowAddDetails(!showAddDetails); e.preventDefault()}}>cancel</CustomButton>
                 <h1>Add your sale.</h1>
                     <input maxLength={30} name='name' onChange={handleChange} autoComplete="off" autoFocus type="text" placeholder='Name of your pruduct'></input>
                     <input name='image' onChange={handleChange} autoComplete="off" type="url" placeholder='url of image product'></input>
                     <textarea maxLength={200} rows="4" name='description' onChange={handleChange} autoComplete="off" type="text" placeholder='description'></textarea>
                     <input name='price' onChange={handleChange} autoComplete="off" type="number" placeholder='start price'></input>
-                    <button type='submit' onClick={addSale}>Add</button>
+                    <CustomButton type='submit' onClick={addSale}>Add</CustomButton>
                 </form>
             </Fade>}
     </div>
