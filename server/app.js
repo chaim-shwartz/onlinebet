@@ -2,7 +2,7 @@ const express = require("express");
 const bodyparser = require("body-parser");
 var cors = require('cors')
 var socket= require('socket.io');
-
+require('dotenv').config()
 
 
 
@@ -20,8 +20,9 @@ app.get('/', function (req, res) {
 
 
 let port = process.env.PORT;
+console.log(process.env.PORT)
   if (port==null||port == "") {
-    port =8000;
+    port = 8000;
   }
 
 var server = app.listen(port, function () {
@@ -30,8 +31,8 @@ var server = app.listen(port, function () {
 
 const io = socket(server, {
     cors: {
-        origin: "http://localhost:3000",
-        origin: "https://main--auctionlive.netlify.app"
+      origin: "https://main--auctionlive.netlify.app",
+      // origin: "http://localhost:3000",
     }
   });
 
