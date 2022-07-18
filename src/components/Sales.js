@@ -88,7 +88,7 @@ export default function Sales(props) {
                                         </div>
                                         
                                     </div>
-                                    <p>{card.details}</p>
+                                    <h5>{card.details}</h5>
                                 </div>
                                     
                                 <div className='likeBtn'>
