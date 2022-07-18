@@ -67,8 +67,11 @@ export default function Chat(props) {
 
     useEffect(() => {
         updateScroll()
-
-    }, [DBarray,localArray]);
+    }, [localArray]);
+    useEffect(() => {
+        var element = document.getElementById("divscroll");
+        element.scrollTop = element.scrollHeight;
+    }, [DBarray]);
 
 
 
