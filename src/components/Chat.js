@@ -190,7 +190,7 @@ export default function Chat(props) {
             <div className='createMsg'>
                 <div className="msgInputBox">
                     <form className='msgInput'>
-                        <input type='text' value={inputMsg} onChange={inputMsgHandleChange} spellCheck="false" rows={1} autoComplete='none' placeholder='Type something...'></input>
+                        <input type='text' value={inputMsg} onChange={inputMsgHandleChange} spellCheck="false" autoComplete='none' placeholder='Type something...'></input>
                         <IconButton style={{color: "#58734f"}} disabled={disabledSendBtn} type='submit' onClick={sendMsg} variant="contained"><SendIcon /></IconButton>
                     </form>
                 </div>
