@@ -32,13 +32,14 @@ export default function Chat(props) {
     const cookies = new Cookies(); 
     const [firstTime, setfirstTime] = useState(true);   
     const location = useLocation()
-    const [inputMsg, setinputMsg] = useState();
+    const [inputMsg, setinputMsg] = useState("");
     const [userEmail, setuserEmail] = useState(cookies.get("emailAccount").email);
     const [userName, setuserName] = useState(cookies.get("emailAccount").fname+" "+cookies.get("emailAccount").lname);
     const [userPassword, setuserPassword] = useState(cookies.get("emailAccount").password);
     const [message, setmessage] = useState();
     const [DBarray, setDBarray] = useState([]);
     const [localArray, setlocalArrary] = useState([]);
+    const [disabledSendBtn, setdisabledSendBtn] = useState(true);
     
     useEffect(() => {
        if (firstTime) {
@@ -128,6 +129,13 @@ export default function Chat(props) {
         
     }
 
+    useEffect(() => {
+        if (inputMsg.trim().length === 0) {
+            setdisabledSendBtn(true)
+        } else {
+            setdisabledSendBtn(false)
+        }
+    }, [inputMsg]);
 
 
     function updateScroll(){//scroll to the last message
@@ -183,7 +191,7 @@ export default function Chat(props) {
                 <div className="msgInputBox">
                     <form className='msgInput'>
                         <input value={inputMsg} onChange={inputMsgHandleChange} spellCheck="false" rows={1} autoComplete='none' placeholder='Type something...'></input>
-                        <IconButton type='submit' onClick={sendMsg} variant="contained"><SendIcon /></IconButton>
+                        <IconButton style={{color: "#58734f"}} disabled={disabledSendBtn} type='submit' onClick={sendMsg} variant="contained"><SendIcon /></IconButton>
                     </form>
                 </div>
             </div>
