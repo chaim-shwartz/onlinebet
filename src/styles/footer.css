@@ -1,6 +1,6 @@
 .footer{
     border-top: 1px solid darkgray;
-    padding-top: 1%;
+    margin-top: max(5%,10vh,100px);
     padding-bottom: 4%;
     width: 100%;
     bottom: 0;
