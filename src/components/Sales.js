@@ -108,7 +108,7 @@ export default function Sales(props) {
                     <CustomButton hidden={!salesArr.length>0} onClick={moreSalesBtn}>Show More</CustomButton>
                 </div>
             </Fade>
-            <Fade in={!props.hide}><h2>Loading more items...</h2></Fade>
+            <Fade in={!props.hide}><h2>Loading items...</h2></Fade>
 
         </div>
     
