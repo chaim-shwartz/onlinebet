@@ -70,6 +70,11 @@
     color: #6161618f !important;
     border: none;
 }
+.msgInput button:hover{
+    outline: none !important;
+    background-color: transparent !important;
+    border: none !important;
+}
 
 .msgInput input{
     background-color: transparent;
