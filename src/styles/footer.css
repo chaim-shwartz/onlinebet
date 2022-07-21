@@ -38,9 +38,17 @@
 .footer img{
     border-radius: 8px;
     margin: 3%;
-    width: min(20%,40px);
-    min-width: 40px;
+    width: min(10%,30px);
+    min-width: 35px;
 }
 .footer h4{
     margin: 0;
+}
+
+@media screen and (max-width: 600px) {
+    .footer img{
+        min-width: 30px;
+
+    }
+    
 }
