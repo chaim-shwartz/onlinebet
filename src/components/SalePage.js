@@ -286,7 +286,7 @@ export default function SalePage() {
 
         </div>}
 
-        {showImg?<div className='showImg'>
+        {showImg?<div onMouseLeave={clickImg} className='showImg'>
           <Button onClick={clickImg} sx={{color:'black'}}>X</Button>
           <img src={theSale.image}/>
       </div>:null}
