@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import "../styles/header.css"
 import Avatar from '@mui/material/Avatar';
-import { Button, Fade, IconButton, styled} from '@mui/material';
+import { Button, Fade, IconButton, Link, styled} from '@mui/material';
 import MenuTwoToneIcon from '@mui/icons-material/MenuTwoTone';
 import ClearIcon from '@mui/icons-material/Clear';
 import Cookies from 'universal-cookie';
@@ -125,14 +125,13 @@ export default function Header() {
             
         </div>
 
-        <h1 onClick={clickOnAuction} className='headerH1'>Auction</h1>
+        <h1 unselectable='on' onClick={clickOnAuction} className='headerH1'>Auction</h1>
 
         <div className='mLinks'>
-            {/* <a>my profile</a>| */}
-            <a href='/'>Home</a>|
-            <a href='/mysales'>My sales</a>|
-            <a href='/myoffers'>My offers</a>|
-            <a href='/mylikes'>My likes</a>
+            <Link underline='hover' href='/'>Home</Link>
+            <Link underline='hover' href='/mysales'>Sales</Link>
+            <Link underline='hover' href='/myoffers'>Offers</Link>
+            <Link underline='hover' href='/mylikes'>Likes</Link>
         </div>
 
         <div className='profile'><div className='profileBtn'></div></div>
@@ -168,9 +167,9 @@ export default function Header() {
               <Button sx={{backgroundColor:"#86a3b4",minWidth:"0",borderRadius:"8px"}}  onClick={clickMenu}><ClearIcon sx={{ color: '#282c34'}}/></Button>
           </div>
           <MenuButton onClick={()=>{navigate('/');clickMenu()}}>Home</MenuButton>
-          <MenuButton onClick={()=>{navigate('/mysales');clickMenu()}}>My sales</MenuButton>
-          <MenuButton onClick={()=>{navigate('/myoffers');clickMenu()}}>my offers</MenuButton>
-          <MenuButton onClick={()=>{navigate('/mylikes');clickMenu()}} >My likes</MenuButton>
+          <MenuButton onClick={()=>{navigate('/mysales');clickMenu()}}>Sales</MenuButton>
+          <MenuButton onClick={()=>{navigate('/myoffers');clickMenu()}}>Offers</MenuButton>
+          <MenuButton onClick={()=>{navigate('/mylikes');clickMenu()}} >Likes</MenuButton>
          
         </div>
       </div>

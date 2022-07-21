@@ -40,6 +40,7 @@
 }
 .head h1 ,.headResponsive h1, .headNoProfile h1{
     margin: 0;
+    user-select: none;
 }
 
 
@@ -91,6 +92,7 @@
 
 .profileMenu h2{
     margin-top: 0;
+    user-select: none;
 }
 .profileBtn p{
     color: #282c34;
@@ -178,10 +180,13 @@
 }
 
 .mLinks a{
-    width: max(7vw,30px);
-    /* font-size: 70%; */
+    width: min(7vw,70px);
+    font-size: max(15px , 1.3vmax);
     margin: 0 1.5%;
     color: aliceblue;
+}
+.mLinks a:hover{
+    color: #86a3b4;
 }
 
 
