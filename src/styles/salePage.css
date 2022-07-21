@@ -27,6 +27,7 @@
     width: 1px;
     background-color: #707070;
     margin: 2% 0;
+    max-height: 80vh;
 }
 
 /* .salePage h1{
@@ -68,18 +69,25 @@
     flex-basis: 60%;
     text-align: center;
     border-radius: 8px;
-    
 }
 
 .section1 img{
     border-radius: 8px;
     /* width: 90%; */
     max-width: 85%;
-    min-width: 80%;
+    /* min-width: 80%; */
+    min-height: 40vh;
     max-height: 500px;
-    object-fit: contain; 
-       
+    object-fit: cover; 
+    transition: transform .5s; /* Animation */
+    /* transition: transform 1s, filter .5s ease-out;*/
+    transform-origin: 15% 45%; 
+    cursor: zoom-in;
 
+}
+.section1 img:hover{
+    transform: scale(1.5);
+    box-shadow: 0px 0px 15px 3px #6f6f6f;
 }
 .section1 .h1_p{
     margin: 0;
@@ -106,6 +114,7 @@
     margin: 1.5% 1%;    
     flex-basis: 30%;
     max-width: 500px;
+    max-height: 80vh;
 }
 
 
@@ -174,6 +183,40 @@
     margin-top: 5%;
 }
 
+.salePageOver .showImg{
+    z-index: 20;
+    /* display: flex; */
+    /* flex-direction: column; */
+    overflow: hidden;
+    position: fixed;
+    width: 60vw;
+    height: 80vh;
+    padding: 10px;
+    border-radius: 20px;
+    transition: 0.7s ease-in-out;
+    background-color: #9c9c9c;
+    box-shadow: 0px 0px 100px 30px #707070;
+    top: 50%;
+    left: 50%;
+    margin-top: -40vh;  /* Negative half of height. */
+    margin-left: -30vw;  /* Negative half of width. */
+}
+.salePageOver .showImg button{
+    position: absolute;
+    right: 1%;
+    font-size: xx-large;
+    border-radius: 20px;
+    font-weight: bold;
+}
+.salePageOver .showImg img{
+    max-width: 85%;
+    /* min-width: 80%; */
+    min-height: 80vh;
+    max-height: 80vh;
+    object-fit: cover; 
+    border-radius: 8px;
+}
+
 
 
 
@@ -233,7 +276,9 @@
     .details hr{
         display: block;
     }
-    
+    .salePageOver .showImg{
+        display: none;
+    }
     
 }
 

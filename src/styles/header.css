@@ -180,7 +180,7 @@
 }
 
 .mLinks a{
-    width: min(7vw,70px);
+    width: min(7vw,90px);
     font-size: max(15px , 1.3vmax);
     margin: 0 1.5%;
     color: aliceblue;

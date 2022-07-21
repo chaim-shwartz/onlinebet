@@ -40,6 +40,7 @@ export default function SalePage() {
   const [ifUserIsAdmin, setifUserIsAdmin] = useState(false);//if user is the admin fo the sale
   const [showPopup, setshowPopup] = useState(false);
   const [popupDetails, setpopupDetails] = useState();
+  const [showImg, setshowImg] = useState(false);
   useEffect(() => {  // the function that check that there is cookies and set the user details
     if(cookies.get("emailAccount")===undefined){
       
@@ -174,6 +175,10 @@ export default function SalePage() {
     })
 
   }
+
+  const clickImg =()=>{
+    setshowImg(!showImg)
+  }
   return (
     <div>
       {!showPopup?<div className='salePageOver'>
@@ -187,7 +192,7 @@ export default function SalePage() {
 
             <div className='section1'>
               <div className='image'>
-                <img src={theSale.image}/>
+                <img onClick={clickImg} src={theSale.image}/>
               </div>
             <div className='h1_p'>
               <h1>{theSale.name}</h1>
@@ -281,9 +286,13 @@ export default function SalePage() {
 
         </div>}
 
-        
+        {showImg?<div className='showImg'>
+          <Button onClick={clickImg} sx={{color:'black'}}>X</Button>
+          <img src={theSale.image}/>
+      </div>:null}
+
+
       </div>:
-      
       <PopUpMessage 
               title={popupDetails.title} 
               explain={popupDetails.explain}
@@ -292,6 +301,9 @@ export default function SalePage() {
               navigate={popupDetails.navigate}
               function={popupDetails.function}
               />}
+
+
+      
     </div>
     
   )
