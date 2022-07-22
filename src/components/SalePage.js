@@ -241,7 +241,7 @@ console.log(theSale)
                 </div>
               </div>
               <div hidden={ifUserIsAdmin||theSale.sold}className='horizontal_hr'></div>
-              <hr/>
+              <hr hidden={!ifUserIsAdmin&&theSale.sold}/>
 
 
               {!ifUserIsAdmin&&!theSale.sold?<div className='offer'>

@@ -124,7 +124,7 @@
 }
 
 .details hr{
-    display: none;
+    visibility: hidden;
 }
 
 .details h1{
@@ -274,7 +274,7 @@
         font-size: 4vw;
     }
     .details hr{
-        display: block;
+        visibility: visible;
     }
     .salePageOver .showImg{
         display: none;

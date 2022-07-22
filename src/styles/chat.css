@@ -46,7 +46,7 @@
 
 .messages{
   overflow-y: scroll;
-  max-height: 85%;
+  max-height: 83%;
   width: 100%;
   padding: 40px 0; 
   margin-top: 45px;
@@ -124,10 +124,19 @@
     /* background: #6e6557;  */
   /* } */
 
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 800px) {
     .chat{
       width: 97%;
       margin: auto;
+    }
+    .messages{
+      max-height: 80%;
+    }
+    
+}
+  @media screen and (max-width: 1000px) {
+    .messages{
+      max-height: 80%;
     }
     
 }
