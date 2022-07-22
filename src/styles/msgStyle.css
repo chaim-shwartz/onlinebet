@@ -10,6 +10,8 @@
     margin-top: 0;
     max-width: 80%;
     width: fit-content;
+    overflow-wrap: anywhere;
+    overflow: hidden;
 }
 
 .yourMsg{
@@ -32,6 +34,7 @@
   width: 20px;
   background: #698a5e;
   border-bottom-left-radius: 15px;
+  
 }
 
 .yourMsgContent:after {
@@ -59,6 +62,8 @@
     margin-top: 0;
     max-width: 80%;
     width: fit-content;
+    overflow-wrap: anywhere;
+    overflow: hidden;
 }
 
 .otherMsgContent .sendName{

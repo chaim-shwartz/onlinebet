@@ -46,7 +46,7 @@
 
 .messages{
   overflow-y: scroll;
-  max-height: 67vh;
+  max-height: 85%;
   width: 100%;
   padding: 40px 0; 
   margin-top: 45px;
