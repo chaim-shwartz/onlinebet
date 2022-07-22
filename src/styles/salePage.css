@@ -221,6 +221,7 @@
 
 
 @media screen and (max-width: 1000px) {
+
     .sale{
         flex-basis: 95%;
     }
@@ -287,6 +288,23 @@
 
 } */
 
-/* @media screen and (max-width: 600px) {
+@media screen and (max-width: 750px) {
+    .section1 img{
+        border-radius: 8px;
+        /* width: 90%; */
+        max-width: 85%;
+        /* min-width: 80%; */
+        min-height: 40vh;
+        max-height: 500px;
+        object-fit: cover; 
+        transition: transform .5s; /* Animation */
+        /* transition: transform 1s, filter .5s ease-out;*/
+        transform-origin: 55% 55%; 
+        cursor: zoom-in;
     
-} */
+    }
+    .section1 img:hover{
+        transform: scale(1.2);
+        box-shadow: 0px 0px 15px 3px #6f6f6f;
+    }
+}
