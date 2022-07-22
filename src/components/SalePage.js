@@ -1,4 +1,4 @@
-import { Button, styled } from '@mui/material';
+import { Button, Fade, styled, Zoom } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import Cookies from 'universal-cookie';
@@ -179,6 +179,30 @@ export default function SalePage() {
   const clickImg =()=>{
     setshowImg(!showImg)
   }
+
+
+
+
+  const likeClick=()=>{//the like btn
+    setTheSale((prev)=>({
+      ...prev,
+      saved: !theSale.saved,
+    }))
+
+    fetch("https://onlineauctionapi.herokuapp.com/like",{
+            method:"post",
+            headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+            body: JSON.stringify({email: userEmail, password: userPassword, id: theSale.saleid, like: theSale.saved})
+        })
+        
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data)
+        })
+    
+}
+console.log(theSale)
+
   return (
     <div>
       {!showPopup?<div className='salePageOver'>
@@ -207,6 +231,14 @@ export default function SalePage() {
                 <h1>{theSale.price}$</h1>
                 
                 <h2>The best offer by: {theSale.high}</h2>
+
+                <div className='likeBtn'>
+                  
+                  <button onClick={likeClick}><p>{theSale.likes.length}</p>
+                      {!theSale.saved?<Fade in><img src={require('../images/heart.png')}/></Fade>:
+                      <Zoom in={theSale.saved}><img src={require('../images/red-heart.png')}/></Zoom>}
+                  </button>                   
+                </div>
               </div>
               <div hidden={ifUserIsAdmin}className='horizontal_hr'></div>
               <hr/>

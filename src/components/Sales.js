@@ -36,7 +36,7 @@ export default function Sales(props) {
 
 
 
-    const likeClick=(saleid,index)=>{
+    const likeClick=(saleid,index)=>{//the like btn
         
         setsalesArr(
             [...salesArr],
