@@ -240,7 +240,7 @@ console.log(theSale)
                   </button>                   
                 </div>
               </div>
-              <div hidden={ifUserIsAdmin}className='horizontal_hr'></div>
+              <div hidden={ifUserIsAdmin||theSale.sold}className='horizontal_hr'></div>
               <hr/>
 
 
@@ -285,7 +285,7 @@ console.log(theSale)
               
             </div>
             
-            <hr/>
+            <hr hidden={theSale.sold||!ifUserIsAdmin}/>
 
             {ifUserIsAdmin?<div>
               <Button onClick={deleteBtn} sx={
