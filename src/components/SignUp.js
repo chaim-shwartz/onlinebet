@@ -6,7 +6,23 @@ import PasswordStrengthBar from 'react-password-strength-bar'; //password strong
 import PasswordChecklist from "react-password-checklist";// password check if a good one and stay in all requirements
 import PopUpMessage from "./PopUpMessage";
 import Cookies from "universal-cookie";
+import { Button, styled } from "@mui/material";
 
+const CustomButton = styled(Button)(({ theme }) => ({
+    // padding:"0.5% 2%",
+    margin: "1%",
+    border:"0.5px solid #46576d",
+    fontSize: 'max(1.7vmin,13px)',
+    backgroundColor:"#86a3b4", 
+    color:"#4a4a4a", 
+    fontWeight:"bold", 
+    borderRadius:"8px",
+    lineHeight:"100%",
+    ":hover":{
+      backgroundColor:"#46576d",
+      color: "#b1b1b1"
+      }
+  }));
 
 
 function SignUp() {  
@@ -289,8 +305,8 @@ function SignUp() {
                         </div>
                         
                         <div className="buttonsCancelSignUp">
-                            <button type="submit" disabled={signBtnDisable} onClick={signUpBtn}>SignUp</button>
-                            <button onClick={backToLogin}>Back</button>
+                            <CustomButton type="submit" disabled={signBtnDisable} onClick={signUpBtn}>SignUp</CustomButton>
+                            <CustomButton onClick={backToLogin}>Back</CustomButton>
                         </div>
                     </div>
                 </form>
