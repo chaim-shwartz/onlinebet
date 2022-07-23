@@ -12,7 +12,6 @@ const YourMsg = (props) => {
                     <p>{props.time}</p>
                 </div>
             </div>
-
         </div>
     );
 }
