@@ -208,7 +208,7 @@ export default function SalePage() {
             // console.log(data)
         })
 }
-
+console.log(theSale)
   return (
     <div>
       {!showPopup?<div className='salePageOver'>

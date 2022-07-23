@@ -88,6 +88,9 @@
 .section1 img:hover{
     transform: scale(1.5);
     box-shadow: 0px 0px 15px 3px #6f6f6f;
+    /* object-fit: unset;  */
+    /* max-width: 100%; */
+
 }
 .section1 .h1_p{
     margin: 0;
@@ -240,6 +243,7 @@
     transition: transform .4s;
     text-align: center;
     align-items: center;
+    
 
 
 }
