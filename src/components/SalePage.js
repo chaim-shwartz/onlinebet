@@ -55,25 +55,28 @@ export default function SalePage() {
     }
     
 }, );
-
+setInterval(() => {
+  setuserEmail(userEmail)
+},50000)
   useEffect(() => {  // the function that get the sale from the DB 
+    
     fetch("https://onlineauctionapi.herokuapp.com/getsale",{
-                        method:"post",
-                        headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
-                        body: JSON.stringify({email: userEmail, password: userPassword, id: id})
-                    })
-                    
-                    .then(res=>res.json())
-                    .then(data=>{
-                        if (data.message==="I don't recognize this sale") {
-                          navigate(-1)
-                        }else if (data.status==="success") {
-                          setTheSale(data.message)
-                          setamountOfLikes(data.message.likes.length)
-                        }
-                        // console.log(data)
+        method:"post",
+        headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+        body: JSON.stringify({email: userEmail, password: userPassword, id: id})
+    })
+    
+    .then(res=>res.json())
+    .then(data=>{
+        if (data.message==="I don't recognize this sale") {
+          navigate(-1)
+        }else if (data.status==="success") {
+          setTheSale(data.message)
+          setamountOfLikes(data.message.likes.length)
+        }
+        // console.log(data)
 
-                    })
+    })
   }, [userEmail]);
 
   useEffect(() => {
@@ -115,7 +118,7 @@ export default function SalePage() {
         .then(res=>res.json())
         .then(data=>{
           console.log(data.message)
-          window.location.reload()
+          // window.location.reload()
     })
     setNewPrice(0)
   }
