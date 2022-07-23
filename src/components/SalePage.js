@@ -57,7 +57,7 @@ export default function SalePage() {
 }, );
 setInterval(() => {
   setuserEmail(userEmail)
-},50000)
+},5000)
   useEffect(() => {  // the function that get the sale from the DB 
     
     fetch("https://onlineauctionapi.herokuapp.com/getsale",{
@@ -119,6 +119,7 @@ setInterval(() => {
         .then(data=>{
           console.log(data.message)
           // window.location.reload()
+          setuserEmail(userEmail)
     })
     setNewPrice(0)
   }
