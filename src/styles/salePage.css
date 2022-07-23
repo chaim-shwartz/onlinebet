@@ -106,6 +106,8 @@
     margin: 0 ;
     color: #38506f;
     font-size: max(4vw,30px);
+    text-transform: capitalize;
+
 }
 
 .section1 .h1_p p{

@@ -227,7 +227,7 @@ console.log(theSale)
               <div className='h1_p'>
                 <h1>{theSale.name}</h1>
                 {/* <hr/> */}
-                <p><b>Details:</b> {theSale.details}</p>
+                <p style={{display:'inline'}}><b>Details: </b>{theSale.details}</p>
               </div>
 
               <div className='likeBtn'>

@@ -44,13 +44,10 @@
     transition: transform .4s;/*  Animation */
 }
 
-.saleCard p{
-    
-}
 
 .sales .soldImg{
     position: absolute;
-    max-width: 7vmax;
+    max-width: max(5vmax, 40px);
     pointer-events: none;
 }
 
