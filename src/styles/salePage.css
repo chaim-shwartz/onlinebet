@@ -166,6 +166,7 @@
     position: absolute;
     max-width: 10vmax;
     margin-top: -4.5%;
+    pointer-events: none;
 }
 
 .details input{ 

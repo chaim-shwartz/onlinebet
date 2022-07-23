@@ -51,6 +51,7 @@
 .sales .soldImg{
     position: absolute;
     max-width: 7vmax;
+    pointer-events: none;
 }
 
 .saleHeader{
