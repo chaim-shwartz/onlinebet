@@ -71,8 +71,11 @@
     /* overflow: auto; */
     white-space: normal;
     text-overflow: ellipsis;
-    width: 66.6%;
+    width: 66.6%;        
+    text-transform: capitalize;
+
 }
+
 
 .saleHeader .imgh{
     width: 33.3%;
@@ -83,11 +86,20 @@
     margin: 1%;
     color: #86a3b4;
     font-size: x-large;
+
 }
 
 .saleCard h6{
     margin: 0;
     color: #50626c;
+}
+.saleCard h5::first-letter{
+    text-transform: capitalize;
+}
+.saleCard h5{
+    /* margin: 0 5px; */
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 
