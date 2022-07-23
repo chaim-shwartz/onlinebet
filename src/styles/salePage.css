@@ -96,6 +96,7 @@
     text-align: start;
     max-width: 40%;
     overflow: hidden;
+    padding-bottom: 10px;
     /* text-overflow: clip; */
 }
 .section1 .h1_p h1{
@@ -125,6 +126,7 @@
 
 .details hr{
     visibility: hidden;
+    display: none;
 }
 
 .details h1{
@@ -219,6 +221,64 @@
 
 
 
+.salePage .likeBtn{
+    position: absolute;
+    /* bottom: max(3.5%,10px); */
+    right: 0;
+    max-height: 30px;
+    display: flex;  
+    /* flex-direction: row;   */
+    /* width: 90%; */
+    align-self: flex-end;
+    /* justify-content: space-between; */
+    /* margin-bottom: 1vmax !important; */
+    /* margin-right: 1vmin !important; */
+    /* padding-top: 40px !important; */
+    padding-right: 30px;
+    padding-bottom: 30px;
+    transition: transform .4s;
+    text-align: center;
+    align-items: center;
+
+
+}
+
+.salePage .likeBtn button{
+    /* margin: 0 !important;
+    margin-bottom: -4% !important; */
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border: 0 !important;
+}
+.salePage .likeBtn img{
+    cursor: unset;
+    width: max(3vmax,21px);
+    height: max(3vmax,21px);
+    min-height: unset !important;
+    transform-origin: 50%; 
+    
+}
+.salePage .likeBtn img:hover{
+    box-shadow: none;
+    transform: scale(1);
+
+}
+.salePage .likeBtn p{
+    /* margin-bottom: 4% !important; */
+    font-size: max(1vmax,9px);
+    /* height: max(1.2vmax,15px); */
+    font-weight: bold;
+    margin: 0;
+    margin-bottom: 5px !important;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding-right: 30px;
+    padding-bottom: 23px;
+}
+
+
 
 @media screen and (max-width: 1000px) {
 
@@ -275,7 +335,8 @@
         font-size: 4vw;
     }
     .details hr{
-        visibility: visible;
+        visibility: visible;        
+        display: flex;
     }
     .salePageOver .showImg{
         display: none;
@@ -306,5 +367,10 @@
     .section1 img:hover{
         transform: scale(1.2);
         box-shadow: 0px 0px 15px 3px #6f6f6f;
+    }
+
+    .section1 .h1_p{
+        padding-right: 60px;
+        padding-left: 10px;
     }
 }

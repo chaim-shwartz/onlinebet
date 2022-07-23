@@ -41,6 +41,8 @@ export default function SalePage() {
   const [showPopup, setshowPopup] = useState(false);
   const [popupDetails, setpopupDetails] = useState();
   const [showImg, setshowImg] = useState(false);
+  const [amountOfLikes, setamountOfLikes] = useState(0);
+  
   useEffect(() => {  // the function that check that there is cookies and set the user details
     if(cookies.get("emailAccount")===undefined){
       
@@ -67,6 +69,7 @@ export default function SalePage() {
                           navigate(-1)
                         }else if (data.status==="success") {
                           setTheSale(data.message)
+                          setamountOfLikes(data.message.likes.length)
                         }
                         // console.log(data)
 
@@ -188,20 +191,23 @@ export default function SalePage() {
       ...prev,
       saved: !theSale.saved,
     }))
-
+    if (!theSale.saved) {
+      setamountOfLikes(amountOfLikes+1)
+    }
+    else{      
+      setamountOfLikes(amountOfLikes-1)      
+    }
     fetch("https://onlineauctionapi.herokuapp.com/like",{
             method:"post",
             headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
-            body: JSON.stringify({email: userEmail, password: userPassword, id: theSale.saleid, like: theSale.saved})
+            body: JSON.stringify({email: userEmail, password: userPassword, id: theSale.saleid, like: !theSale.saved})
         })
         
         .then(res=>res.json())
         .then(data=>{
-            console.log(data)
+            // console.log(data)
         })
-    
 }
-console.log(theSale)
 
   return (
     <div>
@@ -217,13 +223,24 @@ console.log(theSale)
             <div className='section1'>
               <div className='image'>
                 <img onClick={clickImg} src={theSale.image}/>
+              </div>  
+              <div className='h1_p'>
+                <h1>{theSale.name}</h1>
+                {/* <hr/> */}
+                <p><b>Details:</b> {theSale.details}</p>
               </div>
-            <div className='h1_p'>
-              <h1>{theSale.name}</h1>
-              {/* <hr/> */}
-              <p><b>Details:</b> {theSale.details}</p>
+
+              <div className='likeBtn'>
+                <button onClick={likeClick}>
+                  {!theSale.saved?<Fade in><img src={require('../images/heart.png')}/></Fade>:
+                  <Zoom in={theSale.saved}><img src={require('../images/red-heart.png')}/></Zoom>}
+                  <p>{amountOfLikes}</p>                
+                  {/* <p>{addLikeNumber}</p>                 */}
+                </button>   
+              </div>
+
             </div>
-            </div>
+            
             <hr/>
             <div className='details'>
 
@@ -232,13 +249,7 @@ console.log(theSale)
                 
                 <h2>The best offer by: {theSale.high}</h2>
 
-                <div className='likeBtn'>
-                  
-                  <button onClick={likeClick}><p>{theSale.likes.length}</p>
-                      {!theSale.saved?<Fade in><img src={require('../images/heart.png')}/></Fade>:
-                      <Zoom in={theSale.saved}><img src={require('../images/red-heart.png')}/></Zoom>}
-                  </button>                   
-                </div>
+                
               </div>
               <div hidden={ifUserIsAdmin||theSale.sold}className='horizontal_hr'></div>
               <hr hidden={!ifUserIsAdmin&&theSale.sold}/>

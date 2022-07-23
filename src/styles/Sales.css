@@ -98,7 +98,7 @@
     object-fit: cover;
 }
 
-.likeBtn{
+.sales .likeBtn{
     display: flex;
     justify-content: space-between;
     width: 90%;
@@ -114,17 +114,17 @@
 
 }
 
-.likeBtn button{
+.sales .likeBtn button{
     margin: 0 !important;
     margin-bottom: -4% !important;
     background-color: transparent !important;
     box-shadow: none !important;
     border: 0 !important;
 }
-.likeBtn img{
+.sales .likeBtn img{
     width: max(1.6vmax,21px);
 }
-.likeBtn p{
+.sales .likeBtn p{
     margin-bottom: 4% !important;
 }
 .saleCard hr{
