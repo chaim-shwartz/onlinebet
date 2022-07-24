@@ -145,13 +145,16 @@ export default function MySales() {
             :
             <Fade in>
                 <form className='addDetails'>
-                <CustomButton onClick={(e)=>{setshowAddDetails(!showAddDetails); e.preventDefault()}}>cancel</CustomButton>
                 <h1>Add your sale.</h1>
                     <input maxLength={30} name='name' onChange={handleChange} autoComplete="off" autoFocus type="text" placeholder='Name of your pruduct'></input>
+                    <p>The image should be close to a 1:1 ratio</p>
                     <input name='image' onChange={handleChange} autoComplete="off" type="url" placeholder='url of image product'></input>
                     <textarea maxLength={200} rows="4" name='description' onChange={handleChange} autoComplete="off" type="text" placeholder='description'></textarea>
                     <input name='price' onChange={handleChange} autoComplete="off" type="number" placeholder='start price'></input>
-                    <CustomButton type='submit' onClick={addSale}>Add</CustomButton>
+                    <div className='btns'>
+                        <CustomButton type='submit' onClick={addSale}>Add</CustomButton>
+                        <CustomButton onClick={(e)=>{setshowAddDetails(!showAddDetails); e.preventDefault()}}>cancel</CustomButton>
+                    </div>
                 </form>
             </Fade>}
     </div></Fade>

@@ -1,13 +1,13 @@
 .mySales{
     text-align: center;
-    margin-top: max(11vh,80px);
+    margin-top: max(15vh,80px);
 }
 .mySales h1{
     margin: 0;
     margin-bottom: 1%;
 }
 
-.mySales button{
+/* .mySales button{
     border-radius: 8px;
     font-size: max(1.6vmax,15px);
     background-color: #86a3b4;
@@ -17,8 +17,8 @@
     border-width: 1px;
     border-color: #6e57367c;
     margin-bottom: 5%;
-}
-.mySales:disabled
+} */
+/* .mySales:disabled
   button[disabled]{
     border: 1px solid #999999;
     background-color: #cccccc !important;
@@ -28,7 +28,7 @@
 .mySales button:hover{
     background-color: #46576d;
     color: #b1b1b1;
-}
+} */
 
 .addDetails{
     flex-direction: column;
@@ -46,6 +46,17 @@
     color: #46576d;
     flex-grow: 2;
     hyphens: auto;
+    overflow: hidden;
+    white-space: normal;
+    text-overflow: ellipsis;
+    margin-bottom: 8%;
+}
+.addDetails p{
+    margin: 0.5%;
+    /* font-size: max(2vmax,20px); */
+    color: #46576d;
+    /* flex-grow: 2; */
+    /* hyphens: auto; */
     overflow: hidden;
     white-space: normal;
     text-overflow: ellipsis;
@@ -97,5 +108,29 @@
     outline: none !important;
     border-color: #5f7ea7 !important;
     box-shadow: 0px 0px 15px 15px #45444467;
+}
+.addDetails .btns{
+    display: flex;
+    width: 40%;
+    justify-content: space-around;
+}
+
+
+@media screen and (max-width: 600px) {
+    .addDetails .btns{
+        width: 70%;
+    }
+    .addDetails{
+        width: 95%;
+    }
+    .addDetails input{
+        width: 85%;
+    }
+    .addDetails textarea{
+        width: 85%;
+        min-width: 85%;
+
+    }
+
 }
 

@@ -13,7 +13,7 @@
 .signUpBox{
     /* background-color: #e9d8be; */
     margin: auto;
-    margin-top: max(11vh,80px);
+    margin-top: max(15vh,80px);
 
     max-width: 500px;
     display: flex;
