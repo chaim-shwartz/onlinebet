@@ -47,7 +47,7 @@
 
 .sales .soldImg{
     position: absolute;
-    max-width: max(5vmax, 40px);
+    max-width: max(5vmax, 60px);
     pointer-events: none;
 }
 
@@ -156,5 +156,9 @@
 @media screen and (max-width: 600px) {
     .saleCard{
         flex-basis: 95%;
+    }
+    .sales .soldImg{
+        max-width: max(7vmax, 40px);
+
     }
 }
