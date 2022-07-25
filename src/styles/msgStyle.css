@@ -12,7 +12,7 @@
     max-width: 80%;
     width: fit-content;
     overflow-wrap: anywhere;
-    box-shadow: -10px 0px 25px 3px #3c3c3c3d;
+    box-shadow: -5px -3px 5px 2px #3c3c3c3d;
 }
 
 .yourMsg{
@@ -63,7 +63,7 @@
     max-width: 80%;
     width: fit-content;
     overflow-wrap: anywhere;
-    box-shadow: 10px 0px 25px 3px #3c3c3c3d;
+    box-shadow: 5px -3px 5px 2px #3c3c3c3d;
 }
 
 .otherMsgContent .sendName{
