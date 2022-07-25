@@ -78,15 +78,16 @@ export default function Chat(props) {
 
     const sendMsg = (e) => {
         e.preventDefault();
-        socket.emit("sendMsg", {msg: {email: userEmail, name: userName, content: message.content, time: date.getHours()+":"+(date.getMinutes()<10?'0':'') + date.getMinutes()}, socketID: socket.id});
+        socket.emit("sendMsg", {msg: {email: userEmail, name: userName, content: message.content, time: (date.getMonth()+1)+" "+date.getDate()+", "+date.getFullYear() + " "+date.getHours()+":"+(date.getMinutes()<10?'0':'') + date.getMinutes()}, socketID: socket.id});
         setlocalArrary(prev=>
             [...prev,
-            {email: userEmail, name: userName ,content: message.content, time: date.getHours()+":"+(date.getMinutes()<10?'0':'') + date.getMinutes()}]
+            {email: userEmail, name: userName ,content: message.content, time: (date.getMonth()+1)+" "+date.getDate()+", "+date.getFullYear() + " "+date.getHours()+":"+(date.getMinutes()<10?'0':'') + date.getMinutes()}]
         )
         fetch("https://onlineauctionapi.herokuapp.com/message",{
             method:"post",
             headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
-            body: JSON.stringify({email: userEmail, password: userPassword, id: props.chatID,time: date.getHours()+":"+(date.getMinutes()<10?'0':'') + date.getMinutes(),content:message.content})
+            body: JSON.stringify({email: userEmail, password: userPassword, id: props.chatID,
+                                    time: (date.getMonth()+1)+" "+date.getDate()+", "+date.getFullYear() + " "+date.getHours()+":"+(date.getMinutes()<10?'0':'') + date.getMinutes(),content:message.content})
         })
         
         .then(res=>res.json())
@@ -112,7 +113,6 @@ export default function Chat(props) {
                     {name: res.msg.name ,content: res.msg.content, time:res.msg.time}]
                 )
             }
-            console.log(res) 
         })
     }, [PORT_SOCKET]);
                 
@@ -171,7 +171,6 @@ export default function Chat(props) {
                     })}
                     {localArray.map((msg,index)=>{
                         if(msg.email===userEmail){
-                            console.log('yes')
                         return(
                             <YourMsg key={index} content={msg.content} time={msg.time}/>
                         )
