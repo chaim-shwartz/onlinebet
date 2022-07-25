@@ -5,7 +5,6 @@ const YourMsg = (props) => {
     const currentT = new Date()
     currentT.getDate()
     const time = new Date(props.time);
-    console.log(currentT.getFullYear())
 
     var showTime =  time.getHours()+":"+(time.getMinutes()<10?'0':'') + time.getMinutes()
     if (currentT.getFullYear()!==time.getFullYear()) {
@@ -21,8 +20,12 @@ const YourMsg = (props) => {
                     showTime = time.getDate()+"/"+(time.getMonth()+1) +" "+ showTime
                 }
             }
-            else if (currentT.getHours()===(time.getHours()+1)) {
-                showTime = "Today at " +showTime
+            else if (currentT.getHours()!==time.getHours()) {
+                if (currentT.getHours()===(time.getHours()+1)) {
+                    showTime = "Today at " +showTime
+                }
+            }else if(currentT.getMinutes()===time.getMinutes()){
+                showTime = "Now"
             }
         }   
     

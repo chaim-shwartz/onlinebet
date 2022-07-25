@@ -21,12 +21,17 @@ export default function OtherMsg(props) {
                     showTime = time.getDate()+"/"+(time.getMonth()+1) +" "+ showTime
                 }
             }
-            else if (currentT.getHours()===(time.getHours()+1)) {
-                showTime = "Today at " +showTime
+            else if (currentT.getHours()!==time.getHours()) {
+                if (currentT.getHours()===(time.getHours()+1)) {
+                    showTime = "Today at " +showTime
+                }
+            }else if(currentT.getMinutes()===time.getMinutes()){
+                showTime = "Now"
             }
         }   
     
     }
+    
 
 
   return (
