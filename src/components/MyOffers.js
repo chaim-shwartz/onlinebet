@@ -16,7 +16,33 @@ export default function MyOffers() {
     const [hide, setHide] = useState(true);
     const [salesAmount, setSalesAmount] = useState(9); //how much sales i want to get from the api
 
+    const [lengthOfItems, setlengthOfItems] = useState(0);
 
+    useEffect(() => {
+        if(cookies.get("emailAccount")===undefined){
+            navigate('/signin',{replace: true, state: {comeFromSite: true, path: location.pathname}})
+        }
+        else{
+            setuserEmail(cookies.get("emailAccount").email)
+            setuserPassword(cookies.get("emailAccount").password)
+
+
+            fetch("https://onlineauctionapi.herokuapp.com/myoffers",{
+                method:"post",
+                headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+                body: JSON.stringify({email: userEmail, password: userPassword, amount: 0})
+            })
+            
+            .then(res=>res.json())
+            .then(data=>
+                {   
+                    if (data.status==="success") {
+                        setlengthOfItems(data.message.length)
+                    }
+                    
+                })   
+        }   
+    }, [userEmail]);
 
     useEffect(() => { // to check if the cookies is here and set the user details
         if(cookies.get("emailAccount")===undefined){
@@ -69,6 +95,7 @@ export default function MyOffers() {
                     </Fade>
                     
                     <Sales
+                        lengthOfItems={lengthOfItems}
                         salesArr={salesArr}
                         email={userEmail}
                         password={userPassword}

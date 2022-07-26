@@ -39,7 +39,33 @@ export default function MySales() {
         price: ""
     });
   
-    // console.log(userEmail)
+    const [lengthOfItems, setlengthOfItems] = useState(0);
+
+    useEffect(() => {
+        if(cookies.get("emailAccount")===undefined){
+            navigate('/signin',{replace: true, state: {comeFromSite: true, path: location.pathname}})
+        }
+        else{
+            setuserEmail(cookies.get("emailAccount").email)
+            setuserPassword(cookies.get("emailAccount").password)
+
+
+            fetch("https://onlineauctionapi.herokuapp.com/mysales",{
+                method:"post",
+                headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+                body: JSON.stringify({email: userEmail, password: userPassword, amount: 0})
+            })
+            
+            .then(res=>res.json())
+            .then(data=>
+                {   
+                    if (data.status==="success") {
+                        setlengthOfItems(data.message.length)
+                    }
+                    
+                })   
+        }   
+    }, [userEmail]);
 
     useEffect(() => {
         if(cookies.get("emailAccount")===undefined){
@@ -65,7 +91,6 @@ export default function MySales() {
             .then(res=>res.json())
             .then(data=>
                 {   
-                    // console.log(data)
                     if (data.status==="success") {
                         setsalesArr(data.message)
                         setHide(true)
@@ -132,6 +157,7 @@ export default function MySales() {
                     <CustomButton onClick={()=>setshowAddDetails(!showAddDetails)}>Add Sale</CustomButton>
                     
                     <Sales
+                        lengthOfItems={lengthOfItems}
                         salesArr={salesArr}
                         email={userEmail}
                         password={userPassword}

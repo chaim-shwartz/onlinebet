@@ -25,12 +25,13 @@ export default function Sales(props) {
     const [userEmail, setuserEmail] = useState();
     const [userPassword, setuserPassword] = useState();
     const navigate = useNavigate()
-
+    const [lengthOfItems, setlengthOfItems] = useState();
 
     useEffect(() => {
         setsalesArr(props.salesArr)
         setuserEmail(props.email)
         setuserPassword(props.password)
+        setlengthOfItems(props.lengthOfItems)
     }, [props]);
 
 
@@ -63,7 +64,6 @@ export default function Sales(props) {
     const clickOnCard=(saleid)=>{  // the function when you click on the sale to see the details
         navigate("/salepage/"+saleid)
     }
-
 
 
   return (
@@ -105,7 +105,7 @@ export default function Sales(props) {
                         )
                     })}
                     </div>
-                    <CustomButton hidden={!salesArr.length>0} onClick={moreSalesBtn}>Show More</CustomButton>
+                    {lengthOfItems>salesArr.length?<CustomButton hidden={!salesArr.length>0} onClick={moreSalesBtn}>Show More</CustomButton>:<p>No more items.</p>}
                 </div>
             </Fade>
             <Fade in={!props.hide}><h2>Loading items...</h2></Fade>
