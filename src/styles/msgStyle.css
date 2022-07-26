@@ -13,6 +13,8 @@
     width: fit-content;
     overflow-wrap: anywhere;
     box-shadow: -5px -3px 5px 2px #3c3c3c3d;
+    min-width: 5%;
+
 }
 
 .yourMsg{
@@ -64,6 +66,7 @@
     width: fit-content;
     overflow-wrap: anywhere;
     box-shadow: 5px -3px 5px 2px #3c3c3c3d;
+    min-width: 5%;
 }
 
 .otherMsgContent .sendName{
@@ -117,6 +120,6 @@
 
 .time p{
     margin: 0;
-    font-size: small;
+    font-size: x-small;
     color: #343434;
 }

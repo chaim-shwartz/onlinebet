@@ -22,7 +22,7 @@ export default function OtherMsg(props) {
                 }
             }
             else if (currentT.getHours()!==time.getHours()) {
-                if (currentT.getHours()===(time.getHours()+1)) {
+                if (currentT.getHours()>(time.getHours()+1)) {
                     showTime = "Today at " +showTime
                 }
             }else if(currentT.getMinutes()===time.getMinutes()){
