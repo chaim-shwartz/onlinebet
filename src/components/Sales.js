@@ -106,7 +106,7 @@ export default function Sales(props) {
                         )
                     })}
                     </div>
-                    {lengthOfItems>salesArr.length?<CustomButton hidden={!salesArr.length>0} onClick={moreSalesBtn}>Show More</CustomButton>:<p>No more items.</p>}
+                    {lengthOfItems>salesArr.length&&props.hide?<CustomButton hidden={!salesArr.length>0} onClick={moreSalesBtn}>Show More</CustomButton>:props.hide?<p>No more items.</p>:null}
                 </div>
             </Fade>
             {/* <Fade in={!props.hide}><h2>Loading items...</h2></Fade> */}
