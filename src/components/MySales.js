@@ -149,7 +149,6 @@ export default function MySales() {
     <div className='mySales'>
         
             {!showAddDetails?
-                <Fade in={hide}>
                     <div> 
                         {lengthOfItems===0?<h1>You Don't create any sale yet.</h1>:lengthOfItems>0?<h1>Your Sales</h1>:<div></div>}   
                         
@@ -162,10 +161,8 @@ export default function MySales() {
                             password={userPassword}
                             hide={hide}
                             amountOfSales={amountOfSales}
-
                         />
                     </div>
-                </Fade>
             :
             <Fade in>
                 <form className='addDetails'>
