@@ -40,7 +40,10 @@ export default function MySales() {
     });
   
     const [lengthOfItems, setlengthOfItems] = useState(-1);
-
+    useEffect(() => {
+        var element = document.getElementById("divscroll");
+        element.scrollTop = element.scrollTo(0);
+    }, []);
     useEffect(() => {
         if(cookies.get("emailAccount")===undefined){
             navigate('/signin',{replace: true, state: {comeFromSite: true, path: location.pathname}})
@@ -143,11 +146,11 @@ export default function MySales() {
   
     return (
     
-    
+    <Fade in>
     <div className='mySales'>
         
             {!showAddDetails?
-                <div> 
+                <div id='divscroll'> 
                     <Fade in={hide}>
                         {lengthOfItems===0?<h1>You Don't create any sale yet.</h1>:lengthOfItems>0?<h1>Your Sales</h1>:<div></div>}   
                     </Fade>
@@ -182,6 +185,6 @@ export default function MySales() {
                     </div>
                 </form>
             </Fade>}
-    </div>
+    </div></Fade>
   )
 }
