@@ -152,9 +152,7 @@ export default function MySales() {
             {!showAddDetails?
                 <div> 
                     <Fade in={hide}>
-                    {lengthOfItems===0?<h1>You Don't create any sale yet.</h1>:lengthOfItems>0?<h1>Your Sales</h1>:<div></div>}
-
-                        
+                        {lengthOfItems===0?<h1>You Don't create any sale yet.</h1>:lengthOfItems>0?<h1>Your Sales</h1>:<div></div>}   
                     </Fade>
                     {/* <hr/> */}
                     
