@@ -74,12 +74,9 @@ export default function MyOffers() {
                     // console.log(data)
                     if (data.status==="success") {
                         setsalesArr(data.message)
-                        setHide(true)
                     }
-                    else if (data.status==="error") {
-                        setHide(true)
-                    }
-                    
+                    setHide(true)
+
                 })
     }, [userEmail,salesAmount]);
 
