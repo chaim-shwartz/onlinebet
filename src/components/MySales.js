@@ -39,7 +39,7 @@ export default function MySales() {
         price: ""
     });
   
-    const [lengthOfItems, setlengthOfItems] = useState(0);
+    const [lengthOfItems, setlengthOfItems] = useState(-1);
 
     useEffect(() => {
         if(cookies.get("emailAccount")===undefined){
@@ -59,8 +59,12 @@ export default function MySales() {
             .then(res=>res.json())
             .then(data=>
                 {   
+                    console.log(data)
+
                     if (data.status==="success") {
                         setlengthOfItems(data.message.length)
+                    }else if(data.message==="you did not create a sale yet"){
+                        setlengthOfItems(0)
                     }
                     
                 })   
@@ -148,7 +152,7 @@ export default function MySales() {
             {!showAddDetails?
                 <div> 
                     <Fade in={hide}>
-                    {salesArr.length===0?<h1>You Don't create any sale yet.</h1>:<h1>Your Sales</h1>}
+                    {lengthOfItems===0?<h1>You Don't create any sale yet.</h1>:lengthOfItems>0?<h1>Your Sales</h1>:<div></div>}
 
                         
                     </Fade>

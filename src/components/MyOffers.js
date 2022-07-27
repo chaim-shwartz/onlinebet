@@ -16,7 +16,7 @@ export default function MyOffers() {
     const [hide, setHide] = useState(true);
     const [salesAmount, setSalesAmount] = useState(9); //how much sales i want to get from the api
 
-    const [lengthOfItems, setlengthOfItems] = useState(0);
+    const [lengthOfItems, setlengthOfItems] = useState(-1);
 
     useEffect(() => {
         if(cookies.get("emailAccount")===undefined){
@@ -36,8 +36,12 @@ export default function MyOffers() {
             .then(res=>res.json())
             .then(data=>
                 {   
+                    console.log(data)
+
                     if (data.status==="success") {
                         setlengthOfItems(data.message.length)
+                    }else if(data.message==="you did not bid on a sale yet"){
+                        setlengthOfItems(0)
                     }
                     
                 })   
@@ -89,7 +93,7 @@ export default function MyOffers() {
     <div className='myOffers'>
         <div>
                     <Fade in={hide}>
-                    {salesArr.length===0?<h1>You Don't offer in any sale.</h1>:<h1>Sales That you offer.</h1>}
+                    {lengthOfItems===0?<h1>You Don't offer in any sale.</h1>:lengthOfItems>0?<h1>Sales That you offer.</h1>:<div></div>}
 
                         
                     </Fade>

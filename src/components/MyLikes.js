@@ -16,7 +16,7 @@ export default function MyLikes() {
     const [hide, setHide] = useState(true);
     const [salesAmount, setSalesAmount] = useState(9); //how much sales i want to get from the api
 
-    const [lengthOfItems, setlengthOfItems] = useState(0);
+    const [lengthOfItems, setlengthOfItems] = useState(-1);
 
     useEffect(() => {
         if(cookies.get("emailAccount")===undefined){
@@ -36,14 +36,18 @@ export default function MyLikes() {
             .then(res=>res.json())
             .then(data=>
                 {   
+                    console.log(data)
+
                     if (data.status==="success") {
                         setlengthOfItems(data.message.length)
+                    }else if(data.message==='you have no saved sales'){
+                        setlengthOfItems(0)
                     }
                     
                 })   
         }   
     }, [userEmail]);
-
+console.log(lengthOfItems)
     useEffect(() => {
         if(cookies.get("emailAccount")===undefined){
             navigate('/signin',{replace: true, state: {comeFromSite: true, path: location.pathname}})
@@ -87,12 +91,11 @@ export default function MyLikes() {
         setSalesAmount(salesAmount+9)
     }
 
-
   return (
     <div className='myLikes'>
         <div>
                     <Fade in={hide}>
-                        {salesArr.length===0?<h1>You Don't have sales you liked.</h1>:<h1>Your Liked Sales</h1>}
+                        {lengthOfItems===0?<h1>You Don't have sales you liked.</h1>:lengthOfItems>0?<h1>Your Liked Sales</h1>:<div></div>}
                     </Fade>
                     
                     <Sales
