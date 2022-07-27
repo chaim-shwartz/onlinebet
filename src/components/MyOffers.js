@@ -90,7 +90,7 @@ export default function MyOffers() {
     <div className='myOffers'>
         <div>
                     <Fade in={hide}>
-                    {lengthOfItems===0?<h1>You Don't offer in any sale.</h1>:lengthOfItems>0?<h1>Sales That you offer.</h1>:<div></div>}
+                    {lengthOfItems===0?<h1>You Don't offer in any sale.</h1>:lengthOfItems>0?<h1>Sales That you offer.</h1>:<h1></h1>}
 
                         
                     </Fade>

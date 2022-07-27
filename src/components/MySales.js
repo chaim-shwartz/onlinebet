@@ -145,14 +145,14 @@ export default function MySales() {
   
     return (
     
-    <Fade in>
+    
     <div className='mySales'>
-        
+        <Fade in>
             {!showAddDetails?
                     <div> 
-                        {lengthOfItems===0?<h1>You Don't create any sale yet.</h1>:lengthOfItems>0?<h1>Your Sales</h1>:<div></div>}   
+                        {lengthOfItems===0?<h1>You Don't create any sale yet.</h1>:lengthOfItems>0?<h1>Your Sales</h1>:<h1></h1>}   
                         
-                        <CustomButton onClick={()=>setshowAddDetails(!showAddDetails)}>Add Sale</CustomButton>
+                        {hide?<CustomButton onClick={()=>setshowAddDetails(!showAddDetails)}>Add Sale</CustomButton>:null}
                         
                         <Sales
                             lengthOfItems={lengthOfItems}
@@ -178,6 +178,7 @@ export default function MySales() {
                     </div>
                 </form>
             </Fade>}
-    </div></Fade>
+            </Fade>
+    </div>
   )
 }

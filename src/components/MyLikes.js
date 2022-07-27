@@ -91,7 +91,7 @@ console.log(lengthOfItems)
     <div className='myLikes'>
         <div>
                     <Fade in={hide}>
-                        {lengthOfItems===0?<h1>You Don't have sales you liked.</h1>:lengthOfItems>0?<h1>Your Liked Sales</h1>:<div></div>}
+                        {lengthOfItems===0?<h1>You Don't have sales you liked.</h1>:lengthOfItems>0?<h1>Your Liked Sales</h1>:<h1></h1>}
                     </Fade>
                     
                     <Sales
