@@ -7,6 +7,7 @@ import PopUpMessage from "./PopUpMessage";
 // import NavBar from "./NavBar";
 import {notify} from 'react-notify-toast';
 import { Button, Fade, styled } from "@mui/material";
+import { DisappearedLoading } from "react-loadingg";
 
 const CustomButton = styled(Button)(({ theme }) => ({
     // padding:"0.5% 2%",
@@ -174,7 +175,9 @@ function SignIn() {        // the login page
       
     return(
         <Fade in><div className="signin">
-            <Fade hidden={hideLoading} in={!hideLoading}><h2>loading...</h2></Fade>
+            {!hideLoading?<DisappearedLoading style={{margin:"-30px auto"}} color='#5a7e90'/>:null}
+
+            {/* <Fade hidden={hideLoading} in={!hideLoading}><h2>loading...</h2></Fade> */}
             {/* <h1>Auction</h1> */}
             {!showPopUp?
             <form hidden={!hideLoading} method="post">

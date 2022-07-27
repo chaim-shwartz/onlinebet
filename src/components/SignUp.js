@@ -7,6 +7,7 @@ import PasswordChecklist from "react-password-checklist";// password check if a 
 import PopUpMessage from "./PopUpMessage";
 import Cookies from "universal-cookie";
 import { Button, styled } from "@mui/material";
+import { DisappearedLoading } from "react-loadingg";
 
 const CustomButton = styled(Button)(({ theme }) => ({
     // padding:"0.5% 2%",
@@ -29,6 +30,8 @@ function SignUp() {
     const navigate = useNavigate(); 
     const location = useLocation(); 
     const cookies = new Cookies();
+    const [hideLoading, sethideLoading] = useState(true);
+
 
     const [userInfo, setuserInfo] = useState({
         FirstName: "",
@@ -219,6 +222,7 @@ function SignUp() {
 
     const signUpBtn=(e)=>{ //the actions when click on the sign up button
         e.preventDefault();
+        sethideLoading(false)
         fetch(("https://onlineauctionapi.herokuapp.com/signup"),{
             method: "post",
             headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
@@ -245,6 +249,7 @@ function SignUp() {
                 })
                 // console.log(popUp)
             }
+            sethideLoading(true)
         })   
         setuserInfo({
             FirstName: "",
@@ -262,6 +267,7 @@ function SignUp() {
     return(
         <div>
             {!showPopUp?<div className="signUpCard">
+                {!hideLoading?<DisappearedLoading style={{margin:"11vh auto"}} color='#5a7e90'/>:
                 <form>
                     <div className="signUpBox">
                         <h1>Sign Up</h1>
@@ -309,7 +315,7 @@ function SignUp() {
                             <CustomButton onClick={backToLogin}>Back</CustomButton>
                         </div>
                     </div>
-                </form>
+                </form>}
             </div>:
             <PopUpMessage 
             title={popUp.popUpTitle} 

@@ -88,7 +88,6 @@ export default function SalesHomepage() {
             amountOfSales={amountOfSales}
             hide={hide}
         />
-        
 
 
     </div>

@@ -1,5 +1,6 @@
 import { Box, Button, Fade, TextField } from '@mui/material';
 import React, { useEffect, useState } from 'react'
+import { DisappearedLoading } from 'react-loadingg';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 import "../styles/editProfile.css"
@@ -119,6 +120,8 @@ export default function EditProfile() {
 
   return (
     <div>
+        {userDetails===0?<DisappearedLoading style={{margin:"11vh auto"}} color='#5a7e90'/>:null}
+
         {!showPopup?<Fade in={userDetails!==0}>
                 <div className='editProfile'>
                     <h1>Email: {userDetails.email}</h1>

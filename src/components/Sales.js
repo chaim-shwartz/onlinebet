@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import "../styles/Sales.css"
 import "../images/soldImg.png"
+import {DisappearedLoading} from 'react-loadingg'
 
 const CustomButton = styled(Button)(({ theme }) => ({
     // padding:"0.5% 2%",
@@ -69,6 +70,7 @@ export default function Sales(props) {
   return (
     <div>
         {/* <h2 hidden={props.hide}>Loading your items...</h2> */}
+        
 
         <Fade in={salesArr.length!==0}>
                 <div className='sales'>
@@ -108,7 +110,8 @@ export default function Sales(props) {
                     {lengthOfItems>salesArr.length?<CustomButton hidden={!salesArr.length>0} onClick={moreSalesBtn}>Show More</CustomButton>:<p>No more items.</p>}
                 </div>
             </Fade>
-            <Fade in={!props.hide}><h2>Loading items...</h2></Fade>
+            {/* <Fade in={!props.hide}><h2>Loading items...</h2></Fade> */}
+           {!props.hide?<DisappearedLoading style={{margin:"-30px auto"}} color='#5a7e90'/>:null}
 
         </div>
     
