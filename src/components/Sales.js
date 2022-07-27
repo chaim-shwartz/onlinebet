@@ -71,7 +71,6 @@ export default function Sales(props) {
     <div>
         {/* <h2 hidden={props.hide}>Loading your items...</h2> */}
         
-
         <Fade in={salesArr.length!==0}>
                 <div className='sales'>
                     <div className='salesBox'>
@@ -111,7 +110,8 @@ export default function Sales(props) {
                 </div>
             </Fade>
             {/* <Fade in={!props.hide}><h2>Loading items...</h2></Fade> */}
-           {!props.hide?<DisappearedLoading style={{margin:"-30px auto"}} color='#5a7e90'/>:null}
+           {!props.hide?<DisappearedLoading style={{margin:"auto"}} color='#5a7e90'/>:null}
+            {salesArr.length===0?<div style={{height: '30vh'}}></div>:null}
 
         </div>
     
