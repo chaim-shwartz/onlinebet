@@ -42,7 +42,7 @@ export default function MySales() {
     const [lengthOfItems, setlengthOfItems] = useState(-1);
     useEffect(() => {
         var element = document.getElementById("divscroll");
-        element.scrollTop = element.scrollTop;
+        element.scrollTop = element.scrollHeight;
     }, []);
     useEffect(() => {
         if(cookies.get("emailAccount")===undefined){
