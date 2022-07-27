@@ -143,7 +143,8 @@ export default function MySales() {
   
     return (
     
-    <Fade in><div className='mySales'>
+    
+    <div className='mySales'>
         
             {!showAddDetails?
                 <div> 
@@ -181,6 +182,6 @@ export default function MySales() {
                     </div>
                 </form>
             </Fade>}
-    </div></Fade>
+    </div>
   )
 }
