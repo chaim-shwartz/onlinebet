@@ -7,6 +7,7 @@ import Chat from './Chat';
 import DeleteIcon from '@mui/icons-material/Delete';
 import PopUpMessage from './PopUpMessage';
 import { notify } from 'react-notify-toast';
+import { DisappearedLoading } from 'react-loadingg';
 
 const CustomButton = styled(Button)(({ theme }) => ({
   padding:"0.5% 2%",
@@ -216,7 +217,8 @@ setInterval(() => {
     <div>
       {!showPopup?<div className='salePageOver'>
         {ifUserIsAdmin?<h2>You are the admin of this sale.</h2>:null}
-        {theSale.price===undefined?<h2>Loading the sale...</h2>:
+        {/* {theSale.price===undefined?<h2>Loading the sale...</h2>: */}
+        {theSale.price===undefined?<DisappearedLoading style={{margin:"20vh auto"}} color='#5a7e90'/>:
         <div className='salePage'>
           
           <div className='sale'>
