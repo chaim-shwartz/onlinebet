@@ -66,36 +66,38 @@ function SignUp() {
             case "Email":
                 if (!checkEmailValidate(userInfo.EmailInput)) {
                     setIsErrorActive([true, isErrorActive[1], isErrorActive[2], isErrorActive[3]])
+                    setEmailValid(false)//delete this line if use confirm email
                 }
                 else{
                     setIsErrorActive([false, isErrorActive[1], isErrorActive[2], isErrorActive[3]])
+                    setEmailValid(true)//delete this line if use confirm email
                 }
-                if (userInfo.ConfirmEmailInput!=="") {
-                    if (!same(userInfo.EmailInput,userInfo.ConfirmEmailInput)) {
-                        setIsErrorActive([true, true, isErrorActive[2], isErrorActive[3]])
-                        setEmailValid(false)
-                    } else {
-                        setIsErrorActive([false, false, isErrorActive[2], isErrorActive[3]])
-                        setEmailValid(true)
-                    }
-                }
+                // if (userInfo.ConfirmEmailInput!=="") {
+                //     if (!same(userInfo.EmailInput,userInfo.ConfirmEmailInput)) {
+                //         setIsErrorActive([true, true, isErrorActive[2], isErrorActive[3]])
+                //         setEmailValid(false)
+                //     } else {
+                //         setIsErrorActive([false, false, isErrorActive[2], isErrorActive[3]])
+                //         setEmailValid(true)
+                //     }
+                // }
                 break;
 
-            case "ConfirmEmail":
-                if (!checkEmailValidate(userInfo.ConfirmEmailInput)) {
-                    setIsErrorActive([isErrorActive[0], true, isErrorActive[2], isErrorActive[3]])
-                    setEmailValid(false)
-                } 
-                else {
-                    if (!same(userInfo.EmailInput, userInfo.ConfirmEmailInput)) {
-                        setIsErrorActive([true, true, isErrorActive[2], isErrorActive[3]])
-                        setEmailValid(false)
-                    } else {
-                        setIsErrorActive([false, false, isErrorActive[2], isErrorActive[3]])
-                        setEmailValid(true)
-                    }
-                }
-                break;
+            // case "ConfirmEmail":
+            //     if (!checkEmailValidate(userInfo.ConfirmEmailInput)) {
+            //         setIsErrorActive([isErrorActive[0], true, isErrorActive[2], isErrorActive[3]])
+            //         setEmailValid(false)
+            //     } 
+            //     else {
+            //         if (!same(userInfo.EmailInput, userInfo.ConfirmEmailInput)) {
+            //             setIsErrorActive([true, true, isErrorActive[2], isErrorActive[3]])
+            //             setEmailValid(false)
+            //         } else {
+            //             setIsErrorActive([false, false, isErrorActive[2], isErrorActive[3]])
+            //             setEmailValid(true)
+            //         }
+            //     }
+            //     break;
 
             case "Password":
                 if (!checkPasswordValidate(userInfo.PasswordInput)) { //// if password is not valid
@@ -153,13 +155,13 @@ function SignUp() {
                     ConfirmPasswordInput: ""
                 }))
                 break;
-            case "ConfirmEmail":
-                setuserInfo(prev=>({
-                    ...prev,
-                    ConfirmEmailInput: event.target.value,
-                    ConfirmPasswordInput: ""
-                }))
-                break;
+            // case "ConfirmEmail":
+            //     setuserInfo(prev=>({
+            //         ...prev,
+            //         ConfirmEmailInput: event.target.value,
+            //         ConfirmPasswordInput: ""
+            //     }))
+            //     break;
             case "Password":
                 setuserInfo(prev=>({
                     ...prev,
@@ -288,8 +290,8 @@ function SignUp() {
                         <label>Email</label>
                         <input autoComplete="off" className={isErrorActive[0] ? 'inputErr': null} type={"email"} placeholder="Your Email:" name="Email" value={userInfo.EmailInput} onChange={handleChange} onBlur={leaveInput}></input>
                         
-                        <label>Confirm Email</label>
-                        <input autoComplete="off" className={isErrorActive[1] ? 'inputErr': null} type={"email"} placeholder="Confirm Your Email:" name="ConfirmEmail" value={userInfo.ConfirmEmailInput} onChange={handleChange} onBlur={leaveInput}></input>
+                        {/* <label>Confirm Email</label>
+                        <input autoComplete="off" className={isErrorActive[1] ? 'inputErr': null} type={"email"} placeholder="Confirm Your Email:" name="ConfirmEmail" value={userInfo.ConfirmEmailInput} onChange={handleChange} onBlur={leaveInput}></input> */}
                         
                         <label>Password</label>
                         <input autoComplete="off" className={isErrorActive[2] ? 'inputErr': null} type={"password"} placeholder="Your Password:" name="Password" value={userInfo.PasswordInput} onChange={handleChange} onBlur={leaveInput}></input>

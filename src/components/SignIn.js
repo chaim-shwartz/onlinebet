@@ -117,14 +117,6 @@ function SignIn() {        // the login page
             if (data.status==="success") {
                 cookies.set("emailAccount",{fname: data.fname, lname: data.lname, email: data.email, password: data.password},{ path: '/' })
                 notify.show(data.status+": "+data.message, "success", 4000);
-                // if(location.state!==null){
-                //     if(location.state.comeFromSite){
-                        // navigate(0)
-                //     }
-                // }
-                // else{
-                //     navigate('/')
-                // }
             }
             else if(data.status==="error"){
                 // setshowPopUp(true)
