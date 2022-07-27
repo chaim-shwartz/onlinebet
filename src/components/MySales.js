@@ -40,10 +40,9 @@ export default function MySales() {
     });
   
     const [lengthOfItems, setlengthOfItems] = useState(-1);
-    useEffect(() => {
-        var element = document.getElementById("divscroll");
-        element.scrollTop = element.scrollHeight;
-    }, []);
+
+
+
     useEffect(() => {
         if(cookies.get("emailAccount")===undefined){
             navigate('/signin',{replace: true, state: {comeFromSite: true, path: location.pathname}})
@@ -150,26 +149,23 @@ export default function MySales() {
     <div className='mySales'>
         
             {!showAddDetails?
-                <div id='divscroll'> 
-                    <Fade in={hide}>
+                <Fade in={hide}>
+                    <div> 
                         {lengthOfItems===0?<h1>You Don't create any sale yet.</h1>:lengthOfItems>0?<h1>Your Sales</h1>:<div></div>}   
-                    </Fade>
-                    {/* <hr/> */}
-                    
-                    <CustomButton onClick={()=>setshowAddDetails(!showAddDetails)}>Add Sale</CustomButton>
-                    
-                    <Sales
-                        lengthOfItems={lengthOfItems}
-                        salesArr={salesArr}
-                        email={userEmail}
-                        password={userPassword}
-                        hide={hide}
-                        amountOfSales={amountOfSales}
+                        
+                        <CustomButton onClick={()=>setshowAddDetails(!showAddDetails)}>Add Sale</CustomButton>
+                        
+                        <Sales
+                            lengthOfItems={lengthOfItems}
+                            salesArr={salesArr}
+                            email={userEmail}
+                            password={userPassword}
+                            hide={hide}
+                            amountOfSales={amountOfSales}
 
-                    />
-        
-                   
-                </div>
+                        />
+                    </div>
+                </Fade>
             :
             <Fade in>
                 <form className='addDetails'>
