@@ -109,9 +109,9 @@ export default function EditProfile() {
     const editBtn =()=>{
         setpopupDetails({
             title:"Edit your profile" ,
-            explain:"Are you sure you want to edit your profile, Your name: "+editDetails.fname+" "+editDetails.lname,
+            explain:"Are you sure you want to edit your account, Your name: "+editDetails.fname+" "+editDetails.lname,
             btnName:"Cancel",
-            secondBtnName:"Edit Profile",
+            secondBtnName:"Edit Account",
             navigate:0,
             function: (editProfile),
           })
@@ -195,7 +195,7 @@ export default function EditProfile() {
                     <br></br>
                     
                     <CustomButton onClick={editBtn} disabled={disableEditBtn}>
-                        Edit Profile
+                        Edit Account
                     </CustomButton>
                     <br/>
                     <CustomButton onClick={delBtn} disabled={disableEditBtn}>
