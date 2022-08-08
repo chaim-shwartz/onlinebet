@@ -1,4 +1,4 @@
-import { Box, Button, Fade, TextField } from '@mui/material';
+import { Box, Button, Fade, styled, TextField } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import { DisappearedLoading } from 'react-loadingg';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -6,6 +6,18 @@ import Cookies from 'universal-cookie';
 import "../styles/editProfile.css"
 import PopUpMessage from './PopUpMessage';
 
+
+const CustomButton = styled(Button)(({ theme }) => ({
+    margin: "2%",
+    backgroundColor:"#86a3b4", 
+    color:"#4a4a4a", 
+    fontWeight:"bold", 
+    borderRadius:"8px",
+    ":hover":{
+        backgroundColor:"#46576d",
+        color: "#b1b1b1"
+        }
+  }));
 export default function EditProfile() {
     const [userEmail, setuserEmail] = useState(0);
     const [userPassword, setuserPassword] = useState();
@@ -138,24 +150,11 @@ export default function EditProfile() {
                     {errPassword?<h3>The password is not correct.</h3>:null}
                     <TextField autoComplete='off' error={errPassword} value={editDetails.password} type="password" name='password' onChange={handleChange} id="outlined-basic" label="Password" variant="outlined" />
                     <br></br>
-                    <Button disabled={disableEditBtn} onClick={editBtn} sx={
-                        {
-                        margin: "2%",
-                        backgroundColor:"#86a3b4", 
-                        color:"#4a4a4a", 
-                        fontWeight:"bold", 
-                        borderRadius:"8px",
-                        ":hover":{
-                            backgroundColor:"#46576d",
-                            color: "#b1b1b1"
-                            }
-                        }
-                        }variant="contained"
-                        >
-
+                    
+                    <CustomButton onClick={editBtn} disabled={disableEditBtn}>
                         Edit
+                    </CustomButton>
 
-                    </Button>
                 </div>
             </Fade>:
             <PopUpMessage 
