@@ -174,8 +174,8 @@ export default function MySales() {
                     <textarea maxLength={200} rows="4" name='description' onChange={handleChange} autoComplete="off" type="text" placeholder='description'></textarea>
                     <input name='price' onChange={handleChange} autoComplete="off" type="number" placeholder='start price'></input>
                     <div className='btns'>
-                        <CustomButton type='submit' onClick={addSale}>Add</CustomButton>
                         <CustomButton onClick={(e)=>{setshowAddDetails(!showAddDetails); e.preventDefault()}}>cancel</CustomButton>
+                        <CustomButton type='submit' onClick={addSale}>Add</CustomButton>
                     </div>
                 </form>
             </Fade>}

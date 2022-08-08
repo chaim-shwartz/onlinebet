@@ -6,6 +6,7 @@
     font-size: max(2vmin,13px);
     position: fixed;
     width: 100%;
+    height: max(2.5vw,20px);
     background-color: #282c34;
     /* height: 10vh; */
     padding: 1% 0;
@@ -72,6 +73,7 @@
     margin: 1%;
     margin-top: 3px;
     padding: 2% max(2%,25px);
+
 }
 
 /* .profileMenu button{
@@ -98,7 +100,7 @@
 .profileBtn p{
     color: #282c34;
     font-weight: bold;
-    font-size: max(20px , 1.4vw);
+    font-size: max(20px , 1.4vmin);
 }
 
 .headResponsive{
@@ -182,7 +184,7 @@
 
 .mLinks a{
     width: min(7vw,90px);
-    font-size: max(15px , 1vmax);
+    font-size: max(1.5vh , 1.4vmin, 14px);
     margin: 0 1.5%;
     color: aliceblue;
 }

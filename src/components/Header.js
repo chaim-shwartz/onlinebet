@@ -97,7 +97,6 @@ export default function Header() {
     cookies.remove("emailAccount", { path: '/' })
     navigate('/signin',{replace: true, state: {comeFromSite: true, path: location.pathname}})
     notify.show("You're logged out.", "warning", 4000);
-
   }
 
   const clickOnAuction=()=>{
