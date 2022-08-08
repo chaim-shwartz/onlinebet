@@ -179,7 +179,7 @@ export default function EditProfile() {
 
         {!showPopup?<Fade in={userDetails!==0}>
                 <div className='editProfile'>
-                    <h1>Email: {userDetails.email}</h1>
+                    <h1>Account: {userDetails.email}</h1>
                     <Box
                     component="form"
                     sx={{
