@@ -8,7 +8,7 @@
     width: 100%;
     background-color: #282c34;
     /* height: 10vh; */
-    padding: 2% 0;
+    padding: max(15px, 0.7%) 0;
     display: flex;
     flex-direction: row;
     align-items: center;
