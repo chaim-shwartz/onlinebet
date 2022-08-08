@@ -104,7 +104,6 @@ export default function Header() {
     navigate("/")
     window.location.reload()
   }
-    
 
   return (
     <div>

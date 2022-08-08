@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactLinkify from 'react-linkify';
 import "../styles/msgStyle.css"
 
 export default function OtherMsg(props) {
@@ -41,7 +42,12 @@ export default function OtherMsg(props) {
                 <p>{props.name}</p>
             </div>
             <div className='otherMsg'>
-                <p>{props.content}</p>   
+            
+            <ReactLinkify  componentDecorator={(decoratedHref, decoratedText, key) => (
+                <a target="blank" href={decoratedHref} key={key}>
+                    {decoratedText}
+                </a>
+            )}>{props.content}</ReactLinkify>
             </div>
             <div className='time'>
                 <p>{showTime}</p>

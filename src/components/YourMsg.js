@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactLinkify from 'react-linkify';
 import "../styles/msgStyle.css"
 
 const YourMsg = (props) => {
@@ -39,7 +40,11 @@ const YourMsg = (props) => {
         <div>
             <div className='yourMsgContent'>
                 <div className='yourMsg'>
-                    <p>{props.content}</p>   
+                <ReactLinkify  componentDecorator={(decoratedHref, decoratedText, key) => (
+                <a target="blank" href={decoratedHref} key={key}>
+                    {decoratedText}
+                </a>
+            )}>{props.content}</ReactLinkify>
                 </div>
                 <div className='time'>
                     <p>{showTime}</p>
