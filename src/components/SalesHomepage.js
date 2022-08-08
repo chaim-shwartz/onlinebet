@@ -30,7 +30,7 @@ export default function SalesHomepage() {
             fetch("https://onlineauctionapi.herokuapp.com/getsales",{
                 method:"post",
                 headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
-                body: JSON.stringify({email: userEmail, password: userPassword, amount: 0})
+                body: JSON.stringify({email: userEmail, password: userPassword, amount: "0"})
             })
             
             .then(res=>res.json())
