@@ -116,7 +116,7 @@ export default function Header() {
           <Fade in={showProfileMenu}>
           <div className='profileMenu'>
               <h2>{userInformation.fname} {userInformation.lname}</h2>
-                  <CustomButton onClick={()=>{navigate('/editprofile');setShowProfileMenu(false)}}>Edit Profile</CustomButton>
+                  <CustomButton onClick={()=>{navigate('/editprofile');setShowProfileMenu(false)}}>Edit Account</CustomButton>
                   <CustomButton onClick={SignOutBtn}>Sign Out</CustomButton>
             </div>
           </Fade>
@@ -143,7 +143,7 @@ export default function Header() {
           <Fade in={showProfileMenu}>
           <div className='profileMenu'>
               <h2>{userInformation.fname} {userInformation.lname}</h2>
-                  <CustomButton onClick={()=>{navigate('/editprofile');setShowProfileMenu(false)}}>Edit Profile</CustomButton>
+                  <CustomButton onClick={()=>{navigate('/editprofile');setShowProfileMenu(false)}}>Edit Account</CustomButton>
                   <CustomButton onClick={SignOutBtn}>Sign Out</CustomButton>
             </div>
           </Fade>
