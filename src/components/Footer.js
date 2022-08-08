@@ -3,7 +3,7 @@ import '../styles/footer.css'
 
 export default function Footer() {
   return (
-    <div className='footer'>©️ This website created by Chaim Shwartz & Yakov Bader
+    <div className='footer'>©️ Created by Chaim Shwartz & Yakov Bader
       <br/>
       <br/>
 
