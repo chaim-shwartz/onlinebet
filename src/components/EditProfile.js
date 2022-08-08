@@ -195,7 +195,7 @@ export default function EditProfile() {
                     <br></br>
                     
                     <CustomButton onClick={editBtn} disabled={disableEditBtn}>
-                        Edit
+                        Edit Profile
                     </CustomButton>
                     <br/>
                     <CustomButton onClick={delBtn} disabled={disableEditBtn}>
