@@ -12,6 +12,8 @@ const CustomButton = styled(Button)(({ theme }) => ({
     backgroundColor:"#86a3b4", 
     color:"#4a4a4a", 
     fontWeight:"bold", 
+    border:"0.5px solid #46576d",
+
     borderRadius:"8px",
     ":hover":{
         backgroundColor:"#46576d",
@@ -24,6 +26,7 @@ export default function EditProfile() {
     const navigate = useNavigate(); 
     const location = useLocation(); 
     const cookies = new Cookies();
+    const [showPopUp, setshowPopUp] = useState(false);
     const [userDetails, setuserDetails] = useState(0);
     const [editDetails, seteditDetails] = useState({
         fname:"",
@@ -33,7 +36,7 @@ export default function EditProfile() {
     const [showPopup, setshowPopup] = useState(false);
     const [errPassword, seterrPassword] = useState(false);
     const [disableEditBtn, setdisableEditBtn] = useState(true);
-
+    const [popupDetails, setpopupDetails] = useState();
 
 
     useEffect(() => {
@@ -67,7 +70,6 @@ export default function EditProfile() {
     }, [userEmail]);
 
     const handleChange=(e)=>{
-        console.log(e.target.name)
         switch (e.target.name) {
             
             case "fname":
@@ -105,12 +107,22 @@ export default function EditProfile() {
     }, [editDetails]);
 
     const editBtn =()=>{
-        if (editDetails.password===userDetails.password) {
+        setpopupDetails({
+            title:"Edit your profile" ,
+            explain:"Are you sure you want to edit your profile, Your name: "+editDetails.fname+" "+editDetails.lname,
+            btnName:"Cancel",
+            secondBtnName:"Edit Profile",
+            navigate:0,
+            function: (editProfile),
+          })
+          if (editDetails.password===userDetails.password) {
             setshowPopup(true)
         } else {
             seterrPassword(true)
         }
     }
+    
+    
 
     const editProfile = () =>{
         fetch(("https://onlineauctionapi.herokuapp.com/updateprofile"),{
@@ -120,9 +132,40 @@ export default function EditProfile() {
             })
             .then(res=>res.json())
             .then(data=>{
-                console.log(data)
                 if (data.status === "success") {
                     cookies.set("emailAccount",{fname: editDetails.fname, lname: editDetails.lname, email: userEmail, password: userPassword},{ path: '/' })
+                    window.location.reload()
+                } else {
+                    
+                }
+            })  
+    }
+
+    const delBtn =()=>{
+        setpopupDetails({
+            title:"Delete Account" ,
+            explain: "Are you sure you want to DELETE your account, This action can't be restored, All your sales will also be deleted and your liked list will be removed.",
+            btnName:"Cancel",
+            secondBtnName:"Delete Account",
+            navigate:0,
+            function: (deleteProfile),
+          })
+          if (editDetails.password===userDetails.password) {
+            setshowPopup(true)
+        } else {
+            seterrPassword(true)
+        }
+    }
+    const deleteProfile =()=>{
+        fetch(("https://onlineauctionapi.herokuapp.com/delete"),{
+            method: "post",
+            headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+            body: JSON.stringify({email: userEmail, password: editDetails.password})
+            })
+            .then(res=>res.json())
+            .then(data=>{
+                if (data.status === "success") {
+                    cookies.remove("emailAccount", { path: '/' })
                     window.location.reload()
                 } else {
                     
@@ -154,16 +197,20 @@ export default function EditProfile() {
                     <CustomButton onClick={editBtn} disabled={disableEditBtn}>
                         Edit
                     </CustomButton>
+                    <br/>
+                    <CustomButton onClick={delBtn} disabled={disableEditBtn}>
+                        Delete Account
+                    </CustomButton>
 
                 </div>
             </Fade>:
             <PopUpMessage 
-                    title="Edit your profile" 
-                    explain={"Are you sure you want to edit yur profile, your name: "+editDetails.fname+" "+editDetails.lname}
-                    btnName="Cancel"
-                    secondBtnName="Edit Profile"
-                    navigate={0}
-                    function={editProfile}
+                    title={popupDetails.title} 
+                    explain={popupDetails.explain}
+                    btnName={popupDetails.btnName}
+                    secondBtnName={popupDetails.secondBtnName}
+                    navigate={popupDetails.navigate}
+                    function={popupDetails.function}
                     />}
     </div>
     
