@@ -252,7 +252,7 @@ setInterval(() => {
               <div className='price'>
                 <h1>{theSale.price}$</h1>
                 
-                <h2>The best offer by: {theSale.high}</h2>
+                <h2>The best offer by: {theSale.biders[0]}</h2>
 
                 
               </div>
