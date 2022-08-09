@@ -281,7 +281,7 @@ setInterval(() => {
               </div>:
               ifUserIsAdmin&&!theSale.sold?<div className='soldBtn'>
               <h2>Do you want to close the sale?</h2>
-              <CustomButton onClick={soldBtn} sx={
+              <CustomButton disabled={theSale.biders.length===0} onClick={soldBtn} sx={
                 {
                   // lineHeight:"1.75",
                   ":hover":{
