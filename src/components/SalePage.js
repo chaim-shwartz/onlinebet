@@ -95,7 +95,7 @@ setInterval(() => {
 
   const handleChangeInput=(e)=>{ // this function set the new price from the custom user input
     // console.log(e.target.value)
-    if (e.target.value>=theSale.price+10) {
+    if (e.target.value>=theSale.price+5) {
       setNewPrice(e.target.value)
     }
     else{ // to hide the offer if its low from the current price we change it to 0
@@ -122,6 +122,7 @@ setInterval(() => {
           // window.location.reload()
           setuserEmail(userEmail)
     })
+    document.getElementById('nPrice').value=""
     setNewPrice(0)
   }
 
@@ -267,7 +268,7 @@ setInterval(() => {
                 <CustomButton onClick={()=>offerMore(50)}>+50$</CustomButton>
                 <CustomButton onClick={()=>offerMore(100)}>+100$</CustomButton>
                 <br/>
-                <input onChange={handleChangeInput} type="number" min={theSale.price+10} placeholder="Your offer"></input>
+                <input id='nPrice' onChange={handleChangeInput} type="number" min={theSale.price+10} placeholder="Your offer"></input>
 
                 {newPrice!==0?
                 <div>
