@@ -186,7 +186,7 @@ function SignIn() {        // the login page
                             <p>Password</p>
                             <input type={"password"} placeholder="Your Password:" name="password" value={passwordInput} onChange={handleChange}></input>
                             <div className="buttonsCancelLogin">
-                                <CustomButton disabled={enableLoginBtn} onClick={loginWithEmailBtn}>Login</CustomButton>
+                                <CustomButton type="submit" disabled={enableLoginBtn} onClick={loginWithEmailBtn}>Login</CustomButton>
                                 <CustomButton onClick={cnacelShowLogin}>Cancel</CustomButton>
                             </div>
                         </div>
