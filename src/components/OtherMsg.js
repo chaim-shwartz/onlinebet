@@ -34,12 +34,11 @@ export default function OtherMsg(props) {
     }
     
 
-
   return (
     <div>
         <div className='otherMsgContent'>
             <div className='sendName'>
-                <p>{props.name}</p>
+                {props.adminEmail===props.email?<p>{props.name} <b>(Admin)</b></p>:<p>{props.name}</p>}
             </div>
             <div className='otherMsg'>
             

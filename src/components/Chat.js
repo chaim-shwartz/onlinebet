@@ -116,7 +116,7 @@ export default function Chat(props) {
         })
     }, [PORT_SOCKET]);
                 
-    // console.log(localArray)
+    // console.log(DBarray)
 
 
 
@@ -163,7 +163,7 @@ export default function Chat(props) {
                         )
                         }else{
                             return(
-                                <OtherMsg key={index} name={msg.name} content={msg.content} time={msg.time}/>
+                                <OtherMsg key={index} email={msg.who} name={msg.name} content={msg.content} time={msg.time} adminEmail={props.adminEmail}/>
 
                             )
                         }
@@ -172,11 +172,11 @@ export default function Chat(props) {
                     {localArray.map((msg,index)=>{
                         if(msg.email===userEmail){
                         return(
-                            <YourMsg key={index} content={msg.content} time={msg.time}/>
+                            <YourMsg key={index} content={msg.content} time={msg.time} isAdmin={props.isAdmin}/>
                         )
                         }else{
                             return(
-                                <OtherMsg key={index} name={msg.name} content={msg.content} time={msg.time}/>
+                                <OtherMsg key={index} email={msg.who} name={msg.name} content={msg.content} time={msg.time} adminEmail={props.adminEmail}/>
 
                             )
                         }

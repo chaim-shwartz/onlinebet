@@ -191,7 +191,6 @@ setInterval(() => {
 
 
 
-
   const likeClick=()=>{//the like btn
     setTheSale((prev)=>({
       ...prev,
@@ -330,7 +329,7 @@ setInterval(() => {
           </div>
           <div className='horizontal_hr'></div>
           <div className='theChat'>
-            <Chat chatID={theSale.chat}/>
+            <Chat chatID={theSale.chat} adminEmail={theSale.admin}/>
           </div>
 
         </div>}

@@ -28,7 +28,6 @@ const CustomButton = styled(Button)(({ theme }) => ({
 
 function SignUp() {  
     const navigate = useNavigate(); 
-    const location = useLocation(); 
     const cookies = new Cookies();
     const [hideLoading, sethideLoading] = useState(true);
 
