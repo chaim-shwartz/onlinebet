@@ -38,7 +38,7 @@ export default function OtherMsg(props) {
     <div>
         <div className='otherMsgContent'>
             <div className='sendName'>
-                {props.adminEmail===props.email?<p>{props.name} <b>(Admin)</b></p>:<p>{props.name}</p>}
+                {props.adminEmail===props.email?<p>{props.name} <b style={{color:"#46576d"}}>(Admin)</b></p>:<p>{props.name}</p>}
             </div>
             <div className='otherMsg'>
             
